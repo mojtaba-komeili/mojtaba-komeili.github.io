@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Learning Python: Chapter 1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <body>
+    <div class="sidenav">
+      <a href="#">Introduction</a>
+      <a href="./chapter2.html">Branches, loops, and functions</a>
+      <a href="#">Objects and modules</a>
+      <a href="#">More modules</a>
+    </div>
+    <div class="content">
+      <h1>Introduction</h1>
+
+      <h2>What to expect from this course.</h2>
+      <p>
+        You are in the right place if any of these are true:
+      </p>
+      <ul>
+        <li>Computers and how they are programmed is a mystery to you, and you
+          want to know more about them.</li>
+        <li>You are curious to see what can be done if you knew programming.</li>
+        <li>You have some casual experience with programming, but want to go
+          beyound that.</li>
+        <li>You just enjoy learning new skills.</li>
+      </ul>
+      <img src="../images/learn_python/chapter1/class.png" width="60%" class="image">
+
+      <h2>Why python?</h2>
+      <ul>
+        <li>Most importantly, becasue it is easy to learn. This allow us to
+          focus on the concepts instead of strugling with its syntax.</li>
+        <li>It is a modern and prevalent language used anywahere these days.
+          From Google's website to super computers that run AI.</li>
+        <li>It has a large ecosystems of libraries: this means many
+          functionalities that you may need are already there, you just need to
+          find them and use them.</li>
+      </ul>
+
+      <h2>A bit about how computers work</h2>
+      All that computers do can be summarized as a few easy steps:
+      <ol>
+        <li>Receive a command.</li>
+        <li>Process the command and do everything that was asked.</li>
+        <li>Present the output to user. For example on screen or as an output
+          file.</li>
+      </ol>
+      Computer programming is telling computers details of what to do in the step 2
+      (and occasionally step 3).
+
+      <h3>Chain of command</h3>
+      <p>
+      Operating systems (Windows, Mac, etc.) are the programms available on any computer these days.
+      In their core they are a set of programms for doing some fundamental tasks with a computer: truning it on,
+      showing files, copying files, etc. All the actions in their graphical user interface is a command sent to computers,
+      and the actions that happen are what the programms do.
+      </p>
+      
+      <p>
+      BUT, there is another way to interact with your OS (short form of operating system); through its command line interface.
+      Command line interface allows you to directly type in command for your OS to execute.
+      </p>
+      
+      <h3>Try it!</h3>
+
+      Let's quickly run 2 simple command in your command line interface:
+      <ol>
+        <li><strong>dir</strong> (Windows) or <strong>ls</strong> (Mac): shows the content of your current directory.</li>
+        <li><strong>cd</strong>: changes the dirctory.</li>
+      </ol>
+      
+      <img src="../images/learn_python/chapter1/win-cd.jpeg" width="50%" class="image">
+      <div class="sub">
+        Example of using <strong>cd</strong> in Windows (source: wikihow)
+      </div>
+      
+      <div class="box">
+        Find the command line interface in your computer and open it.
+        Try running the above commands.
+      </div>
+      
+      To learn more about your command line try
+      <a href="https://www.youtube.com/playlist?list=PL6gx4Cwl9DGDV6SnbINlVUd0o2xT4JbMu">this</a> for Windows and
+      <a href="https://www.youtube.com/watch?v=aKRYQsKR46I">this</a> for Mac.
+      
+
+      <h2>Pre-requisites</h2>
+      <h3>Install Python</h3>
+      <img src="../images/learn_python/chapter1/python-logo.png" width="50%" class="image">
+      <p>
+      Install <b>Python 3.7</b> or later.
+      You can download an installable version from <a
+        href="https://www.python.org/downloads">here</a>.
+      Usually all you need to do is to click all the <i>next</i> buttons until
+      the end.
+      </p>
+      
+      <h4>Use python</h4>
+      <p>
+        Open Python from your command line interface (by typing <i>python</i>).
+        Now you are in the Python interface, which receives Python commands;
+        similar to how your command line interface was receiving OS command.
+      </p>
+      
+      <p>
+        First python command to learn is <strong>print</strong>.
+        Type <span class="inline-code">print('Hello world!')</span> in your Python interface.
+        This is a command that tells python to print something to the output.
+        Here <span class="inline-code">print</span> is what we call a function.
+        A function is simple way to tell Python do something in your programm (in this case output something on the screen).
+      </p>
+      <img src="../images/learn_python/chapter1/cli-hello-world.png" width="70%" class="image">
+      
+      <p>
+        Functions may receive some input. For example in the above case the input was <span class="inline-code">'Hello world!'</span>,
+        which we directly passed to the function. But in practice, most of the times, we use variables with functions.
+      </p>
+      <h3>Variables</h3>
+      <p>
+        Variables are one of the most important concepts in programming.
+        A variable is unit of information. When write a code, we use variables to tell the computer
+        keep something in its memory. Later on we use that variable to recall what was stored.
+        Variable can store <strong>numbers</strong> or <strong>text</strong>. 
+      </p>
+      
+        <div class="box">
+          Text is often called <span class="inline-code">string</span> in computers.
+          This is because they are a string of characters.
+        </div>
+      
+      <h4>Naming variables</h4>
+      <p>
+        There is some restrictions on how you can name a variable.
+        Generally, we name variables using only
+      </p>
+        <ol>
+          <li>Letters of English Alphabet: for example <span class="inline-code">catName</span> and <span class="inline-code">Salary</span></li>
+          <li>Numbers: for example: <span class="inline-code">tax2020</span> and <span class="inline-code">R2D2</span></li>. Numbers can NOT be the first letter <span class="inline-code">2names</span> is <span style="color: red">WRONG</span>!
+          <li>Underscore character "_": for example <span class="inline-code">tax_2020</span>
+        </ol>
+      
+      <p>
+        For variables that are numbers we just type them as they are, for example <span class="inline-code">x = 2.3</span>.
+        But variables that keep text (calling it string from now on), need to have their text inside a qutation mark,
+        for example <span class="inline-code">city = "New Providence"</span>.
+        See these examples. Try to do some on your own. 
+      </p>
+      
+      <img src="../images/learn_python/chapter1/variables.png" width="70%" class="image">
+      
+      <h4>Using variables</h4>
+      <p>
+        A little bit of math here.
+        You can use any of the four fundamental arithmetic operations on numeric values, using their respective character:
+      </p>
+      
+        <ol>
+          <li><span class="inline-code">+</span>: addition</li>
+          <li><span class="inline-code">-</span>: subtraction</li>
+          <li><span class="inline-code">*</span>: multiplication</li>
+          <li><span class="inline-code">/</span>: division</li>
+        </ol>
+
+      <p>
+        Having a long arithmetic expression that incldues multiple operations,
+        Python (as well as all the other languages) first processes <span class="inline-code">*</span> and <span class="inline-code">/</span>
+        from left to right, then processes <span class="inline-code">+</span> and <span class="inline-code">-</span>, again from left to right.
+        For example, this is how a computer runs its calculation
+      </p>
+      <img src="../images/learn_python/chapter1/operations.png" width="30%" class="image">
+      <p>
+        In addition, you can use brackets "(" and ")" in the same way as you do in math.
+        When you use them the calculations inside the brackets happens first and then the result is used with the rest of the calculations.
+        If there are multiple levels of brackets, the most inner one happens first.
+        The order inside the brackets is the usual order we saw in the above example.
+        The following example should make this clear.
+      </p>
+      <img src="../images/learn_python/chapter1/operations_brackets.png" width="30%" class="image">
+      
+      <p>
+        You can use <span class="inline-code">+</span> operation with string variables too.
+        It will join two strings together and makes a new one. 
+        Yuo can also use <span class="inline-code">*</span> between a string and a number.
+        The result will be the string repeated as many times as the number (the number MUST be positive integer).
+        See this example.
+      </p>
+      <img src="../images/learn_python/chapter1/str-concat.png" width="70%" class="image">
+      <p>
+        Another important fact in this example is how after the variable name <span class="inline-code">full</span>
+        was used again, it lost its original value and stored a new one.
+      </p>
+
+      <h2>Some Python coding</h2>
+      <p>
+        So far we have been using Python interface and running commands with it one by one.
+        However, real applications are a combination of thousand/millions of commands like that.
+        Each program is a series of this commands written in a file. 
+      </p>
+
+      <h3>Install an IDE</h3>
+      <image src="../images/learn_python/chapter1/vscode.png" width="70%" class="image">
+      <p>
+      Programmers use an Integrated Development Environment (also known as IDE)
+      for writting their codes.
+      You can write your code in anything that helps you create a text file:
+      Notepad, MS Word ... etc.
+      But there are some applications that are more tuned for writting code.
+      There is no end the list of these programs.
+      Feel free to choose one that suits you the most.
+      <a href="https://websitesetup.org/best-ide-software">This</a> is a recent
+      list with some details on each.
+      </p>
+      <p>
+        I recommend two IDEs that are easy to use:
+      </p>
+        <ul>
+          <li><a href="https://notepad-plus-plus.org/">Notepad++</a> (only Windows)</li>
+          <li><a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+        </ul>
+      
+      <h3>Writing our first (actual) code</h3>
+      Open your (donwloaded and installed) IDE and write the following code in it.
+      Notice the first two lines that start with <span class="inline-code">#</span>.
+      These line are what we call <strong>comments</strong>. Python will ignore these lines.
+      Programmers put these in their codes as notes for someone who reads the code later.
+      
+<pre><code class="language-python"># This is my first program
+# I am learning how to use Python
+print("hello again world!")</code></pre>
+      <p>
+        Save your files somewhere on your computer (remember where).
+        Let's call it <i>my_program.py</i> (the <i>.py</i> extension if important)
+        Use the command line interface of your computer with <span class="inline-code">cd</span>
+        and <span class="inline-code">dir</span> (or if you are on Mac, <span class="inline-code">ls</span>)
+        to go to the directory that you saved your file.
+        Then run this command to run your Python code. Enjoy!
+      </p>
+      
+      <pre><code class="language-bash">python my_program.py</code></pre>
+      
+      <h3>Receiving input</h3>
+      <span class="inline-code">input</span> is a function that ask user to insert something.
+      Using <span class="inline-code">input</span> you can ask user for a variable and store it in a variable.
+      The output of type string. Create a new code file for the following program and run it
+<pre><code class="language-python">name = input("What is your name?")
+print("Hello " + name)</code></pre>
+
+      <div class="box">
+        Try writting a program that asks for a number from user, then multipies that by 3, and prints out the resutls.
+        SPOILER ALERT: the result will surprise you.
+      </div>
+      
+      <p>
+        If you have done the above excercise you notice the odd resutls. This is because the input stored the value as a string.
+        You have to convert that variable to a numeric one. There are two functions you can use for this conversion:
+      </p>
+      <ol>
+        <li><span class="inline-code">int</span>: makes a integer number. for example, 3, 992, -652.</li>
+        <li><span class="inline-code">float</span>: makes a float point number. for example, 3.80, 1.000, -0.62.</li>
+      </ol>
+      
+      <p>
+        Retry the above excersie and use these functions.
+      </p>
+      
+      <h2>Lists and Dictionaries</h2>
+      <p>
+        Lists and Dictionaries are two extremely useful type of variables in Pyhton (and again any other programming language).
+        They are variables that store more than one values.
+      </p>
+
+      <h2>List</h2>
+      <p>
+        A list is an ordered, well list, of other values.
+        An item in the list is anything that we can use to store in a variable (numbers and strings).
+        We define a list by putting these items inside "[" and "]" characters.
+      </p>
+<pre><code class="language-python"># An example program that uses lists
+# We are going to have a lot of commenting on this one
+
+# This is the list of integer numbers betwen 2 and 5 (inclusive)
+numbers = [2, 3, 4, 5]
+
+# And the list of days in a week
+dayOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]</code></pre>
+      <p>
+        Your program can access each of these values by their order in the list (we call this the <strong>index</strong> of that variable).
+        We do this by using the name of the list and then adding the index number in front of it in between "[" and "]". 
+        Just remember, in computers, we usually start counting from 0 instead of 1.
+        So, the first item in a list is its 0th item for a computer, and the 5th one is the 4th (not confusing at all!).
+        See the following examples for understanding this better:
+      </p>
+<pre><code class="language-python">numbers = [8, 9, 10, 26, 87]
+# This will output 10
+print(numbers[2])
+
+# You can also change the values inside a list
+numbers[1] = 888
+# Try finding the output to this.
+print(numbers[1])
+</code></pre>
+      
+      <h2>Dictionaries</h2>
+      <p>
+        Dictionaries are similar to lists, but instead of using the order, they have a name for each value they are storing.
+        We call this name the <strong>key</strong> to that <strong>value</strong>. The key can be a number, string, or many other types.
+        We use more than one character for defining a dictionary. When defining a dictionary you must add both keys and values.
+        We add them as a pair, separated by a ":". The first one is the key and the second one is its corresponding value.
+        A dictionary a list (for the lack of better word) of these pair inside "{" and "}" characters.
+        The best way to show them is through examples:
+      </p>
+<pre><code class="language-python"># A dictionary price of items.
+# here, "orange" is the key with value is 4, and so on
+prices = {"orange": 4, "apple":2 , "potato": 0.5}
+
+# Squared values of numbers
+sq = {1:1, 2:4, 3:9}</code></pre>
+
+      <p>
+        Accesing the values in a dictionary is similar to lists (using "[" and "]").
+        But here we use the key, instead of the index.
+      </p>
+      
+<pre><code class="language-python">prices = {"orange": 4, "apple":2 , "potato": 0.5}
+# Note how we print more than one thing with print function
+# by passing them all in and adding a , between them
+print("Price of orange is", prices["orange"])
+
+# Changing the values
+prices["orange"] = 8
+print("Price of orange is", prices["orange"])
+
+# If you are setting a value with a key that does not exist
+# Python will add that to the dictionary
+prices["banana"] = 3.2
+print("Price of orange is", prices["banana"])</code></pre>
+      
+</div>
+    
+    
+    <div class="content practice">
+      <h1>Practice</h1>
+      <ol>
+        <li>Try writting the program that does this (see the picuture below)</li>
+        <img src="../images/learn_python/chapter1/ex1.png" width="70%" class="image">
+        <li>Suppose each pound of carrot costs $3 and each pound of tomator $2.5.
+          Write a python code that asks users how much of each they purchased and prins out the total price.</li>
+      </ol>
+    </div>
+
+  </body>
+</html>

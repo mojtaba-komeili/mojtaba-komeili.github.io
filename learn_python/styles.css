@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+}
+
+p {
+  max-width: 1000px;
+}
+
+body {
+  margin: 0;
+  padding-left: 5%;
+  padding-right: 20%;
+  font-family: serif;
+}
+
+/* Style the side navigation */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+}
+
+
+/* Side navigation links */
+.sidenav a {
+  color: white;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color on hover */
+.sidenav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the content */
+.content {
+  margin-left: 200px;
+  padding-left: 20px;
+  max-width: 500;
+  padding-bottom: 100px;
+}
+
+.practice {
+  background-color: aquamarine;
+  margin-bottom: 5%;
+  padding-bottom: 20px;
+}
+
+.box {
+  margin: 20px;
+  padding: 20px;
+  background-color:azure;
+  border-radius: 5px;
+}
+
+.image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sub {
+  font-size: small;
+  text-align: center;
+}
+
+.inline-code {
+  font-family:sans-serif;
+  background-color: beige;
+  padding: 2px;
+}
