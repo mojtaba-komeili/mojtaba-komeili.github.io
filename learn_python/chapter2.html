@@ -12,12 +12,14 @@
     src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
   <script>hljs.highlightAll();</script>
   <body>
+
     <div class="sidenav">
       <a href="./chapter1.html">Introduction</a>
       <a href="#">Branches, loops, and functions</a>
       <a href="#">Objects and modules</a>
       <a href="#">More modules</a>
     </div>
+  
     <div class="content">
       <div class="slideslink">
         <a href="https://docs.google.com/presentation/d/1hKoAtXQ7TNg_2WTyRxajE0ocSkl_siK6Y2xlJZwlZZ8/edit?usp=sharing" target="_blank">
@@ -25,6 +27,31 @@
         </a>
       </div>
       <h1>Branches</h1>
+      Often in a program it happens that the <strong>flow</strong> of your program depends on certain conditions.
+      This is where branches come in.
+      <img src="../images/learn_python/chapter2/branches.jpeg" width="60%" class="image">
+      Branches are also known as the <span class="inline-code">if-else</span> conditions, because that's literally what happens in branching:
+      A branch is a point in a program where there is a decision to make, based on which the flow of the program will be determined.
+      There is a program that asks for your age and then tells you how old you are
+      (not very useful, I know, but bare will me a bit).
+      The code for such program will be something like this:
+<pre><code class="language-python"># A program that tells you how old you are, but asks you that first.
+age = input('How old are you? ')
+print('You are ' + age + ' years olds.')
+print('Have a nice day. Bye!')</code></pre>
+      
+      Python will read your program line by line and executes each line.
+      So, this is how your program <strong>flow</strong> look likes:
+      
+      <img src="../images/learn_python/chapter2/straight-flow.png" width="70%" class="image">
+      
+      <h3>Change of flow</h3>
+      Now imagine we want a program that does something slightly more useful:
+      It asks your age, and then it tells you if you are eligible to vote
+      (let's assume the legal age for voting is 18).
+      Obviously we need something that has two separate paths.
+      One of them tells you "Yes, you are" <i>if</i> the age you typed in is more than 18,
+      and the other one that tells you "No, you aren't" otherwise.
       
       
       <h1>Loops</h1>
