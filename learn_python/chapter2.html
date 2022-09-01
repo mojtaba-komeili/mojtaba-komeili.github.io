@@ -27,39 +27,106 @@
         </a>
       </div>
       <h1>Branches</h1>
-      Often in a program it happens that the <strong>flow</strong> of your program depends on certain conditions.
-      This is where branches come in.
+      <p>
+        Often in a program it happens that the <strong>flow</strong> of your program depends on certain conditions.
+        This is where branches come in.
+      </p>
+      
       <img src="../images/learn_python/chapter2/branches.jpeg" width="60%" class="image">
-      Branches are also known as the <span class="inline-code">if-else</span> conditions, because that's literally what happens in branching:
-      A branch is a point in a program where there is a decision to make, based on which the flow of the program will be determined.
-      There is a program that asks for your age and then tells you how old you are
-      (not very useful, I know, but bare will me a bit).
-      The code for such program will be something like this:
+      <p>
+        Branches are also known as the <span class="inline-code">if-else</span> conditions, because that's literally what happens in branching:
+        A branch is a point in a program where there is a decision to make, based on which the flow of the program will be determined.
+      </p>
+      <p>
+        Imagine a program that asks for your age and then tells you how old you are
+        (not very useful, I know, but bare will me a bit).
+        The code for such program will be something like this:
+      </p>
 <pre><code class="language-python"># A program that tells you how old you are, but asks you that first.
 age = input('How old are you? ')
 print('You are ' + age + ' years olds.')
 print('Have a nice day. Bye!')</code></pre>
       
-      Python will read your program line by line and executes each line.
-      So, this is how your program <strong>flow</strong> look likes:
+      <p>
+        Python will read your program line by line and executes each line.
+        So, this is how your program <strong>flow</strong> look likes:
+      </p>
       
       <img src="../images/learn_python/chapter2/straight-flow.png" width="70%" class="image">
       
       <h3>Change of flow</h3>
-      Now imagine we want a program that does something slightly more useful:
-      It asks your age, and then it tells you if you are eligible to vote
-      (let's assume the legal age for voting is 18).
-      Obviously we need something that has two separate paths.
-      One of them tells you "Yes, you are" <i>if</i> the age you typed in is more than 18,
-      and the other one that tells you "No, you aren't" otherwise.
+      <p>
+        Now let's turn this into a program that does something slightly more useful:
+        It asks your age, and then it tells you if you are eligible to vote
+        (let's assume the legal age for voting is 18).
+        Obviously we need something that has two separate paths.
+        One of them tells you "Yes, you are" <i>if</i> the age you typed in is more than 18,
+        and the other one that tells you "No, you aren't" otherwise.
+      </p>
       
-      <br>
-      PHOTO HERE
-      <br>
+      <img src="../images/learn_python/chapter2/conditioned-flow.png" width="70%" class="image">
       
-      As you can see in the image above there are two flows for the proram.
-      Here is where the conditional statements come in.
-      Conditional statemenet depend on an <i>statement</i> being <strong>True</strong> or <strong>False</strong>.
+      <p>
+        As you can see in the image above there are two flows for the program.
+        Here is where the <strong>conditional statements</strong> come in.
+        Conditional statemenet depend on an <i>statement</i> being <strong>True</strong> or <strong>False</strong>.
+        In Python, as in other porgramming languages,
+        we use the methematical equality and inequality signs to make these statemenets.
+        The proper way to read the mathematical expressions made from the above is through using them with this table.
+      </p>
+      <div>
+        <table style="width:50%">
+          <tr>
+            <th>Symbol</th>
+            <th>Meaning</th> 
+          </tr>
+          <tr>
+            <td> == </td>
+            <td>Equal</td>
+          </tr>
+          <tr>
+            <td> > </td>
+            <td>Greater than</td>
+          </tr>
+          <tr>
+            <td> => </td>
+            <td>Greater than or equal</td>
+          </tr>
+          <tr>
+            <td> < </td>
+            <td>Less than</td>
+          </tr>
+          <tr>
+            <td> =< </td>
+            <td>Less than or equal</td>
+          </tr>
+        </table>
+      </div>
+      
+      <p>
+        For example, we read <span class="inline-code">7 > 32</span> like this: "7 is greater than 32".
+        Obviously, this is not correct, whic mean that this statement is <span class="inline-code">False</span>.
+        Try this in Python as see if it agrees:
+      </p>
+<pre><code class="language-python"># Logical statements in Python
+print(7 > 32)</code></pre>
+      
+      <h3>Boolean</h3>
+      <p>
+        Remember the variables that we introdued before?
+        There is another VERY important variable type called <strong>boolean</strong>.
+        Booleans can only take two values <span class="inline-code">False</span> or <span class="inline-code">True</span>.
+      </p>
+<pre><code class="language-python"># Boolean values
+BooleanValue = True
+print(BooleanValue)</code></pre>
+      
+      <p>
+        As you may imagine there is not much appeal in having boolean variables on their own.
+        But their importance becomse clear when we go back to the conditional statements that we talked about.
+        In fact, what changes the flow of a program is often a boolean variable being
+        <span class="inline-code">False</span> or <span class="inline-code">True</span>.
+      </p>
       
       <h1>Loops</h1>
       
@@ -69,5 +136,10 @@ print('Have a nice day. Bye!')</code></pre>
       
     </div>
 
+    <script>
+      function revealAnswer(itemId, result) {
+        document.getElementById(itemId).style.color = "red";
+      }
+    </script>
   </body>
 </html>

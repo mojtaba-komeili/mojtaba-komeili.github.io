@@ -44,7 +44,8 @@ body {
 .content {
   margin-left: 200px;
   padding-left: 20px;
-  max-width: 500;
+  max-width: 1000px;
+  min-width: 200px;
   padding-bottom: 30px;
 }
 
@@ -65,6 +66,7 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  min-width: 400px;
 }
 
 .sub {
@@ -79,5 +81,22 @@ body {
 }
 
 .slideslink {
-  margin-top: 20px;
+  margin-top: 50px;
+  padding-top: "50px";
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
