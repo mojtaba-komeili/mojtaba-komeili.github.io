@@ -310,11 +310,201 @@ print(bv1, bv2)
       </div>
       
       <h1>Loops</h1>
+      <img src="../images/learn_python/chapter2/loops.jpeg" width="70%" class="image">
+      <p>
+        We just saw how if blocks are working. They run a block of code <i>once</i>, if some boolean statement/variable was true.
+        But what if there is a block of code that we want to run more than one time?
+        This is in fact a very common thing to have in any program.
+        <strong>Loops</strong> are what we use in programming to repeat a block of code multiple times.
+        There are many ways to create a loop in a program. Here we focus on <span class="inline-code">while</span> and
+        <span class="inline-code">for</span> loops.
+      </p>
+      <h2>while loop</h2>
+      <p>
+        A <span class="inline-code">while</span> loop in many ways resembles an <span class="inline-code">if</span> conditions.
+        The only difference is that Python runs the if block <i>only once</i> if the condition is true.
+        But in a while loop the <strong>loop block</strong> keeps repeating as long as the conditions is true.
+        See if you can figure out what this while loop doesn.
+      </p>
+
+<pre><code class="language-python"># A while loop
+my_number = 1
+while 4 > my_number:
+  print(my_number)
+  my_number = my_number + 1
+</code></pre>
+
+      <div class="box">
+        <span style="color:red">DANGER!</span> You MUST alway make sure that the condition that makes loop can be true or false.
+        One of the biggest pitfalls in programming is having a condition on the loop that is never false.
+        This is known as an <strong>infinite loop</strong> and is most common bugs in a code.
+        This loops may never end which means that your program never finishes.
+        Sometimes the only way to stop a program that has an infintie loop is to turn off your computer.
+        But this happens rarely. We usually just have to force close our program.
+      </div>
+      <p>
+        What do you think will happen if you run this program? Run it on your own risk.
+      </p>
+<pre><code class="language-python"># A while loop
+my_number = 1
+while 4 > my_number:
+  print(my_number)
+</code></pre>
       
+      <p>
+        Here is another example of a program that uses while loop.
+        Here when the loop ends depends on the input to program.
+        It may take many tries. But still there exist a condition out of it.
+        So, we do NOT call this one an infinite loop.
+      </p>
+<pre><code class="language-python"># Guessing game
+my_number = 43
+your_guess = int(input('Guess my number [1-100]: '))
+while your_guess != my_number:
+  print('You guessed wrong! Try again.')
+  # See how we give a new value to the variable your_guess every time.
+  your_guess = int(input('Guess my number [1-100]: '))
+  
+print('Congratulations, you guessed right. The number was ', my_number)
+</code></pre>
+      
+      <div class="box">
+        Write a better version of the above program (the guessing game) that tells you if your next guess needs to be higher or lower.
+        For example if the number was 14 and user has guessed 65, the program tells user to go lower.
+      </div>
+      
+      <h2>for loop</h2>
+      <p>
+        Another very common loop is the <span class="inline-code">for</span>.
+        We doing something with all the elements in a list (remember the lists from the last class?).
+        For loop receives a list (to be more accurate an iterable, but don't worry about that, we will be working mostly with lists for now)
+        and runs the block with each of the element in that list one by one.
+        For loops have a variable that will be updated everytime that the loop block runs.
+        The following images illustartes how this works.
+      </p>
+      <img src="../images/learn_python/chapter2/expanded-loop.png" width="100%" class="image">
+      
+      <div class="box">
+        Write a program that uses a loop to write the name of the days in a week and their order.
+        For example, "Monday 1" .... "Sunday 7".
+      </div>
+      <h3>range function</h3>
+      <p>
+        Time for new python function:
+        A very useful function that is regularly used with a for loop is the <span class="inline-code">range</span>.
+        For this class we try using it only with a for loop.
+        It helps you to generate the list of numbers you need, so you don't have to type them all.
+        If you use it with a for loop, it can replace your list of numbers. For example instead of <span class="inline-code">[1, 2, 3, 4, 5, 6]</span>,
+        you may use <span class="inline-code">range(1, 7)</span>. This will give you the list of numbers from 1 up to (but not including) 7.
+        You can even give a third argument, that will be the increments, defaulat was 1 as you saw before.
+        See following examples for better understanding:
+      </p>
+<pre><code class="language-python"># For loops with range
+
+# This will print numbers from 1 to 100
+for i in range(1, 101):
+  print(i)
+  
+# This will print numbers from 5 to 100, with increments of 5
+# That is 5, 10, 15, ..., 100
+for i in range(5, 101, 5):
+  print(i)
+</code></pre>
+      <div class="box">
+        Write a program that outputs the even numbers less than 100, except numbers that are in 50-60 and 78-87 range (inclusise).
+      </div>
       
       <h1>Functions</h1>
+      <p>
+        We have seen and used many functions so far. It's time to see how functions are built, and make some of our own.
+        As it was the theme in this lesson, function are (again) a block of code that can run it from anywhere in our code.
+        We use functions to avoid rewriting the same piece of code over and over.
+        To do that, we put a <strong>block</strong> of code inside a function, name that function something,
+        and everytime wanted to used it we just simply call that function by its name.
+        We use the Python keyword <span class="inline-code">def</span> to <i>define</i> our own functions.
+        After <span class="inline-code">def</span> we write the name of the function (the same rules for naming a variable)
+        and then add <span class="inline-code">()</span> in front of it to say this is a function (we talk about the brackets more soon).
+        To call the function, just use its name with <span class="inline-code">()</span> in front of it.
+        Example:
+      </p>
+<pre><code class="language-python"># Define a function
+
+# Defining my function
+def MyFunction():
+  print('This is from my function')
+  
+# Running my function
+MyFunction()
+</code></pre>
+      <div class="box">
+        Python doesn't run the code in your function definition, until you call the function.
+      </div>
+    <h2>Arguments</h2>
+      <p>
+        It is really boring to have a function that only does one thing (a one trick function).
+        Remember the functions we used so far were all receiving some variables that could change what they were doing 
+        (<span class="inline-code">range(4, 6)</span> and <span class="inline-code">range(9, 20)</span> do different things).
+        We call the variables the <strong>arguments</strong> to our function (also sometimes called parameters).
+        If you want a function that receives arguments and uses them for its process, all you need to do is to
+        add some variables inside the <span class="inline-code">()</span> that you had during the function definition.
+        When you call the function with variables, Python will replace them with the arguments of your function
+        <strong>in the same order</strong>. See the example below:
+      </p>
+<pre><code class="language-python"># Define a function WITH arguments
+
+# Defining my function
+def TwoNumberFunction(a, b):
+  print('Your first argument was', a)
+  print('Your second argument was', b)
+  
+# Running my function
+TwoNumberFunction(54, "Library")
+</code></pre>
       
+      <div class="box">
+        Write a program that receives two numbers and tells you whihc one was bigger.
+      </div>
       
+      <h2>Returned values</h2>
+      <p>
+        Functions we used so far receive arguments and print something on the screen.
+        We often use function to run some code and then give us some answer.
+        Or technically speaking <strong>return</strong> a value.
+        (remember how <span class="inline-code">range</span> function <i>returns</i> something that we use as a list).
+        See how the following function returns the results of multiplying two numbers.
+      </p>
+      
+<pre><code class="language-python"># Multiply function
+
+# Defining the function
+def Multiply(a, b):
+  return a * b
+  
+# Usingt the function
+r = Multiply(4, 6)
+print(r)
+</code></pre>
+      
+    <p>
+      When a function reaches the <span class="inline-code">return</span> line in its code,
+      it returns from that function and does not continue from that point one.
+      Can you tell the output of this program?
+    </p>
+<pre><code class="language-python">def MyFunc(a, b):
+  c = a + b
+  return c
+  c = 7
+  return c
+  
+r = MyFunc(4, 6)
+print(r)
+</code></pre>
+      
+      <div class="box">
+        Write a program that finds the smallest number that its division by 13 is more than 5 and its division by 17 is more than 6.
+        Hint: use a function that counts from the bottom and returns as soon as it reaches these conditions.
+      </div>
+
     </div>
     
     <div class="content practice">
@@ -328,6 +518,11 @@ print(bv1, bv2)
           Write a program that tells you who is the winner in rock/paper/scissors game.
           It asks for the move from each player (let's assume 'r' for rock, 'p' for paper, ans 's' for scissors)
           and tells your who is the winner.
+        </li>
+        <li>
+          Write a program that prints out all the prime numbers that are less 100.
+          Don't forget to write a code that checks if a number is prime or not.
+          (What is a prime number? see <a href="https://en.wikipedia.org/wiki/Prime_number">this</a>.)
         </li>
       </ol>
     </div>
