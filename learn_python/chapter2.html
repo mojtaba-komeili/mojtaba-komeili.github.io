@@ -54,7 +54,7 @@ print('Have a nice day. Bye!')</code></pre>
       
       <img src="../images/learn_python/chapter2/straight-flow.png" width="70%" class="image">
       
-      <h3>Change of flow</h3>
+      <h2>Change of flow</h2>
       <p>
         Now let's turn this into a program that does something slightly more useful:
         It asks your age, and then it tells you if you are eligible to vote
@@ -85,6 +85,10 @@ print('Have a nice day. Bye!')</code></pre>
             <td>Equal</td>
           </tr>
           <tr>
+            <td> != </td>
+            <td>NOT Equal</td>
+          </tr>
+          <tr>
             <td> > </td>
             <td>Greater than</td>
           </tr>
@@ -111,7 +115,7 @@ print('Have a nice day. Bye!')</code></pre>
 <pre><code class="language-python"># Logical statements in Python
 print(7 > 32)</code></pre>
       
-      <h3>Boolean</h3>
+      <h2>Boolean</h2>
       <p>
         Remember the variables that we introdued before?
         There is another VERY important variable type called <strong>boolean</strong>.
@@ -126,7 +130,184 @@ print(BooleanValue)</code></pre>
         But their importance becomse clear when we go back to the conditional statements that we talked about.
         In fact, what changes the flow of a program is often a boolean variable being
         <span class="inline-code">False</span> or <span class="inline-code">True</span>.
+        Try to see if you can figure out what this code will print:
       </p>
+<pre><code class="language-python">B1 = 7 > 9
+print(B1)
+
+print(4 != 6)
+
+# Remember the use of brackets from the last lession?
+B2 = (7 - (5 * 2)) == ((5 * 3) - 4)
+print(B2)
+
+B3 = "Something" == "something"
+print(B3)
+</code></pre>
+      
+      
+      <h2>If condition</h2>
+      <p>
+        Now it is time to introduce one of our most important concepts in programming: <strong>if blocks</strong>.
+        Using keyword <span class="inline-code">if</span> in Python, you will tell your program to run a piece of your program
+        only <i>if</i> a condition is true. Here is where we use the power of boolean variables.
+        Python will look at the boolean variables (or an statement that can have a boolean value) and if it was
+        <span class="inline-code">True</span>, it will run the <strong>block of code</strong> after the <span class="inline-code">if</span>.
+        Otherwise it will ignore the block of code, and continues with the code afetr that block.
+      </p>
+      <h3>What is a <strong>block of code</strong>?</h3>
+      <p>
+        A block of code, is any piece of program. It can be a single line of code or a few thousand lines.
+        Having separate blocks of code, helps us tell python to run a block or not, depending on a boolean value.
+        The first block of code that we are going to work with here is the block of code that belongs to an if branch.
+        This is how we use the if condition and its block in Python
+        (notice the <span class="inline-code">:</span> after the boolean condition, we always need that):
+      </p>
+      <img src="../images/learn_python/chapter2/if-block.png" width="70%" class="image">
+      <p>
+        Here we have a boolean statement, that can be <span class="inline-code">True</span> or <span class="inline-code">False</span>,
+        in front of an <span class="inline-code">if</span>. This is the <span class="inline-code">A > 20</span>.
+        Then, right after that there are two lines of code that have <strong>tab</strong> space in front of them.
+        All this area with tab in front of it is what we call the <strong>if block</strong>.
+        Python will run this code if and only if during running the program the boolean condition in front of <span class="inline-code">if</span> was <span class="inline-code">True</span>, otherwise it completely ignore it.
+        Knowing this try to predict what happens when we run this program.
+      </p>
+      <p>
+        It happens a lot in programming that we want to run a block of code if something was true,
+        and another block of code otherwise. We can have this with 2 separate if blocks that have the opposite if each other.
+        But, because this is very common, programming langauges already have something for use.
+        All we need to do is adding <span class="inline-code">else</span> right after our if block finishes,
+        and adding a block of code.
+      </p>
+<pre><code class="language-python"># if block with else condition
+a = input('Insert a number: ')
+num = int(a)
+
+if a > 20:
+  # This is the block of code that will run if the boolean condition was True
+  print('Your number was more than 20')
+else:
+  # This is the block of code that will run if the boolean condition was False
+  print('Your number was not more than 20')
+</code></pre>
+      
+      <div class="box">
+        Now you must be ready to write the code for the age checking program we talked about above. Try it!
+      </div>
+      
+      <h2>Multiple conditions</h2>
+      It may also happen that you need to check something for multiple conditions.
+      For example, if you want to check if number is between 1-5, or 6-10, or 11-20, etc.
+      This may need manye if else branches, or a shorter way in Python is using <span class="inline-code">elif</span>,
+      which is short of <i>else if</i>. You can have as many <span class="inline-code">elif</span>s that you want afetr an
+      <span class="inline-code">if</span> condition to check for various other things that may happen.
+      Remember that each of those need a block of code for its own flow.
+      Example:
+<pre><code class="language-python"># if block with else condition
+a = input('Insert a number: ')
+num = int(a)
+
+if a > 30:
+  print('Your number was more than 30')
+elif a > 20:
+  print('Your number was more than 20')
+elif a > 10:
+  print('Your number was more than 10')
+else:
+  print('Your number was less than 10')
+</code></pre>
+      
+      <div class="box">
+        What do you think the output of the following program will be. Try it on your coputer.
+      </div>
+      
+<pre><code class="language-python"># What is the output
+num = 45
+
+if a > 10:
+  print('Your number was more than 10')
+elif a > 20:
+  print('Your number was more than 20')
+elif a > 30:
+  print('Your number was more than 30')
+</code></pre>
+      
+      <h2>Blocks inside blocks</h2>
+      So far we have been checking a single condition. But what if our we want to check another condition inside a block?
+      You can always have a block inside another block. All you need is an extra <strong>tab</strong>.
+      <img src="../images/learn_python/chapter2/inner-block.png" width="70%" class="image">
+      
+      <div class="box">
+        You must be older than 10, and taller than 40" for a roller coaster ride.
+        Write a program that asks someone for "age" and "height".
+        Then prints out if that person can ride the roller coaster.
+      </div>
+      
+      <h2>Complex conditions</h2>
+      <p>
+        If you have tried the roller coaster excersise, you may done it with two blocks (one inside the other).
+        But thinking about it logically the only thing that you needed to do was to check if the age was more than 10
+        <strong>AND</strong> the height was more than 40.
+        Checking multiple conditions like that is very common in programming.
+        That's why all the programming languages have <strong>AND</strong>, <strong>OR</strong> operations beween booleans.
+        Using these two opraions beween two boolean variable works exactly as they read.
+        In Python we use <span class="inline-code">and</span> for AND between two booleans,
+        and <span class="inline-code">or</span> for OR between two booleans
+      </p>
+      
+<pre><code class="language-python"># Operation between booleans
+# Check how here we use comments after the main Python command.
+# Anything that we add after the # will be ignored by Python
+
+b1 = 45 > 3  # This is True
+b2 = "NP" == "New Providence"  # This is False
+
+print(b1 and b2)  # will print False, because only one of them is True
+print(b1 or b2)  # will print False, because one of them is true
+</code></pre>
+      <p>
+        In the beginning it may be confusing to know what is the resutls when we have
+        <span class="inline-code">and</span>, <span class="inline-code">or</span> between two booleans.
+        This table is good guide.
+      </p>
+      <h1>LOGIC TABLE HERE</h1>
+      
+      <p>
+        Now we can easily write our roller coaster check program like this:
+      </p>
+
+<pre><code class="language-python"># Roller coaster
+# Notice the use of one function inside the other
+# This puts the output from one function directly inside the other
+
+age = int(input('What is your age? '))
+height = int(input('What is your height in inches? '))
+
+# See the use of brackets, remember how we used them in the previous lesson
+if (age > 10) and (height > 40):
+  print('Enjoy the roller coaster')
+else:
+  print('Sorry you can not ride')
+</code></pre>
+      <p>
+        As you see in the above example, the brackets around the boolean variables act in the exact same way as they do in arithmetic ones.
+        So, if there is a complex condition, feel free to use brackets as needed to make sure you get the right combination.
+        As a practice, see if you can predict the outcomes printed out from this code.
+      </p>
+<pre><code class="language-python"># What do you think the output is?
+bv1 = (67 > 45) and ("this" != "that")
+bv2 = (((5 * 7) - 45) > 13) or bv1
+print(bv1, bv2)
+</code></pre>
+      
+      <div class="box">
+        Consider a college that needs both the following conditions for accepting students.
+        <ul>
+          <li>GPA > 3.5</li>
+          <li>ACT > 25 or SAT > 1200</li>
+        </ul>
+        Write a program that asks appropriate questions from user and tell him if he can get into this college.
+      </div>
       
       <h1>Loops</h1>
       
@@ -135,11 +316,21 @@ print(BooleanValue)</code></pre>
       
       
     </div>
+    
+    <div class="content practice">
+      <h1>Practice</h1>
+      <ol>
+        <li>
+          Imagine the cost of tomato per pound is $2 if you are buying less than 5 lb, $1.5 for more than 5 up to 20 lb, and $1 for more.
+          Write a program that asks for how much tomato someone has purchased and tells you how much it costs.
+        </li>
+        <li>
+          Write a program that tells you who is the winner in rock/paper/scissors game.
+          It asks for the move from each player (let's assume 'r' for rock, 'p' for paper, ans 's' for scissors)
+          and tells your who is the winner.
+        </li>
+      </ol>
+    </div>
 
-    <script>
-      function revealAnswer(itemId, result) {
-        document.getElementById(itemId).style.color = "red";
-      }
-    </script>
   </body>
 </html>
