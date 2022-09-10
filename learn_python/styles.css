@@ -96,3 +96,9 @@ td, th {
   text-align: left;
   padding: 8px;
 }
+
+#homelink {
+  position:fixed;
+  top: 2%;
+  right: 2%;
+}
