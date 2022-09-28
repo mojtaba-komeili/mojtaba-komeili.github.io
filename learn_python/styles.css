@@ -102,3 +102,18 @@ td, th {
   top: 2%;
   right: 2%;
 }
+
+#GameApp {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.game_button {
+  font-size: 2em;
+  text-align: center;
+}
+
+.game_button:hover {
+  background-color: yellow;
+  cursor: pointer;
+}

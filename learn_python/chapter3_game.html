@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+    
+      function GameApp() {
+        
+        const [ended, setEnded] = React.useState(0);
+        const [playerPos, setPlayerPos] = React.useState(1);
+        const [deamonPos, setDeamonPos] = React.useState(8);
+        const [playerTurn, setPlayerTurn] = React.useState(true);
+        
+        return (
+          <div id="GameApp">
+            <Instruction />
+            <hr></hr>
+            <Board
+                player={playerPos}
+                deamon={deamonPos}
+            />
+            <hr></hr>
+            <Move 
+                playerTurn={playerTurn}
+                setPlayerTurn={setPlayerTurn}
+            />
+          </div>
+        )
+
+      }
+
+      function Instruction() {
+        return (
+          <div>
+            <h1>Instruction</h1>
+          </div>
+        )
+      }
+
+      function Board(props) {
+        const board = []
+        for (let i = 0 ; i < 10 ; i++) {
+          board.push(' .');
+        }
+        
+        const playerX = props.player;
+        
+        console.log(props);
+        console.log(playerX);
+        
+        board[props.player] = "🤠";
+        board[props.deamon] = "👿";
+        
+        let text = "| ";
+        for (let i = 0 ; i < 10 ; i++) {
+          text += board.at(i) + " |";
+        }
+        text += " 🚪"
+        return <h1>{text}</h1>
+      }
+
+      function Move(props) {
+        if (props.playerTurn) {
+          return <PlayerMove />;
+        } else {
+          return <DeamonMove />
+        }
+      }
+
+      function PlayerMove(props) {
+        const playerPos = props.player;
+        
+        function Arrows() {
+          return (
+            <div>
+              <div
+                onClick={() => {console.log("Go left");}}
+                class="game_button">⬅️ Push to left 3</div>
+              <div
+                onClick={() => {console.log("Go right");}}
+                class="game_button">➡️ Push to right 3</div>     
+            </div>
+          )     
+        }
+        
+        return (
+          <div>
+            <h1>It is 🤠's turn.</h1>
+            <Arrows />
+          </div>
+        )
+      }
+                   
+      function DeamonMove(props) {
+        
+      }
+
+      const container = document.getElementById('root');
+      const root = ReactDOM.createRoot(container);
+      root.render(<GameApp />);
+
+    </script>
+    <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      Read this section for a production-ready setup with JSX:
+      https://reactjs.org/docs/add-react-to-a-website.html#add-jsx-to-a-project
+
+      In a larger project, you can use an integrated toolchain that includes JSX instead:
+      https://reactjs.org/docs/create-a-new-react-app.html
+
+      You can also use React without JSX, in which case you can remove Babel:
+      https://reactjs.org/docs/react-without-jsx.html
+    -->
+  </body>
+</html>
