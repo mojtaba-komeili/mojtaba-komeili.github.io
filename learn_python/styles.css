@@ -111,9 +111,17 @@ td, th {
 .game_button {
   font-size: 2em;
   text-align: center;
+  width: 40%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding: 1%;
 }
 
 .game_button:hover {
-  background-color: yellow;
+  background-color: #F0F8FF;
   cursor: pointer;
+}
+
+.final {
+  font-size: 5em;
 }
