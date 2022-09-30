@@ -55,6 +55,12 @@ body {
   padding-bottom: 20px;
 }
 
+.project {
+  background-color: rgb(127, 227, 255);
+  margin-bottom: 5%;
+  padding-bottom: 20px;
+}
+
 .box {
   margin: 20px;
   padding: 20px;
