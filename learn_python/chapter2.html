@@ -450,6 +450,37 @@ for i in range(5, 101, 5):
         Write a program that outputs the even numbers less than 100, except numbers that are in 50-60 and 78-87 range (inclusise).
       </div>
       
+      <h2>Break and continue</h2>
+      <p>
+        <span class="inline-code">break</span> and <span class="inline-code">continue</span>
+        are two keyword to control the flow of the loops. It works both in 
+        <span class="inline-code">while</span> and <span class="inline-code">for</span> loops.
+      </p>
+
+      <h3>Break</h3>
+      <p>
+        If Python reaches the <span class="inline-code">break</span> keyword in a loop it exits that loop altogether.
+        That's why the call it <span class="inline-code">break</span>, because it breaks the loop.
+      </p>
+      <pre><code class="language-python"># Using continue inside the loop.
+for i in [2, 3, 4]:
+  if i == 3:
+    break  # this breaks the loop and goes to the code after the loop
+  print(i)
+</code></pre>
+
+      <h3>Continue</h3>
+      <p>
+        If Python reaches the <span class="inline-code">continue</span> keyword in a loop it goes to the top of the loop's block.
+        Try to predict the output of the following code.
+      </p>
+      <pre><code class="language-python"># Using continue inside the loop.
+for i in [2, 3, 4]:
+  if i == 3:
+    continue  # this tells Python to go to the top of the loop's block
+  print(i)
+</code></pre>
+      
       <h1>Functions</h1>
       <p>
         We have seen and used many functions so far. It's time to see how functions are built, and make some of our own.
