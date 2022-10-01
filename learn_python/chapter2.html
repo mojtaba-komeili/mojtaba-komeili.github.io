@@ -1,141 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Branches, loops, and functions: Chapter 2</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
-  <link rel="stylesheet" href="styles.css">
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
-  <script>hljs.highlightAll();</script>
-  <body>
 
-    <div class="sidenav">
-      <a href="./chapter1.html">Introduction</a>
-      <a href="#">Branches, loops, and functions</a>
-      <a href="./chapter3.html">Objects and modules</a>
-      <a href="./chapter4.html">More modules</a>
+<head>
+  <title>Branches, loops, and functions: Chapter 2</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<body>
+
+  <div class="sidenav">
+    <a href="./chapter1.html">Introduction</a>
+    <a href="#">Branches, loops, and functions</a>
+    <a href="./chapter3.html">Objects and modules</a>
+    <a href="./chapter4.html">More modules</a>
+  </div>
+  <div id="homelink">
+    <a href="../index.html">Home ⌂</a>
+  </div>
+
+  <div class="content">
+    <div class="slideslink">
+      <a href="https://docs.google.com/presentation/d/1hKoAtXQ7TNg_2WTyRxajE0ocSkl_siK6Y2xlJZwlZZ8/edit?usp=sharing"
+        target="_blank">
+        Slides from class <img src="../images/learn_python/slides.png" height="20px">
+      </a>
     </div>
-    <div id="homelink">
-      <a href="../index.html">Home ⌂</a>
-    </div>
-  
-    <div class="content">
-      <div class="slideslink">
-        <a href="https://docs.google.com/presentation/d/1hKoAtXQ7TNg_2WTyRxajE0ocSkl_siK6Y2xlJZwlZZ8/edit?usp=sharing" target="_blank">
-          Slides from class <img src="../images/learn_python/slides.png" height="20px">
-        </a>
-      </div>
-      <h1>Branches</h1>
-      <p>
-        Often in a program it happens that the <strong>flow</strong> of your program depends on certain conditions.
-        This is where branches come in.
-      </p>
-      
-      <img src="../images/learn_python/chapter2/branches.jpeg" width="60%" class="image">
-      <p>
-        Branches are also known as the <span class="inline-code">if-else</span> conditions, because that's literally what happens in branching:
-        A branch is a point in a program where there is a decision to make, based on which the flow of the program will be determined.
-      </p>
-      <p>
-        Imagine a program that asks for your age and then tells you how old you are
-        (not very useful, I know, but bare will me a bit).
-        The code for such program will be something like this:
-      </p>
-<pre><code class="language-python"># A program that tells you how old you are, but asks you that first.
+    <h1>Branches</h1>
+    <p>
+      Often in a program it happens that the <strong>flow</strong> of your program depends on certain conditions.
+      This is where branches come in.
+    </p>
+
+    <img src="../images/learn_python/chapter2/branches.jpeg" width="60%" class="image">
+    <p>
+      Branches are also known as the <span class="inline-code">if-else</span> conditions, because that's literally what
+      happens in branching:
+      A branch is a point in a program where there is a decision to make, based on which the flow of the program will be
+      determined.
+    </p>
+    <p>
+      Imagine a program that asks for your age and then tells you how old you are
+      (not very useful, I know, but bare will me a bit).
+      The code for such program will be something like this:
+    </p>
+    <pre><code class="language-python"># A program that tells you how old you are, but asks you that first.
 age = input('How old are you? ')
 print('You are ' + age + ' years olds.')
 print('Have a nice day. Bye!')</code></pre>
-      
-      <p>
-        Python will read your program line by line and executes each line.
-        So, this is how your program <strong>flow</strong> look likes:
-      </p>
-      
-      <img src="../images/learn_python/chapter2/straight-flow.png" width="70%" class="image">
-      
-      <h2>Change of flow</h2>
-      <p>
-        Now let's turn this into a program that does something slightly more useful:
-        It asks your age, and then it tells you if you are eligible to vote
-        (let's assume the legal age for voting is 18).
-        Obviously we need something that has two separate paths.
-        One of them tells you "Yes, you are" <i>if</i> the age you typed in is more than 18,
-        and the other one that tells you "No, you aren't" otherwise.
-      </p>
-      
-      <img src="../images/learn_python/chapter2/conditioned-flow.png" width="70%" class="image">
-      
-      <p>
-        As you can see in the image above there are two flows for the program.
-        Here is where the <strong>conditional statements</strong> come in.
-        Conditional statemenet depend on an <i>statement</i> being <strong>True</strong> or <strong>False</strong>.
-        In Python, as in other porgramming languages,
-        we use the methematical equality and inequality signs to make these statemenets.
-        The proper way to read the mathematical expressions made from the above is through using them with this table.
-      </p>
-      <div>
-        <table style="width:50%">
-          <tr>
-            <th>Symbol</th>
-            <th>Meaning</th> 
-          </tr>
-          <tr>
-            <td> == </td>
-            <td>Equal</td>
-          </tr>
-          <tr>
-            <td> != </td>
-            <td>NOT Equal</td>
-          </tr>
-          <tr>
-            <td> > </td>
-            <td>Greater than</td>
-          </tr>
-          <tr>
-            <td> >= </td>
-            <td>Greater than or equal</td>
-          </tr>
-          <tr>
-            <td> < </td>
-            <td>Less than</td>
-          </tr>
-          <tr>
-            <td> <= </td>
-            <td>Less than or equal</td>
-          </tr>
-        </table>
-      </div>
-      
-      <p>
-        For example, we read <span class="inline-code">7 > 32</span> like this: "7 is greater than 32".
-        Obviously, this is not correct, whic mean that this statement is <span class="inline-code">False</span>.
-        Try this in Python as see if it agrees:
-      </p>
-<pre><code class="language-python"># Logical statements in Python
+
+    <p>
+      Python will read your program line by line and executes each line.
+      So, this is how your program <strong>flow</strong> look likes:
+    </p>
+
+    <img src="../images/learn_python/chapter2/straight-flow.png" width="70%" class="image">
+
+    <h2>Change of flow</h2>
+    <p>
+      Now let's turn this into a program that does something slightly more useful:
+      It asks your age, and then it tells you if you are eligible to vote
+      (let's assume the legal age for voting is 18).
+      Obviously we need something that has two separate paths.
+      One of them tells you "Yes, you are" <i>if</i> the age you typed in is more than 18,
+      and the other one that tells you "No, you aren't" otherwise.
+    </p>
+
+    <img src="../images/learn_python/chapter2/conditioned-flow.png" width="70%" class="image">
+
+    <p>
+      As you can see in the image above there are two flows for the program.
+      Here is where the <strong>conditional statements</strong> come in.
+      Conditional statemenet depend on an <i>statement</i> being <strong>True</strong> or <strong>False</strong>.
+      In Python, as in other porgramming languages,
+      we use the methematical equality and inequality signs to make these statemenets.
+      The proper way to read the mathematical expressions made from the above is through using them with this table.
+    </p>
+    <div>
+      <table style="width:50%">
+        <tr>
+          <th>Symbol</th>
+          <th>Meaning</th>
+        </tr>
+        <tr>
+          <td> == </td>
+          <td>Equal</td>
+        </tr>
+        <tr>
+          <td> != </td>
+          <td>NOT Equal</td>
+        </tr>
+        <tr>
+          <td> > </td>
+          <td>Greater than</td>
+        </tr>
+        <tr>
+          <td> >= </td>
+          <td>Greater than or equal</td>
+        </tr>
+        <tr>
+          <td>
+            < </td>
+          <td>Less than</td>
+        </tr>
+        <tr>
+          <td>
+            <= </td>
+          <td>Less than or equal</td>
+        </tr>
+      </table>
+    </div>
+
+    <p>
+      For example, we read <span class="inline-code">7 > 32</span> like this: "7 is greater than 32".
+      Obviously, this is not correct, whic mean that this statement is <span class="inline-code">False</span>.
+      Try this in Python as see if it agrees:
+    </p>
+    <pre><code class="language-python"># Logical statements in Python
 print(7 > 32)</code></pre>
-      
-      <h2>Boolean</h2>
-      <p>
-        Remember the variables that we introdued before?
-        There is another VERY important variable type called <strong>boolean</strong>.
-        Booleans can only take two values <span class="inline-code">False</span> or <span class="inline-code">True</span>.
-      </p>
-<pre><code class="language-python"># Boolean values
+
+    <h2>Boolean</h2>
+    <p>
+      Remember the variables that we introdued before?
+      There is another VERY important variable type called <strong>boolean</strong>.
+      Booleans can only take two values <span class="inline-code">False</span> or <span class="inline-code">True</span>.
+    </p>
+    <pre><code class="language-python"># Boolean values
 BooleanValue = True
 print(BooleanValue)</code></pre>
-      
-      <p>
-        As you may imagine there is not much appeal in having boolean variables on their own.
-        But their importance becomse clear when we go back to the conditional statements that we talked about.
-        In fact, what changes the flow of a program is often a boolean variable being
-        <span class="inline-code">False</span> or <span class="inline-code">True</span>.
-        Try to see if you can figure out what this code will print:
-      </p>
-<pre><code class="language-python">B1 = 7 > 9
+
+    <p>
+      As you may imagine there is not much appeal in having boolean variables on their own.
+      But their importance becomse clear when we go back to the conditional statements that we talked about.
+      In fact, what changes the flow of a program is often a boolean variable being
+      <span class="inline-code">False</span> or <span class="inline-code">True</span>.
+      Try to see if you can figure out what this code will print:
+    </p>
+    <pre><code class="language-python">B1 = 7 > 9
 print(B1)
 
 print(4 != 6)
@@ -147,42 +152,47 @@ print(B2)
 B3 = "Something" == "something"
 print(B3)
 </code></pre>
-      
-      
-      <h2>If condition</h2>
-      <p>
-        Now it is time to introduce one of our most important concepts in programming: <strong>if blocks</strong>.
-        Using keyword <span class="inline-code">if</span> in Python, you will tell your program to run a piece of your program
-        only <i>if</i> a condition is true. Here is where we use the power of boolean variables.
-        Python will look at the boolean variables (or an statement that can have a boolean value) and if it was
-        <span class="inline-code">True</span>, it will run the <strong>block of code</strong> after the <span class="inline-code">if</span>.
-        Otherwise it will ignore the block of code, and continues with the code afetr that block.
-      </p>
-      <h3>What is a <strong>block of code</strong>?</h3>
-      <p>
-        A block of code, is any piece of program. It can be a single line of code or a few thousand lines.
-        Having separate blocks of code, helps us tell python to run a block or not, depending on a boolean value.
-        The first block of code that we are going to work with here is the block of code that belongs to an if branch.
-        This is how we use the if condition and its block in Python
-        (notice the <span class="inline-code">:</span> after the boolean condition, we always need that):
-      </p>
-      <img src="../images/learn_python/chapter2/if-block.png" width="70%" class="image">
-      <p>
-        Here we have a boolean statement, that can be <span class="inline-code">True</span> or <span class="inline-code">False</span>,
-        in front of an <span class="inline-code">if</span>. This is the <span class="inline-code">A > 20</span>.
-        Then, right after that there are two lines of code that have <strong>tab</strong> space in front of them.
-        All this area with tab in front of it is what we call the <strong>if block</strong>.
-        Python will run this code if and only if during running the program the boolean condition in front of <span class="inline-code">if</span> was <span class="inline-code">True</span>, otherwise it completely ignore it.
-        Knowing this try to predict what happens when we run this program.
-      </p>
-      <p>
-        It happens a lot in programming that we want to run a block of code if something was true,
-        and another block of code otherwise. We can have this with 2 separate if blocks that have the opposite if each other.
-        But, because this is very common, programming langauges already have something for use.
-        All we need to do is adding <span class="inline-code">else</span> right after our if block finishes,
-        and adding a block of code.
-      </p>
-<pre><code class="language-python"># if block with else condition
+
+
+    <h2>If condition</h2>
+    <p>
+      Now it is time to introduce one of our most important concepts in programming: <strong>if blocks</strong>.
+      Using keyword <span class="inline-code">if</span> in Python, you will tell your program to run a piece of your
+      program
+      only <i>if</i> a condition is true. Here is where we use the power of boolean variables.
+      Python will look at the boolean variables (or an statement that can have a boolean value) and if it was
+      <span class="inline-code">True</span>, it will run the <strong>block of code</strong> after the <span
+        class="inline-code">if</span>.
+      Otherwise it will ignore the block of code, and continues with the code afetr that block.
+    </p>
+    <h3>What is a <strong>block of code</strong>?</h3>
+    <p>
+      A block of code, is any piece of program. It can be a single line of code or a few thousand lines.
+      Having separate blocks of code, helps us tell python to run a block or not, depending on a boolean value.
+      The first block of code that we are going to work with here is the block of code that belongs to an if branch.
+      This is how we use the if condition and its block in Python
+      (notice the <span class="inline-code">:</span> after the boolean condition, we always need that):
+    </p>
+    <img src="../images/learn_python/chapter2/if-block.png" width="70%" class="image">
+    <p>
+      Here we have a boolean statement, that can be <span class="inline-code">True</span> or <span
+        class="inline-code">False</span>,
+      in front of an <span class="inline-code">if</span>. This is the <span class="inline-code">A > 20</span>.
+      Then, right after that there are two lines of code that have <strong>tab</strong> space in front of them.
+      All this area with tab in front of it is what we call the <strong>if block</strong>.
+      Python will run this code if and only if during running the program the boolean condition in front of <span
+        class="inline-code">if</span> was <span class="inline-code">True</span>, otherwise it completely ignore it.
+      Knowing this try to predict what happens when we run this program.
+    </p>
+    <p>
+      It happens a lot in programming that we want to run a block of code if something was true,
+      and another block of code otherwise. We can have this with 2 separate if blocks that have the opposite if each
+      other.
+      But, because this is very common, programming langauges already have something for use.
+      All we need to do is adding <span class="inline-code">else</span> right after our if block finishes,
+      and adding a block of code.
+    </p>
+    <pre><code class="language-python"># if block with else condition
 a = input('Insert a number: ')
 num = int(a)
 
@@ -193,20 +203,20 @@ else:
   # This is the block of code that will run if the boolean condition was False
   print('Your number was not more than 20')
 </code></pre>
-      
-      <div class="box">
-        Now you must be ready to write the code for the age checking program we talked about above. Try it!
-      </div>
-      
-      <h2>Multiple conditions</h2>
-      It may also happen that you need to check something for multiple conditions.
-      For example, if you want to check if number is between 1-5, or 6-10, or 11-20, etc.
-      This may need manye if else branches, or a shorter way in Python is using <span class="inline-code">elif</span>,
-      which is short of <i>else if</i>. You can have as many <span class="inline-code">elif</span>s that you want afetr an
-      <span class="inline-code">if</span> condition to check for various other things that may happen.
-      Remember that each of those need a block of code for its own flow.
-      Example:
-<pre><code class="language-python"># if block with else condition
+
+    <div class="box">
+      Now you must be ready to write the code for the age checking program we talked about above. Try it!
+    </div>
+
+    <h2>Multiple conditions</h2>
+    It may also happen that you need to check something for multiple conditions.
+    For example, if you want to check if number is between 1-5, or 6-10, or 11-20, etc.
+    This may need manye if else branches, or a shorter way in Python is using <span class="inline-code">elif</span>,
+    which is short of <i>else if</i>. You can have as many <span class="inline-code">elif</span>s that you want afetr an
+    <span class="inline-code">if</span> condition to check for various other things that may happen.
+    Remember that each of those need a block of code for its own flow.
+    Example:
+    <pre><code class="language-python"># if block with else condition
 a = input('Insert a number: ')
 num = int(a)
 
@@ -219,12 +229,12 @@ elif a > 10:
 else:
   print('Your number was less than 10')
 </code></pre>
-      
-      <div class="box">
-        What do you think the output of the following program will be. Try it on your coputer.
-      </div>
-      
-<pre><code class="language-python"># What is the output
+
+    <div class="box">
+      What do you think the output of the following program will be. Try it on your coputer.
+    </div>
+
+    <pre><code class="language-python"># What is the output
 num = 45
 
 if a > 10:
@@ -234,31 +244,32 @@ elif a > 20:
 elif a > 30:
   print('Your number was more than 30')
 </code></pre>
-      
-      <h2>Blocks inside blocks</h2>
-      So far we have been checking a single condition. But what if our we want to check another condition inside a block?
-      You can always have a block inside another block. All you need is an extra <strong>tab</strong>.
-      <img src="../images/learn_python/chapter2/inner-block.png" width="70%" class="image">
-      
-      <div class="box">
-        You must be older than 10, and taller than 40" for a roller coaster ride.
-        Write a program that asks someone for "age" and "height".
-        Then prints out if that person can ride the roller coaster.
-      </div>
-      
-      <h2>Complex conditions</h2>
-      <p>
-        If you have tried the roller coaster excersise, you may done it with two blocks (one inside the other).
-        But thinking about it logically the only thing that you needed to do was to check if the age was more than 10
-        <strong>AND</strong> the height was more than 40.
-        Checking multiple conditions like that is very common in programming.
-        That's why all the programming languages have <strong>AND</strong>, <strong>OR</strong> operations beween booleans.
-        Using these two opraions beween two boolean variable works exactly as they read.
-        In Python we use <span class="inline-code">and</span> for AND between two booleans,
-        and <span class="inline-code">or</span> for OR between two booleans
-      </p>
-      
-<pre><code class="language-python"># Operation between booleans
+
+    <h2>Blocks inside blocks</h2>
+    So far we have been checking a single condition. But what if our we want to check another condition inside a block?
+    You can always have a block inside another block. All you need is an extra <strong>tab</strong>.
+    <img src="../images/learn_python/chapter2/inner-block.png" width="70%" class="image">
+
+    <div class="box">
+      You must be older than 10, and taller than 40" for a roller coaster ride.
+      Write a program that asks someone for "age" and "height".
+      Then prints out if that person can ride the roller coaster.
+    </div>
+
+    <h2>Complex conditions</h2>
+    <p>
+      If you have tried the roller coaster excersise, you may done it with two blocks (one inside the other).
+      But thinking about it logically the only thing that you needed to do was to check if the age was more than 10
+      <strong>AND</strong> the height was more than 40.
+      Checking multiple conditions like that is very common in programming.
+      That's why all the programming languages have <strong>AND</strong>, <strong>OR</strong> operations beween
+      booleans.
+      Using these two opraions beween two boolean variable works exactly as they read.
+      In Python we use <span class="inline-code">and</span> for AND between two booleans,
+      and <span class="inline-code">or</span> for OR between two booleans
+    </p>
+
+    <pre><code class="language-python"># Operation between booleans
 # Check how here we use comments after the main Python command.
 # Anything that we add after the # will be ignored by Python
 
@@ -268,51 +279,51 @@ b2 = "NP" == "New Providence"  # This is False
 print(b1 and b2)  # will print False, because only one of them is True
 print(b1 or b2)  # will print False, because one of them is true
 </code></pre>
-      <p>
-        In the beginning it may be confusing to know what is the resutls when we have
-        <span class="inline-code">and</span>, <span class="inline-code">or</span> between two booleans.
-        This table is good guide.
-      </p>
-      <div>
-        <table style="width:50%">
-          <tr>
-            <th>A</th>
-            <th>B</th>
-            <th>A and B</th>
-            <th>A or B</th> 
-          </tr>
-          <tr>
-            <td> False </td>
-            <td> False </td>
-            <td> False </td>
-            <td> False </td>
-          </tr>
-          <tr>
-            <td> True </td>
-            <td> False </td>
-            <td> False </td>
-            <td> True </td>
-          </tr>
-          <tr>
-            <td> False </td>
-            <td> True </td>
-            <td> False </td>
-            <td> True </td>
-          </tr>
-          <tr>
-            <td> True </td>
-            <td> True </td>
-            <td> True </td>
-            <td> True </td>
-          </tr>
-        </table>
-      </div>
-      
-      <p>
-        Now we can easily write our roller coaster check program like this:
-      </p>
+    <p>
+      In the beginning it may be confusing to know what is the resutls when we have
+      <span class="inline-code">and</span>, <span class="inline-code">or</span> between two booleans.
+      This table is good guide.
+    </p>
+    <div>
+      <table style="width:50%">
+        <tr>
+          <th>A</th>
+          <th>B</th>
+          <th>A and B</th>
+          <th>A or B</th>
+        </tr>
+        <tr>
+          <td> False </td>
+          <td> False </td>
+          <td> False </td>
+          <td> False </td>
+        </tr>
+        <tr>
+          <td> True </td>
+          <td> False </td>
+          <td> False </td>
+          <td> True </td>
+        </tr>
+        <tr>
+          <td> False </td>
+          <td> True </td>
+          <td> False </td>
+          <td> True </td>
+        </tr>
+        <tr>
+          <td> True </td>
+          <td> True </td>
+          <td> True </td>
+          <td> True </td>
+        </tr>
+      </table>
+    </div>
 
-<pre><code class="language-python"># Roller coaster
+    <p>
+      Now we can easily write our roller coaster check program like this:
+    </p>
+
+    <pre><code class="language-python"># Roller coaster
 # Notice the use of one function inside the other
 # This puts the output from one function directly inside the other
 
@@ -325,75 +336,80 @@ if (age > 10) and (height > 40):
 else:
   print('Sorry you can not ride')
 </code></pre>
-      <p>
-        As you see in the above example, the brackets around the boolean variables act in the exact same way as they do in arithmetic ones.
-        So, if there is a complex condition, feel free to use brackets as needed to make sure you get the right combination.
-        As a practice, see if you can predict the outcomes printed out from this code.
-      </p>
-<pre><code class="language-python"># What do you think the output is?
+    <p>
+      As you see in the above example, the brackets around the boolean variables act in the exact same way as they do in
+      arithmetic ones.
+      So, if there is a complex condition, feel free to use brackets as needed to make sure you get the right
+      combination.
+      As a practice, see if you can predict the outcomes printed out from this code.
+    </p>
+    <pre><code class="language-python"># What do you think the output is?
 bv1 = (67 > 45) and ("this" != "that")
 bv2 = (((5 * 7) - 45) > 13) or bv1
 print(bv1, bv2)
 </code></pre>
-      
-      <div class="box">
-        Consider a college that needs both the following conditions for accepting students.
-        <ul>
-          <li>GPA > 3.5</li>
-          <li>ACT > 25 or SAT > 1200</li>
-        </ul>
-        Write a program that asks appropriate questions from user and tell him if he can get into this college.
-      </div>
-      
-      <h1>Loops</h1>
-      <img src="../images/learn_python/chapter2/loops.jpeg" width="70%" class="image">
-      <p>
-        We just saw how if blocks are working. They run a block of code <i>once</i>, if some boolean statement/variable was true.
-        But what if there is a block of code that we want to run more than one time?
-        This is in fact a very common thing to have in any program.
-        <strong>Loops</strong> are what we use in programming to repeat a block of code multiple times.
-        There are many ways to create a loop in a program. Here we focus on <span class="inline-code">while</span> and
-        <span class="inline-code">for</span> loops.
-      </p>
-      <h2>while loop</h2>
-      <p>
-        A <span class="inline-code">while</span> loop in many ways resembles an <span class="inline-code">if</span> conditions.
-        The only difference is that Python runs the if block <i>only once</i> if the condition is true.
-        But in a while loop the <strong>loop block</strong> keeps repeating as long as the conditions is true.
-        See if you can figure out what this while loop doesn.
-      </p>
 
-<pre><code class="language-python"># A while loop
+    <div class="box">
+      Consider a college that needs both the following conditions for accepting students.
+      <ul>
+        <li>GPA > 3.5</li>
+        <li>ACT > 25 or SAT > 1200</li>
+      </ul>
+      Write a program that asks appropriate questions from user and tell him if he can get into this college.
+    </div>
+
+    <h1>Loops</h1>
+    <img src="../images/learn_python/chapter2/loops.jpeg" width="70%" class="image">
+    <p>
+      We just saw how if blocks are working. They run a block of code <i>once</i>, if some boolean statement/variable
+      was true.
+      But what if there is a block of code that we want to run more than one time?
+      This is in fact a very common thing to have in any program.
+      <strong>Loops</strong> are what we use in programming to repeat a block of code multiple times.
+      There are many ways to create a loop in a program. Here we focus on <span class="inline-code">while</span> and
+      <span class="inline-code">for</span> loops.
+    </p>
+    <h2>while loop</h2>
+    <p>
+      A <span class="inline-code">while</span> loop in many ways resembles an <span class="inline-code">if</span>
+      conditions.
+      The only difference is that Python runs the if block <i>only once</i> if the condition is true.
+      But in a while loop the <strong>loop block</strong> keeps repeating as long as the conditions is true.
+      See if you can figure out what this while loop doesn.
+    </p>
+
+    <pre><code class="language-python"># A while loop
 my_number = 1
 while 4 > my_number:
   print(my_number)
   my_number = my_number + 1
 </code></pre>
 
-      <div class="box">
-        <span style="color:red">DANGER!</span> You MUST alway make sure that the condition that makes loop can be true or false.
-        One of the biggest pitfalls in programming is having a condition on the loop that is never false.
-        This is known as an <strong>infinite loop</strong> and is most common bugs in a code.
-        This loops may never end which means that your program never finishes.
-        Sometimes the only way to stop a program that has an infintie loop is to turn off your computer.
-        But this happens rarely. We usually just have to force close our program.
-      </div>
-      <p>
-        What do you think will happen if you run this program? Run it on your own risk.
-      </p>
-<pre><code class="language-python"># A while loop
+    <div class="box">
+      <span style="color:red">DANGER!</span> You MUST alway make sure that the condition that makes loop can be true or
+      false.
+      One of the biggest pitfalls in programming is having a condition on the loop that is never false.
+      This is known as an <strong>infinite loop</strong> and is most common bugs in a code.
+      This loops may never end which means that your program never finishes.
+      Sometimes the only way to stop a program that has an infintie loop is to turn off your computer.
+      But this happens rarely. We usually just have to force close our program.
+    </div>
+    <p>
+      What do you think will happen if you run this program? Run it on your own risk.
+    </p>
+    <pre><code class="language-python"># A while loop
 my_number = 1
 while 4 > my_number:
   print(my_number)
 </code></pre>
-      
-      <p>
-        Here is another example of a program that uses while loop.
-        Here when the loop ends depends on the input to program.
-        It may take many tries. But still there exist a condition out of it.
-        So, we do NOT call this one an infinite loop.
-      </p>
-<pre><code class="language-python"># Guessing game
+
+    <p>
+      Here is another example of a program that uses while loop.
+      Here when the loop ends depends on the input to program.
+      It may take many tries. But still there exist a condition out of it.
+      So, we do NOT call this one an infinite loop.
+    </p>
+    <pre><code class="language-python"># Guessing game
 my_number = 43
 your_guess = int(input('Guess my number [1-100]: '))
 while your_guess != my_number:
@@ -403,39 +419,43 @@ while your_guess != my_number:
   
 print('Congratulations, you guessed right. The number was ', my_number)
 </code></pre>
-      
-      <div class="box">
-        Write a better version of the above program (the guessing game) that tells you if your next guess needs to be higher or lower.
-        For example if the number was 14 and user has guessed 65, the program tells user to go lower.
-      </div>
-      
-      <h2>for loop</h2>
-      <p>
-        Another very common loop is the <span class="inline-code">for</span>.
-        We doing something with all the elements in a list (remember the lists from the last class?).
-        For loop receives a list (to be more accurate an iterable, but don't worry about that, we will be working mostly with lists for now)
-        and runs the block with each of the element in that list one by one.
-        For loops have a variable that will be updated everytime that the loop block runs.
-        The following images illustartes how this works.
-      </p>
-      <img src="../images/learn_python/chapter2/expanded-loop.png" width="100%" class="image">
-      
-      <div class="box">
-        Write a program that uses a loop to write the name of the days in a week and their order.
-        For example, "Monday 1" .... "Sunday 7".
-      </div>
-      <h3>range function</h3>
-      <p>
-        Time for new python function:
-        A very useful function that is regularly used with a for loop is the <span class="inline-code">range</span>.
-        For this class we try using it only with a for loop.
-        It helps you to generate the list of numbers you need, so you don't have to type them all.
-        If you use it with a for loop, it can replace your list of numbers. For example instead of <span class="inline-code">[1, 2, 3, 4, 5, 6]</span>,
-        you may use <span class="inline-code">range(1, 7)</span>. This will give you the list of numbers from 1 up to (but not including) 7.
-        You can even give a third argument, that will be the increments, defaulat was 1 as you saw before.
-        See following examples for better understanding:
-      </p>
-<pre><code class="language-python"># For loops with range
+
+    <div class="box">
+      Write a better version of the above program (the guessing game) that tells you if your next guess needs to be
+      higher or lower.
+      For example if the number was 14 and user has guessed 65, the program tells user to go lower.
+    </div>
+
+    <h2>for loop</h2>
+    <p>
+      Another very common loop is the <span class="inline-code">for</span>.
+      We doing something with all the elements in a list (remember the lists from the last class?).
+      For loop receives a list (to be more accurate an iterable, but don't worry about that, we will be working mostly
+      with lists for now)
+      and runs the block with each of the element in that list one by one.
+      For loops have a variable that will be updated everytime that the loop block runs.
+      The following images illustartes how this works.
+    </p>
+    <img src="../images/learn_python/chapter2/expanded-loop.png" width="100%" class="image">
+
+    <div class="box">
+      Write a program that uses a loop to write the name of the days in a week and their order.
+      For example, "Monday 1" .... "Sunday 7".
+    </div>
+    <h3>range function</h3>
+    <p>
+      Time for new python function:
+      A very useful function that is regularly used with a for loop is the <span class="inline-code">range</span>.
+      For this class we try using it only with a for loop.
+      It helps you to generate the list of numbers you need, so you don't have to type them all.
+      If you use it with a for loop, it can replace your list of numbers. For example instead of <span
+        class="inline-code">[1, 2, 3, 4, 5, 6]</span>,
+      you may use <span class="inline-code">range(1, 7)</span>. This will give you the list of numbers from 1 up to (but
+      not including) 7.
+      You can even give a third argument, that will be the increments, defaulat was 1 as you saw before.
+      See following examples for better understanding:
+    </p>
+    <pre><code class="language-python"># For loops with range
 
 # This will print numbers from 1 to 100
 for i in range(1, 101):
@@ -446,55 +466,74 @@ for i in range(1, 101):
 for i in range(5, 101, 5):
   print(i)
 </code></pre>
-      <div class="box">
-        Write a program that outputs the even numbers less than 100, except numbers that are in 50-60 and 78-87 range (inclusise).
-      </div>
-      
-      <h2>Break and continue</h2>
-      <p>
-        <span class="inline-code">break</span> and <span class="inline-code">continue</span>
-        are two keyword to control the flow of the loops. It works both in 
-        <span class="inline-code">while</span> and <span class="inline-code">for</span> loops.
-      </p>
+    <div class="box">
+      Write a program that outputs the even numbers less than 100, except numbers that are in 50-60 and 78-87 range
+      (inclusise).
+    </div>
 
-      <h3>Break</h3>
-      <p>
-        If Python reaches the <span class="inline-code">break</span> keyword in a loop it exits that loop altogether.
-        That's why the call it <span class="inline-code">break</span>, because it breaks the loop.
-      </p>
-      <pre><code class="language-python"># Using break inside the loop.
+    <h2>Break and continue</h2>
+    <p>
+      <span class="inline-code">break</span> and <span class="inline-code">continue</span>
+      are two keyword to control the flow of the loops. It works both in
+      <span class="inline-code">while</span> and <span class="inline-code">for</span> loops.
+    </p>
+
+    <h3>Break</h3>
+    <p>
+      If Python reaches the <span class="inline-code">break</span> keyword in a loop it exits that loop altogether.
+      That's why the call it <span class="inline-code">break</span>, because it breaks the loop.
+    </p>
+    <pre><code class="language-python"># Using break inside the loop.
 for i in [2, 3, 4]:
   if i == 3:
     break  # this breaks the loop and goes to the code after the loop
   print(i)
 </code></pre>
 
-      <h3>Continue</h3>
-      <p>
-        If Python reaches the <span class="inline-code">continue</span> keyword in a loop it goes to the top of the loop's block.
-        Try to predict the output of the following code.
-      </p>
-      <pre><code class="language-python"># Using continue inside the loop.
+    <h3>Continue</h3>
+    <p>
+      If Python reaches the <span class="inline-code">continue</span> keyword in a loop it goes to the top of the loop's
+      block.
+      Try to predict the output of the following code.
+    </p>
+    <pre><code class="language-python"># Using continue inside the loop.
 for i in [2, 3, 4]:
   if i == 3:
     continue  # this tells Python to go to the top of the loop's block
   print(i)
 </code></pre>
-      
-      <h1>Functions</h1>
+    <div class="box">
       <p>
-        We have seen and used many functions so far. It's time to see how functions are built, and make some of our own.
-        As it was the theme in this lesson, function are (again) a block of code that can run it from anywhere in our code.
-        We use functions to avoid rewriting the same piece of code over and over.
-        To do that, we put a <strong>block</strong> of code inside a function, name that function something,
-        and everytime wanted to used it we just simply call that function by its name.
-        We use the Python keyword <span class="inline-code">def</span> to <i>define</i> our own functions.
-        After <span class="inline-code">def</span> we write the name of the function (the same rules for naming a variable)
-        and then add <span class="inline-code">()</span> in front of it to say this is a function (we talk about the brackets more soon).
-        To call the function, just use its name with <span class="inline-code">()</span> in front of it.
-        Example:
+        Find the smallest number after 1000 that can be divided by 23.
       </p>
-<pre><code class="language-python"># Define a function
+      <p>
+        Hint 1: check numbers larger than 100 to see which one is the first one that can be divided by 17.
+      </p>
+      <p>
+        Hint 2: there is a useful Python operation you can use here.
+        <span class="inline-code">%</span> finds the remained between two integers.
+        For example <span class="inline-code">12 % 5</span> will be 2,
+        because the remainer of dividing 12 by 5 is 2.
+      </p>
+    </div>
+
+    <h1>Functions</h1>
+    <p>
+      We have seen and used many functions so far. It's time to see how functions are built, and make some of our own.
+      As it was the theme in this lesson, function are (again) a block of code that can run it from anywhere in our
+      code.
+      We use functions to avoid rewriting the same piece of code over and over.
+      To do that, we put a <strong>block</strong> of code inside a function, name that function something,
+      and everytime wanted to used it we just simply call that function by its name.
+      We use the Python keyword <span class="inline-code">def</span> to <i>define</i> our own functions.
+      After <span class="inline-code">def</span> we write the name of the function (the same rules for naming a
+      variable)
+      and then add <span class="inline-code">()</span> in front of it to say this is a function (we talk about the
+      brackets more soon).
+      To call the function, just use its name with <span class="inline-code">()</span> in front of it.
+      Example:
+    </p>
+    <pre><code class="language-python"># Define a function
 
 # Defining my function
 def MyFunction():
@@ -503,21 +542,22 @@ def MyFunction():
 # Running my function
 MyFunction()
 </code></pre>
-      <div class="box">
-        Python doesn't run the code in your function definition, until you call the function.
-      </div>
+    <div class="box">
+      Python doesn't run the code in your function definition, until you call the function.
+    </div>
     <h2>Arguments</h2>
-      <p>
-        It is really boring to have a function that only does one thing (a one trick function).
-        Remember the functions we used so far were all receiving some variables that could change what they were doing 
-        (<span class="inline-code">range(4, 6)</span> and <span class="inline-code">range(9, 20)</span> do different things).
-        We call the variables the <strong>arguments</strong> to our function (also sometimes called parameters).
-        If you want a function that receives arguments and uses them for its process, all you need to do is to
-        add some variables inside the <span class="inline-code">()</span> that you had during the function definition.
-        When you call the function with variables, Python will replace them with the arguments of your function
-        <strong>in the same order</strong>. See the example below:
-      </p>
-<pre><code class="language-python"># Define a function WITH arguments
+    <p>
+      It is really boring to have a function that only does one thing (a one trick function).
+      Remember the functions we used so far were all receiving some variables that could change what they were doing
+      (<span class="inline-code">range(4, 6)</span> and <span class="inline-code">range(9, 20)</span> do different
+      things).
+      We call the variables the <strong>arguments</strong> to our function (also sometimes called parameters).
+      If you want a function that receives arguments and uses them for its process, all you need to do is to
+      add some variables inside the <span class="inline-code">()</span> that you had during the function definition.
+      When you call the function with variables, Python will replace them with the arguments of your function
+      <strong>in the same order</strong>. See the example below:
+    </p>
+    <pre><code class="language-python"># Define a function WITH arguments
 
 # Defining my function
 def TwoNumberFunction(a, b):
@@ -527,21 +567,21 @@ def TwoNumberFunction(a, b):
 # Running my function
 TwoNumberFunction(54, "Library")
 </code></pre>
-      
-      <div class="box">
-        Write a program that receives two numbers and tells you whihc one was bigger.
-      </div>
-      
-      <h2>Returned values</h2>
-      <p>
-        Functions we used so far receive arguments and print something on the screen.
-        We often use function to run some code and then give us some answer.
-        Or technically speaking <strong>return</strong> a value.
-        (remember how <span class="inline-code">range</span> function <i>returns</i> something that we use as a list).
-        See how the following function returns the results of multiplying two numbers.
-      </p>
-      
-<pre><code class="language-python"># Multiply function
+
+    <div class="box">
+      Write a program that receives two numbers and tells you whihc one was bigger.
+    </div>
+
+    <h2>Returned values</h2>
+    <p>
+      Functions we used so far receive arguments and print something on the screen.
+      We often use function to run some code and then give us some answer.
+      Or technically speaking <strong>return</strong> a value.
+      (remember how <span class="inline-code">range</span> function <i>returns</i> something that we use as a list).
+      See how the following function returns the results of multiplying two numbers.
+    </p>
+
+    <pre><code class="language-python"># Multiply function
 
 # Defining the function
 def Multiply(a, b):
@@ -551,13 +591,13 @@ def Multiply(a, b):
 r = Multiply(4, 6)
 print(r)
 </code></pre>
-      
+
     <p>
       When a function reaches the <span class="inline-code">return</span> line in its code,
       it returns from that function and does not continue from that point one.
       Can you tell the output of this program?
     </p>
-<pre><code class="language-python">def MyFunc(a, b):
+    <pre><code class="language-python">def MyFunc(a, b):
   c = a + b
   return c
   c = 7
@@ -566,44 +606,47 @@ print(r)
 r = MyFunc(4, 6)
 print(r)
 </code></pre>
-      
-      <div class="box">
-        Write a program that finds the smallest number that its division by 13 is more than 5 and its division by 17 is more than 6.
-        Hint: use a function that counts from the bottom and returns as soon as it reaches these conditions.
-      </div>
 
-    </div>
-    
-    <div class="content practice">
-      <h1>Practice</h1>
-      <ol>
-        <li>
-          Imagine the cost of tomato per pound is $2 if you are buying less than 5 lb, $1.5 for more than 5 up to 20 lb, and $1 for more.
-          Write a program that asks for how much tomato someone has purchased and tells you how much it costs.
-        </li>
-        <li>
-          Write a program that tells you who is the winner in rock/paper/scissors game.
-          It asks for the move from each player (let's assume 'r' for rock, 'p' for paper, ans 's' for scissors)
-          and tells your who is the winner.
-        </li>
-        <li>
-          Write a program that prints out all the prime numbers that are less 100.
-          Don't forget to write a code that checks if a number is prime or not.
-          (What is a prime number? see <a href="https://en.wikipedia.org/wiki/Prime_number">this</a>.)
-        </li>
-      </ol>
+    <div class="box">
+      Write a program that finds the smallest number that its division by 13 is more than 5 and its division by 17 is
+      more than 6.
+      Hint: use a function that counts from the bottom and returns as soon as it reaches these conditions.
     </div>
 
-    <div class="content project">
-      <h1>Project</h1>
-      <p>
-        See <a href="https://mojtaba-komeili.github.io/learn_python/chapter3_game">this simple game</a>
-        (It is a two person game, but you can play it alone too).
-        Try to make it this game with the programming skills you have learned so far.
-        Don't focus on the graphic. You can make a simpler text-based version of it like this.
-      </p>
-      <img src="../images/learn_python/chapter2/game_sample.png" width="60%" class="image">
-    </div>
+  </div>
 
-  </body>
+  <div class="content practice">
+    <h1>Practice</h1>
+    <ol>
+      <li>
+        Imagine the cost of tomato per pound is $2 if you are buying less than 5 lb, $1.5 for more than 5 up to 20 lb,
+        and $1 for more.
+        Write a program that asks for how much tomato someone has purchased and tells you how much it costs.
+      </li>
+      <li>
+        Write a program that tells you who is the winner in rock/paper/scissors game.
+        It asks for the move from each player (let's assume 'r' for rock, 'p' for paper, ans 's' for scissors)
+        and tells your who is the winner.
+      </li>
+      <li>
+        Write a program that prints out all the prime numbers that are less 100.
+        Don't forget to write a code that checks if a number is prime or not.
+        (What is a prime number? see <a href="https://en.wikipedia.org/wiki/Prime_number">this</a>.)
+      </li>
+    </ol>
+  </div>
+
+  <div class="content project">
+    <h1>Project</h1>
+    <p>
+      See <a href="https://mojtaba-komeili.github.io/learn_python/chapter3_game">this simple game</a>
+      (It is a two person game, but you can play it alone too).
+      Try to make it this game with the programming skills you have learned so far.
+      Don't focus on the graphic. You can make a simpler text-based version of it like this.
+    </p>
+    <img src="../images/learn_python/chapter2/game_sample.png" width="60%" class="image">
+  </div>
+
+</body>
+
 </html>
