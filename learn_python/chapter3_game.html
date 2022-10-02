@@ -1,213 +1,216 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Hello World</title>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-    <!-- Don't use this in production: -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="text/babel">
-    
-      function GameApp() {
-        
-        const [ended, setEnded] = React.useState(false);
-        const [playerPos, setPlayerPos] = React.useState(1);
-        const [deamonPos, setDeamonPos] = React.useState(8);
-        const [playerTurn, setPlayerTurn] = React.useState(true);
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello World</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-        console.log(ended)
-        const moveConsole = ended ? null : (
-          <Move 
-                playerTurn={playerTurn}
-                setPlayerTurn={setPlayerTurn}
-                player={playerPos}
-                setPlayer={setPlayerPos}
-                deamon={deamonPos}
-                setDeamon={setDeamonPos}
-            />
-        );
-        
-        return (
-          <div id="GameApp">
-            <Instruction />
-            <hr></hr>
-            <GameState
-                player={playerPos}
-                deamon={deamonPos}
-                setEnded={setEnded}
-            />
-            <hr></hr>
-            {moveConsole}
-          </div>
-        )
-      }
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-      function Instruction() {
-        return (
-          <div>
-            <h1>Instruction</h1>
-            <div style={{width: "50%"}}>
-              <p>
-                Two players play this game. One person plays 🤠 and the other person plays 👿.
-                🤠 is trying to run out of the door.
-                👿 wins by catching 🤠.
-                Each person has a trun and in his/her turn chooses from the available moves under the board.
-              </p>
-            </div>
-          </div>
-        )
-      }
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
 
-      function GameState(props) {
-        const playerPos = props.player;
-        const deamonPos = props.deamon;
-        console.log(playerPos);
-        if (playerPos > 9) {
-          props.setEnded(true);
-          return <div className="final">"Congratulation 🤠! You are the winner."</div>
-        } else if (playerPos == deamonPos) {
-          props.setEnded(true);
-          return <div className="final">"Congratulation 👿! You are the winner."</div>
-        } else {
-          return <Board 
+    function GameApp() {
+
+      const [ended, setEnded] = React.useState(false);
+      const [playerPos, setPlayerPos] = React.useState(1);
+      const [deamonPos, setDeamonPos] = React.useState(8);
+      const [playerTurn, setPlayerTurn] = React.useState(true);
+
+      console.log(ended)
+      const moveConsole = ended ? null : (
+        <Move
+          playerTurn={playerTurn}
+          setPlayerTurn={setPlayerTurn}
+          player={playerPos}
+          setPlayer={setPlayerPos}
+          deamon={deamonPos}
+          setDeamon={setDeamonPos}
+        />
+      );
+
+      return (
+        <div id="GameApp">
+          <Instruction />
+          <hr></hr>
+          <GameState
             player={playerPos}
             deamon={deamonPos}
-            setPlayer={props.setPlayerPos}
-            setDeamon={props.setDeamonPos}
+            setEnded={setEnded}
           />
-        }
+          <hr></hr>
+          {moveConsole}
+        </div>
+      )
+    }
+
+    function Instruction() {
+      return (
+        <div>
+          <h1>Instruction</h1>
+          <div style={{ width: "50%" }}>
+            <p>
+              Two players play this game. One person plays 🤠 and the other person plays 👿.
+              🤠 is trying to run out of the door.
+              👿 wins by catching 🤠.
+              Each person has a trun and in his/her turn chooses from the available moves under the board.
+            </p>
+          </div>
+        </div>
+      )
+    }
+
+    function GameState(props) {
+      const playerPos = props.player;
+      const deamonPos = props.deamon;
+      console.log(playerPos);
+      if (playerPos > 9) {
+        props.setEnded(true);
+        return <div className="final">"Congratulation 🤠! You are the winner."</div>
+      } else if (playerPos == deamonPos) {
+        props.setEnded(true);
+        return <div className="final">"Congratulation 👿! You are the winner."</div>
+      } else {
+        return <Board
+          player={playerPos}
+          deamon={deamonPos}
+          setPlayer={props.setPlayerPos}
+          setDeamon={props.setDeamonPos}
+        />
       }
+    }
 
-      function Board(props) {
-        const board = []
-        for (let i = 0 ; i < 10 ; i++) {
-          board.push(' .');
-        }        
-        board[props.player] = "🤠";
-        board[props.deamon] = "👿";
-        
-        let text = "| ";
-        for (let i = 0 ; i < 10 ; i++) {
-          text += board.at(i) + " |";
-        }
-        text += " 🚪"
-        return <h1>{text}</h1>
+    function Board(props) {
+      const board = []
+      for (let i = 0; i < 10; i++) {
+        board.push(' .');
       }
+      board[props.player] = "🤠";
+      board[props.deamon] = "👿";
 
-      function Move(props) {
-        if (props.playerTurn) {
-          return <PlayerMove
-                    player={props.player}
-                    setPlayer={props.setPlayer}
-                    setPlayerTurn={props.setPlayerTurn}
-                  />;
-        } else {
-          return <DeamonMove 
-                    deamon={props.deamon}
-                    setDeamon={props.setDeamon}
-                    setPlayerTurn={props.setPlayerTurn}
-                  />
-        }
+      let text = "| ";
+      for (let i = 0; i < 10; i++) {
+        text += board.at(i) + " |";
       }
+      text += " 🚪"
+      return <h1>{text}</h1>
+    }
 
-      function PlayerMove(props) {
-        const playerPos = props.player;
-        const setPlayerPos = props.setPlayer;
+    function Move(props) {
+      if (props.playerTurn) {
+        return <PlayerMove
+          player={props.player}
+          setPlayer={props.setPlayer}
+          setPlayerTurn={props.setPlayerTurn}
+        />;
+      } else {
+        return <DeamonMove
+          deamon={props.deamon}
+          setDeamon={props.setDeamon}
+          setPlayerTurn={props.setPlayerTurn}
+        />
+      }
+    }
 
-        function Arrows() {
-          const jump = Math.floor(1 + Math.random() * 2)
-          return (
-            <div>
-              <div 
-                style={{float: "left"}}
-                onClick={() => {
-                  if (playerPos < jump) {
-                    alert("You can not move left anymore.");
-                    return
-                  } else {
-                    props.setPlayerTurn(false);
-                    setPlayerPos(playerPos - jump);
-                  }
-                }}
-                className="game_button">⬅️ Move left {jump}
-                </div>
-              <div
-                style={{float: "right"}}
-                onClick={() => {
-                  props.setPlayerTurn(false);
-                  setPlayerPos(playerPos + jump);
-                }}
-                className="game_button">➡️ Move right {jump}
-              </div>     
-            </div>
-          )     
-        }
-        
+    function PlayerMove(props) {
+      const playerPos = props.player;
+      const setPlayerPos = props.setPlayer;
+
+      function Arrows() {
+        const jump = Math.floor(1 + Math.random() * 2)
         return (
           <div>
-            <h1>It is 🤠's turn.</h1>
-            <Arrows />
+            <div
+              style={{ float: "left" }}
+              onClick={() => {
+                if (playerPos < jump) {
+                  alert("You can not move left anymore.");
+                  return
+                } else {
+                  props.setPlayerTurn(false);
+                  setPlayerPos(playerPos - jump);
+                }
+              }}
+              className="game_button">⬅️ Move left {jump}
+            </div>
+            <div
+              style={{ float: "right" }}
+              onClick={() => {
+                props.setPlayerTurn(false);
+                setPlayerPos(playerPos + jump);
+              }}
+              className="game_button">➡️ Move right {jump}
+            </div>
           </div>
         )
       }
-                   
-      function DeamonMove(props) {
-        const deamonPos = props.deamon;
-        const setDeamonPos = props.setDeamon;
 
-        function Arrows() {
-          const jump = Math.floor(1 + Math.random() * 2)
-          return (
-            <div>
-              <div 
-                style={{float: "left"}}
-                onClick={() => {
-                  if (deamonPos < jump) {
-                    alert("You can not move left anymore.");
-                    return
-                  } else {
-                    props.setPlayerTurn(true);
-                    setDeamonPos(deamonPos - jump);
-                  }
-                }}
-                className="game_button">⬅️ Move left {jump}
-              </div>
-              <div
-                style={{float: "right"}}
-                onClick={() => {
-                  const newPos = deamonPos + jump;
-                  if (newPos >= 9) {
-                    alert("You can not move right anymore.");
-                    return
-                  } else {
-                    props.setPlayerTurn(true);
-                    setDeamonPos(newPos);
-                  }
-                }}
-                className="game_button">➡️ Move right {jump}
-              </div>     
-            </div>
-          )     
-        }
-        
+      return (
+        <div>
+          <h1>It is 🤠's turn.</h1>
+          <Arrows />
+        </div>
+      )
+    }
+
+    function DeamonMove(props) {
+      const deamonPos = props.deamon;
+      const setDeamonPos = props.setDeamon;
+
+      function Arrows() {
+        const jump = Math.floor(1 + Math.random() * 2)
         return (
           <div>
-            <h1>It is 👿's turn.</h1>
-            <Arrows />
+            <div
+              style={{ float: "left" }}
+              onClick={() => {
+                if (deamonPos < jump) {
+                  alert("You can not move left anymore.");
+                  return
+                } else {
+                  props.setPlayerTurn(true);
+                  setDeamonPos(deamonPos - jump);
+                }
+              }}
+              className="game_button">⬅️ Move left {jump}
+            </div>
+            <div
+              style={{ float: "right" }}
+              onClick={() => {
+                const newPos = deamonPos + jump;
+                if (newPos >= 9) {
+                  alert("You can not move right anymore.");
+                  return
+                } else {
+                  props.setPlayerTurn(true);
+                  setDeamonPos(newPos);
+                }
+              }}
+              className="game_button">➡️ Move right {jump}
+            </div>
           </div>
-        ) 
+        )
       }
 
-      const container = document.getElementById('root');
-      const root = ReactDOM.createRoot(container);
-      root.render(<GameApp />);
+      return (
+        <div>
+          <h1>It is 👿's turn.</h1>
+          <Arrows />
+        </div>
+      )
+    }
 
-    </script>
-  </body>
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    root.render(<GameApp />);
+
+  </script>
+</body>
+
 </html>
