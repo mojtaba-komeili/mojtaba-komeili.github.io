@@ -502,11 +502,11 @@ class Vehicle:
     self.color = color
     self.speed = 0
 
-class Car:
+class Car(Vehicle):
   def move(self):
     print('The car is moving.')
 
-class Truck:
+class Truck(Vehicle):
   def move(self):
     print('The truck is moving.')
 
@@ -517,6 +517,15 @@ class Truck:
 my_car = Car()
 my_truck = Truck()
 </code></pre>
+    <p>
+      Here we used <span class="inline-code">Truck(Vehicle)</span> and <span class="inline-code">Car(Vehicle)</span>
+      instead of just <span class="inline-code">Truck</span> and <span class="inline-code">Car</span>.
+      By adding the extra <span class="inline-code">(Vehicle)</span> in front of the class name,
+      we are tellin Python that this class that we are defining is a child of the <span
+        class="inline-code">Vehicle</span> class.
+      So, it <strong>inherits</strong> all the propertis and action/functions that already exists in the
+      <span class="inline-code">Vehicle</span> class, and we don't have to define them again.
+    </p>
 
 
     <!-- Modules -->
@@ -525,6 +534,8 @@ my_truck = Truck()
       Large programs may have thousands of classes. It is really hard to keep them all in the same file.
       Here is when we build <strong>modules</strong>.
       In simple terms, the code that you have inside your file is a module.
+      When you see your code is getting too large, or it is hard to keep it all in a single file,
+      you can separate it into modules, and save your code in different files.
     </p>
 
   </div>
