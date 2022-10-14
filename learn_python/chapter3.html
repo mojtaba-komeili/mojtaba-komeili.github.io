@@ -219,9 +219,11 @@ print('The color of my car is ' + my_car.color)
 
     <p>
       So far our <span class="inline-code">Car</span> class has been always creating one type of car: red Ford.
-      But how do we make it to create other types of cars? The answer is usign the <span class="inline-code">__init__</span> function.
+      But how do we make it to create other types of cars? The answer is usign the <span
+        class="inline-code">__init__</span> function.
       As we said, <span class="inline-code">__init__</span> function is just a function that belongs to our object.
-      Its first variable is <span class="inline-code">self</span> (which we don't usually thouch), but we can have other variables to it.
+      Its first variable is <span class="inline-code">self</span> (which we don't usually thouch), but we can have other
+      variables to it.
       For example
     </p>
     <pre><code class="language-python"># Properties of an object
@@ -272,6 +274,60 @@ print('Your car is made in ' + my_car.made_in)
       <br>
       Your car is made in Japan
     </div>
+
+    <p>
+      You can also read and change the values of the properties from inside the functions of a class.
+      Just do not forget that you need to have <span class="inline-code">self.</span> in front of the
+      variables that keep the properties of an object.
+    </p>
+    <pre><code class="language-python"># A car that accelerates and brakes.
+class Car:
+  def __init__(self):
+    # We set the initial speed to 0
+    # because the car was just created and doesn't move.
+    self.speed = 0
+
+  def accelerate(self):
+    self.speed = self.speed + 1
+    print('Car accelerated to the new speed ', self.speed)
+  
+  def brake(self):
+    if self.speed < 1:
+      print('The car has stopped. No more braking.')
+    else:
+    self.speed = self.speed - 1
+    print('Car reduced its speed to ', self.speed)
+  
+# Creating an object for the car
+some_car = Car()
+
+# Calling accelerate 3 times.
+for i in range(3):
+  some_car.accelerate()
+
+# Calling brake 5 times.
+for i in range(5):
+  some_car.brake()
+</code></pre>
+
+    <div class="output-box">
+      Car accelerated to the new speed 1
+      <br>
+      Car accelerated to the new speed 2
+      <br>
+      Car accelerated to the new speed 3
+      <br>
+      Car reduced its speed to 2
+      <br>
+      Car reduced its speed to 1
+      <br>
+      Car reduced its speed to 0
+      <br>
+      The car has stopped. No more braking.
+      <br>
+      The car has stopped. No more braking.
+    </div>
+
   </div>
 
 </body>
