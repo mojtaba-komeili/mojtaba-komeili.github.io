@@ -216,6 +216,62 @@ print('The color of my car is ' + my_car.color)
       <br>
       The color of my car is red
     </div>
+
+    <p>
+      So far our <span class="inline-code">Car</span> class has been always creating one type of car: red Ford.
+      But how do we make it to create other types of cars? The answer is usign the <span class="inline-code">__init__</span> function.
+      As we said, <span class="inline-code">__init__</span> function is just a function that belongs to our object.
+      Its first variable is <span class="inline-code">self</span> (which we don't usually thouch), but we can have other variables to it.
+      For example
+    </p>
+    <pre><code class="language-python"># Properties of an object
+class Car:
+  def __init__(self, make, color):
+    self.make = make
+    self.color = color
+
+    # Finding out the country it was made baseon on its maker.
+    if make == 'Ford' || make == 'GM':
+      self.made_in = 'US'
+    elif make == 'Honda' || make == 'Toyota':
+      self.made_in = 'Japan'
+    elif make == 'BMW':
+      self.made_in = 'Germany'
+    else:
+    self.made_in = '???'
+
+  def move(self):
+    print('The car is moving.')
+  
+# Creating an object for my car
+my_car = Car('Ford', 'red')
+print('My car is made by ' + my_car.make)
+print('The color of my car is ' + my_car.color)
+print('My car is made in ' + my_car.made_in)
+
+print('---------')
+
+# Creating an object for your car
+your_car = Car('Honda', 'black')
+print('Your car is made by ' + my_car.make)
+print('The color of your car is ' + my_car.color)
+print('Your car is made in ' + my_car.made_in)
+</code></pre>
+    <div class="output-box">
+      My car is made by Ford
+      <br>
+      The color of my car is red
+      <br>
+      My car is made in US
+      <br>
+      ---------
+      <br>
+      Your car is made by Honda
+      <br>
+      The color of your car is black
+      <br>
+      Your car is made in Japan
+    </div>
   </div>
 
 </body>
