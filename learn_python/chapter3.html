@@ -98,6 +98,7 @@
     </p>
     <h1 style="color:red;">FIGURE 2 HERE</h1>
 
+    <!-- Classes -->
     <h2>Objects in python</h2>
 
     <!-- Classes -->
@@ -159,6 +160,8 @@ my_car.move()
     <div class="output-box">
       The car is moving.
     </div>
+
+    <!-- init function -->
     <h3>The <span class="inline-code">__init__</span> function</h3>
     <p>
       The most important function in every object is its <span class="inline-code">__init__</span> function.
@@ -328,6 +331,7 @@ for i in range(5):
       The car has stopped. No more braking.
     </div>
 
+    <!-- Nested objects -->
     <h3>Objects inside other objects</h3>
     <p>
       The properties of class can be other objects too.
@@ -361,6 +365,41 @@ print("The new car in my parking is made by ", my_parking.car_in_parking.make)
       The new car in my parking is made by Honda
     </div>
 
+    <!-- Everything is an object -->
+    <h3>Everything is an object in Python</h3>
+    <p>
+      Even if you did not know it, you have been working with objects from the first day of this class.
+      All the variables (float, int, list, dictionary, string) were objects.
+      This means that many of these objects already had actions/functions we could use.
+      Here are some of the interesting methods for variables you have worked with so far.
+    </p>
+
+    <h4>List</h4>
+    <!-- Append -->
+    <h5>Adding something at the end of a list</h5>
+    <pre><code class="language-python"># 'append' will add something to the end of a list
+myList = [4, 5]
+myList.append(7)
+print(myList)
+</code></pre>
+    <div class="output-box">
+      [4, 5, 7]
+    </div>
+
+    <!-- Count -->
+    <h5>Counting number of items in a list</h5>
+    <pre><code class="language-python"># 'count' will count how many of an item is in your list
+myList = [4, 3, 5, 3, 8, 3, 2, 3, 9, 3]
+print(myList.count(3))
+print(myList.count(8))
+</code></pre>
+    <div class="output-box">
+      5
+      <br>
+      1
+    </div>
+
+    <!-- Inheritance -->
     <h2>Inheritance: how not to repeat the code.</h2>
     <p>
       Let's imagine you wanted to also have a <i>Truck</i> class that creates an objects of type truck for you.
@@ -455,6 +494,15 @@ class Truck:
 my_car = Car()
 my_truck = Truck()
 </code></pre>
+
+
+    <!-- Modules -->
+    <h2>Importing Modules</h2>
+    <p>
+      Large programs may have thousands of classes. It is really hard to keep them all in the same file.
+      Here is when we build <strong>modules</strong>.
+      In simple terms, the code that you have inside your file is a module.
+    </p>
 
   </div>
 
