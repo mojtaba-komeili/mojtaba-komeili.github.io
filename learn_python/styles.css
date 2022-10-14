@@ -68,6 +68,15 @@ body {
   border-radius: 5px;
 }
 
+.output-box {
+  margin: 20px;
+  padding: 20px;
+  background-color:rgb(19, 21, 21);
+  font-family: Calibri;
+  color: rgb(99, 208, 26);
+  border-radius: 5px;
+}
+
 .image {
   display: block;
   margin-left: auto;

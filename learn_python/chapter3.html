@@ -24,13 +24,14 @@
   </div>
 
   <div class="content">
-    <!--
-      <div class="slideslink">
-        <a href="https://docs.google.com/presentation/d/1dwZ09lQMJmfmkjnIEuPRPaCh1YJVaG3JukzMY3YP-sk/edit?usp=sharing" target="_blank">
-          Slides from class <img src="../images/learn_python/slides.png" height="20px">
-        </a>
-      </div>
--->
+
+    <div class="slideslink">
+      <a href="https://docs.google.com/presentation/d/1lJpv0aSIomaH-Lbf2Eoflr_a-vAKygPouT8Bhf-k3b8/edit?usp=sharing"
+        target="_blank">
+        Slides from class <img src="../images/learn_python/slides.png" height="20px">
+      </a>
+    </div>
+
 
     <h1>Objects and Modules</h1>
     <div class="box">
@@ -54,15 +55,167 @@
       What is an object? Objects in programming are very similar to objects we have in real world.
       We define each object with two thigns:
     </p>
-    <ol>
+    <ul>
       <li><strong>Properties</strong>: how it is and looks like. For example color, size, location, etc.</li>
       <li><strong>Actions</strong>: what it can do. For example runs, moves, eats, etc.</li>
-    </ol>
+    </ul>
 
     <div class="box">
       Find an object around you and try to find its <strong>properties</strong> and <strong>actions</strong>.
     </div>
-    
+
+    <h3>Building a car object</h3>
+    <p>
+      Let's imagine a car. If you wanted to define a car in your program as an object,
+      what do you think the <strong>properties</strong> and <strong>actions</strong> for a car would be?
+      Of course there are thousands of things that a car can do (move, stop, turn, play music, heat up seats, etc.)
+      and plenty of properties a car has (color, make, number of bolts, amount of gas, etc.).
+      But the important thing to remember for bringing it as an object to your program is
+      <strong>which of those thousands of properties and actions are what you need in your program.</strong>
+      You only need to choose things that your program needs. We will talk a bit more about that in a bit.
+      For example, for a simple program, your car objects may only need these:
+    <ul>
+      <li>Properties:</li>
+      <ul>
+        <li>make</li>
+        <li>color</li>
+        <li>speed</li>
+      </ul>
+      <li>Actions:</li>
+      <ul>
+        <li>accelerate</li>
+        <li>brake</li>
+      </ul>
+    </ul>
+    For showing this easier programmers usually use images like this.
+    </p>
+    <h1 style="color:red;">FIGURE 1 HERE</h1>
+    <p>
+      Now try to figure out the objects that we need for our simple game and properties and actions that they have.
+      Two objects that we definitely need are our game <strong>hero</strong> and <strong>deamon</strong>.
+      Using the same diagrams we used for the car, we can have these for our hero and deamon character,
+      when we are building them into objects in our program.
+    </p>
+    <h1 style="color:red;">FIGURE 2 HERE</h1>
+
+    <h2>Objects in python</h2>
+
+    <!-- Classes -->
+    <h3>Class</h3>
+    <p>
+    <h1 style="color:red;">FIGURE 3 HERE</h1>
+    Python uses <strong>classes</strong> to create an object.
+    A class is like a blueprint to create something. You give this blueprint to Python and creates an objects for you
+    exactly as you asked.
+    For example this is how we define a car class that has a single action, move, in Python.
+    </p>
+    <pre><code class="language-python"># Defining a car class in Python
+class Car:
+  def move(self):
+    print('The car is moving.')
+</code></pre>
+    <p>
+      In this code we have <span class="inline-code">class Car</span> which tells Python we are about to define a class.
+      The block of code (remember tabs) that comes after this line is the definition of this class.
+      In this block we have a function called <span class="inline-code">move</span>.
+      It is a simple function that just prints "The car is moving.".
+      Functions that define actions for an objects <strong>MUST</strong> have <span class="inline-code">self</span> as
+      their first parameter.
+      It is very important that you remember this.
+    </p>
+
+    <!-- Classes -->
+    <h3>Objects</h3>
+    <p>
+      Now that we have a class, we can use it to create and object.
+      In other words, now that we told Python how our <span class="inline-code">Car</span> object looks like,
+      we are going to tell python to create it for us.
+      You can simply create an object from you class by callig your class like a function: <span
+        class="inline-code">my_car = Car()</span>.
+      <strong>The variable that this returns</strong>, <span class="inline-code">my_car</span>, <strong>is your
+        object.</strong>.
+      Now, you can call actions (functions) from your object by using a "." after your object and then the name of the
+      action you want.
+      When calling the functions from an object, Python will put the value of <span class="inline-code">self</span>
+      inside your function;
+      you should <strong>NOT</strong> do it yourself.
+    </p>
+    <pre><code class="language-python"># Calling actions/functions from an object.
+class Car:
+  def move(self):
+    print('The car is moving.')
+
+# Creating an object using Car class and storing it in a variable
+my_car = Car()
+# Now we have an object called my_car
+
+# Calling the move function from my_car object
+my_car.move()
+</code></pre>
+    <p>
+      Save a file, for example name it <i>cars.py</i>,
+      with the code on your file and run it this is the output when you run this Python code:
+    </p>
+    <div class="output-box">
+      The car is moving.
+    </div>
+    <h3>The <span class="inline-code">__init__</span> function</h3>
+    <p>
+      The most important function in every object is its <span class="inline-code">__init__</span> function.
+      Every class in Pyhton has an <span class="inline-code">__init__</span> function.
+      If you don't add it yourself, like we did with the car class here, Python will add that for you when it runs your
+      code.
+      You saw that when you want to create an object you call its class name,
+      for example <span class="inline-code">my_car = Car()</span> to create a
+      <span class="inline-code">my_car</span> object from the <span class="inline-code">Car</span> class.
+      When Python is creating your object, it first runs the <span class="inline-code">__init__</span> function for its
+      class.
+      In fact, we call this function <span class="inline-code">__init__</span> which is the short form for
+      <strong>initialize</strong>.
+    </p>
+    <p>
+      Most of the times Python programmers use <span class="inline-code">__init__</span> function to add properties to
+      their objects.
+      Think about it this way: <span class="inline-code">__init__</span> function is where you tell Python how your
+      object is
+      going to look like right after it was created. Properties in an object are like variables but we put a
+      <span class="inline-code">self.</span> in front of their names to say that they belong to that object.
+      For example this this is how we make a <i>red ford</i> car object in Python.
+      As you can see it also has the <span class="inline-code">self.</span> function.
+    </p>
+    <pre><code class="language-python"># Defining a Red Ford car object
+class Car:
+  def __init__(self):
+    self.make = 'Ford'
+    self.color = 'red'
+
+  def move(self):
+    print('The car is moving.')
+</code></pre>
+
+    <p>
+      The properties of an obejct are like any other variable. But you <stron>MUST</stron> have the object name in front
+      of them.
+    </p>
+    <pre><code class="language-python"># Properties of an object
+class Car:
+  def __init__(self):
+    self.make = 'Ford'
+    self.color = 'red'
+
+  def move(self):
+    print('The car is moving.')
+  
+my_car = Car()
+print('My car is made by ' + my_car.make)
+print('The color of my car is ' + my_car.color)
+</code></pre>
+    <p>And the output of this is</p>
+    <div class="output-box">
+      My car is made by Ford
+      <br>
+      The color of my car is red
+    </div>
   </div>
 
 </body>
