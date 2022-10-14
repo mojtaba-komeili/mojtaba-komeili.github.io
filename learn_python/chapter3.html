@@ -124,7 +124,7 @@ class Car:
       It is very important that you remember this.
     </p>
 
-    <!-- Classes -->
+    <!-- Objects -->
     <h3>Objects</h3>
     <p>
       Now that we have a class, we can use it to create and object.
@@ -327,6 +327,134 @@ for i in range(5):
       <br>
       The car has stopped. No more braking.
     </div>
+
+    <h3>Objects inside other objects</h3>
+    <p>
+      The properties of class can be other objects too.
+      Just don't forget that each time you want to use the properties of an object you need to add a ".".
+      For example:
+    </p>
+    <pre><code class="language-python"># Having a car and a truck
+class Car:
+  def __init__(self, make, color):
+    self.make = make
+
+class Parking:
+  def __init__(self, car):
+    # See the name of the object property doesn't have to be the same as function argument
+    # The property variable name is "car_in_parking" but function argument name is "car"
+    self.car_in_parking = car
+      
+my_car = Car('Ford')
+my_parking = Parking(my_car)
+
+print("The car in my parking is made by ", my_parking.car_in_parking.make)
+
+new_car = Car('Honda')
+# Chaning the car in the parking
+my_parking.car_in_parking = new_car
+print("The new car in my parking is made by ", my_parking.car_in_parking.make)
+</code></pre>
+    <div class="output-box">
+      The car in my parking is made by Ford
+      <br>
+      The new car in my parking is made by Honda
+    </div>
+
+    <h2>Inheritance: how not to repeat the code.</h2>
+    <p>
+      Let's imagine you wanted to also have a <i>Truck</i> class that creates an objects of type truck for you.
+      Your truck object is going to have everything that car did <i>plus it can carry load</i>.
+      One of doing it is like this:
+    </p>
+    <pre><code class="language-python"># Having a car and a truck
+class Car:
+  def __init__(self, make, color):
+    self.make = make
+    self.color = color
+    self.speed = 0
+
+  def move(self):
+    print('The car is moving.')
+
+  def accelerate(self):
+    self.speed = self.speed + 1
+    print('Car accelerated to the new speed ', self.speed)
+  
+  def brake(self):
+    if self.speed < 1:
+      print('The car has stopped. No more braking.')
+    else:
+    self.speed = self.speed - 1
+    print('Car reduced its speed to ', self.speed)
+
+
+class Truck:
+  def __init__(self, make, color):
+    self.make = make
+    self.color = color
+    self.speed = 0
+
+  def move(self):
+    print('The truck is moving.')
+
+  def accelerate(self):
+    self.speed = self.speed + 1
+    print('Car accelerated to the new speed ', self.speed)
+  
+  def brake(self):
+    if self.speed < 1:
+      print('The car has stopped. No more braking.')
+    else:
+    self.speed = self.speed - 1
+    print('Car reduced its speed to ', self.speed)
+
+  def carry_load(self):
+    print('The truck is carrying load')
+
+
+my_car = Car()
+my_truck = Truck()
+</code></pre>
+    <p>
+      Here we have repeated all three functions twice. Once for <span class="inline-code">Car</span>
+      class and another time for <span class="inline-code">Truck</span> class.
+      There is a simple way to avoid this in programming,
+      and it is by having two or more obejcts be a <strong>child</strong> of some other object.
+      If and object is the child of another object it means that it can use all the functions and properties of its
+      parent.
+      For example, we can have another class called <span class="inline-code">Vehicle</span>.
+      We know that <span class="inline-code">Car</span> and <span class="inline-code">Truck</span> are both vehicles.
+      So, we put everything that they have inside a class that we call <span class="inline-code">Vehilce</span>.
+      And by putting everything that they have in common in the <span class="inline-code">Vehilce</span> class,
+      and then making sure that both <span class="inline-code">Car</span> and <span class="inline-code">Truck</span>
+      are children classes of the <span class="inline-code">Vehilce</span>, we don't have to repeat them.
+      So, in Python the following code works exactly as the abvoe one.
+    </p>
+    <h1 style="color:red;">INHERITANCE FIGURE HERE</h1>
+    <pre><code class="language-python"># Having a car and a truck
+
+class Vehicle:
+  def __init__(self, make, color):
+    self.make = make
+    self.color = color
+    self.speed = 0
+
+class Car:
+  def move(self):
+    print('The car is moving.')
+
+class Truck:
+  def move(self):
+    print('The truck is moving.')
+
+  def carry_load(self):
+    print('The truck is carrying load')
+
+
+my_car = Car()
+my_truck = Truck()
+</code></pre>
 
   </div>
 
