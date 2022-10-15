@@ -20,7 +20,7 @@
 
       const [ended, setEnded] = React.useState(false);
       const [playerPos, setPlayerPos] = React.useState(1);
-      const [deamonPos, setDeamonPos] = React.useState(8);
+      const [demonPos, setDemonPos] = React.useState(8);
       const [playerTurn, setPlayerTurn] = React.useState(true);
 
       console.log(ended)
@@ -30,8 +30,8 @@
           setPlayerTurn={setPlayerTurn}
           player={playerPos}
           setPlayer={setPlayerPos}
-          deamon={deamonPos}
-          setDeamon={setDeamonPos}
+          demon={demonPos}
+          setDemon={setDemonPos}
         />
       );
 
@@ -41,7 +41,7 @@
           <hr></hr>
           <GameState
             player={playerPos}
-            deamon={deamonPos}
+            demon={demonPos}
             setEnded={setEnded}
           />
           <hr></hr>
@@ -68,20 +68,20 @@
 
     function GameState(props) {
       const playerPos = props.player;
-      const deamonPos = props.deamon;
+      const demonPos = props.demon;
       console.log(playerPos);
       if (playerPos > 9) {
         props.setEnded(true);
         return <div className="final">"Congratulation 🤠! You are the winner."</div>
-      } else if (playerPos == deamonPos) {
+      } else if (playerPos == demonPos) {
         props.setEnded(true);
         return <div className="final">"Congratulation 👿! You are the winner."</div>
       } else {
         return <Board
           player={playerPos}
-          deamon={deamonPos}
+          demon={demonPos}
           setPlayer={props.setPlayerPos}
-          setDeamon={props.setDeamonPos}
+          setDemon={props.setDemonPos}
         />
       }
     }
@@ -92,7 +92,7 @@
         board.push(' .');
       }
       board[props.player] = "🤠";
-      board[props.deamon] = "👿";
+      board[props.demon] = "👿";
 
       let text = "| ";
       for (let i = 0; i < 10; i++) {
@@ -110,9 +110,9 @@
           setPlayerTurn={props.setPlayerTurn}
         />;
       } else {
-        return <DeamonMove
-          deamon={props.deamon}
-          setDeamon={props.setDeamon}
+        return <DemonMove
+          demon={props.demon}
+          setDemon={props.setDemon}
           setPlayerTurn={props.setPlayerTurn}
         />
       }
@@ -159,9 +159,9 @@
       )
     }
 
-    function DeamonMove(props) {
-      const deamonPos = props.deamon;
-      const setDeamonPos = props.setDeamon;
+    function DemonMove(props) {
+      const demonPos = props.demon;
+      const setDemonPos = props.setDemon;
 
       function Arrows() {
         const jump = Math.floor(1 + Math.random() * 2)
@@ -170,12 +170,12 @@
             <div
               style={{ float: "left" }}
               onClick={() => {
-                if (deamonPos < jump) {
+                if (demonPos < jump) {
                   alert("You can not move left anymore.");
                   return
                 } else {
                   props.setPlayerTurn(true);
-                  setDeamonPos(deamonPos - jump);
+                  setDemonPos(demonPos - jump);
                 }
               }}
               className="game_button">⬅️ Move left {jump}
@@ -183,13 +183,13 @@
             <div
               style={{ float: "right" }}
               onClick={() => {
-                const newPos = deamonPos + jump;
+                const newPos = demonPos + jump;
                 if (newPos >= 9) {
                   alert("You can not move right anymore.");
                   return
                 } else {
                   props.setPlayerTurn(true);
-                  setDeamonPos(newPos);
+                  setDemonPos(newPos);
                 }
               }}
               className="game_button">➡️ Move right {jump}

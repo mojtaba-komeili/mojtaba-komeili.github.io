@@ -89,14 +89,18 @@
     </ul>
     For showing this easier programmers usually use images like this.
     </p>
-    <h1 style="color:red;">FIGURE 1 HERE</h1>
+    <img src="../images/learn_python/chapter3/car_uml.png" width="50%" class="image">
+    <div class="box">
+      This is only one possible design for the objects in the game.
+      We may see other alternative ones here, and you may have a different solution of your own.
+    </div>
     <p>
       Now try to figure out the objects that we need for our simple game and properties and actions that they have.
-      Two objects that we definitely need are our game <strong>hero</strong> and <strong>deamon</strong>.
-      Using the same diagrams we used for the car, we can have these for our hero and deamon character,
+      Two objects that we definitely need are our game <strong>hero</strong> and <strong>demon</strong>.
+      Using the same diagrams we used for the car, we can have these for our hero and demon character,
       when we are building them into objects in our program.
     </p>
-    <h1 style="color:red;">FIGURE 2 HERE</h1>
+    <img src="../images/learn_python/chapter3/game_uml1.png" width="60%" class="image">
 
     <!-- Classes -->
     <h2>Objects in python</h2>
@@ -104,11 +108,12 @@
     <!-- Classes -->
     <h3>Class</h3>
     <p>
-    <h1 style="color:red;">FIGURE 3 HERE</h1>
-    Python uses <strong>classes</strong> to create an object.
-    A class is like a blueprint to create something. You give this blueprint to Python and creates an objects for you
-    exactly as you asked.
-    For example this is how we define a car class that has a single action, move, in Python.
+      <img src="../images/learn_python/chapter3/car_blueprint.png" width="70%" class="image">
+      Python uses <strong>classes</strong> to create an object.
+      A class is like a blueprint to create something. You give this blueprint to Python and it creates an objects for
+      you
+      exactly as you asked.
+      For example, this is how we define a car class that has a single action, move, in Python.
     </p>
     <pre><code class="language-python"># Defining a car class in Python
 class Car:
@@ -134,7 +139,7 @@ class Car:
       You can simply create an object from you class by callig your class like a function: <span
         class="inline-code">my_car = Car()</span>.
       <strong>The variable that this returns</strong>, <span class="inline-code">my_car</span>, <strong>is your
-        object.</strong>.
+        object</strong>.
       Now, you can call actions (functions) from your object by using a "." after your object and then the name of the
       action you want.
       When calling the functions from an object, Python will put the value of <span class="inline-code">self</span>
@@ -155,7 +160,7 @@ my_car.move()
 </code></pre>
     <p>
       Save a file, for example name it <i>cars.py</i>,
-      with the code on your file and run it this is the output when you run this Python code:
+      with the code on your file and run it. This will be the output when you run this Python code:
     </p>
     <div class="output-box">
       The car is moving.
@@ -183,8 +188,8 @@ my_car.move()
       object is
       going to look like right after it was created. Properties in an object are like variables but we put a
       <span class="inline-code">self.</span> in front of their names to say that they belong to that object.
-      For example this this is how we make a <i>red ford</i> car object in Python.
-      As you can see it also has the <span class="inline-code">self.</span> function.
+      For example, this is how we make a <i>red ford</i> car object in Python.
+      As you can see it also has the <span class="inline-code">move</span> function.
     </p>
     <pre><code class="language-python"># Defining a Red Ford car object
 class Car:
@@ -364,63 +369,6 @@ print("The new car in my parking is made by ", my_parking.car_in_parking.make)
       <br>
       The new car in my parking is made by Honda
     </div>
-
-    <!-- Everything is an object -->
-    <h3>Everything is an object in Python</h3>
-    <p>
-      Even if you did not know it, you have been working with objects from the first day of this class.
-      All the variables (float, int, list, dictionary, string) were objects.
-      This means that many of these objects already had actions/functions we could use.
-      Here are some of the interesting methods for variables you have worked with so far.
-    </p>
-
-
-    <!-- List obeject -->
-    <h4>List</h4>
-    <!-- Append -->
-    <h5>Adding something at the end of a list</h5>
-    <pre><code class="language-python"># 'append' will add something to the end of a list
-myList = [4, 5]
-myList.append(7)
-print(myList)
-</code></pre>
-    <div class="output-box">
-      [4, 5, 7]
-    </div>
-
-    <!-- Count -->
-    <h5>Counting number of items in a list</h5>
-    <pre><code class="language-python"># 'count' will count how many of an item is in your list
-myList = [4, 3, 5, 3, 8, 3, 2, 3, 9, 3]
-print(myList.count(3))
-print(myList.count(8))
-</code></pre>
-    <div class="output-box">
-      5
-      <br>
-      1
-    </div>
-
-
-    <!-- String obeject -->
-    <h4>String</h4>
-    <!-- Upper and lower -->
-    <h5>Changing the capitalization</h5>
-    <pre><code class="language-python"># 'upper' and 'lower' functions will return the upper or lower case of your string
-myString = "New Providence"
-
-lower_string = myString.lower()
-print(lower_string)
-
-upper_string = myString.upper()
-print(upper_string)
-</code></pre>
-    <div class="output-box">
-      new providence
-      <br>
-      NEW PROVIDENCE
-    </div>
-
 
     <!-- Inheritance -->
     <h2>Inheritance: how not to repeat the code.</h2>
@@ -653,10 +601,67 @@ print('You rolled ', number)
       But try not to cheat and do your best to have your own solution, then check the one here.
     </p>
 
-    <div >
+    <div>
       <a class="solutionlink" href="./chapter3_game_solution.html" target="_blank">
         Solution
       </a>
+    </div>
+
+
+    <!-- Everything is an object -->
+    <h2>Everything is an object in Python</h2>
+    <p>
+      Even if you did not know it, you have been working with objects from the first day of this class.
+      All the variables (float, int, list, dictionary, string) were objects.
+      This means that many of these objects already had actions/functions we could use.
+      Here are some of the interesting methods for variables you have worked with so far.
+    </p>
+
+
+    <!-- List obeject -->
+    <h3>List</h3>
+    <!-- Append -->
+    <h4>Adding something at the end of a list</h4>
+    <pre><code class="language-python"># 'append' will add something to the end of a list
+myList = [4, 5]
+myList.append(7)
+print(myList)
+</code></pre>
+    <div class="output-box">
+      [4, 5, 7]
+    </div>
+
+    <!-- Count -->
+    <h4>Counting number of items in a list</h4>
+    <pre><code class="language-python"># 'count' will count how many of an item is in your list
+myList = [4, 3, 5, 3, 8, 3, 2, 3, 9, 3]
+print(myList.count(3))
+print(myList.count(8))
+</code></pre>
+    <div class="output-box">
+      5
+      <br>
+      1
+    </div>
+
+
+    <!-- String obeject -->
+    <h3>String</h3>
+    <!-- Upper and lower -->
+    <h4>Changing the capitalization</h4>
+    <pre><code class="language-python"># 'upper' and 'lower' functions will return the upper or lower case of your string
+myString = "New Providence"
+
+lower_string = myString.lower()
+print(lower_string)
+
+upper_string = myString.upper()
+print(upper_string)
+</code></pre>
+    <div class="output-box">
+      new providence
+      <br>
+      NEW PROVIDENCE
     </div>
 
   </div>
