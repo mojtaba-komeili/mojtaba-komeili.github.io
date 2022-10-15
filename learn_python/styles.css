@@ -100,6 +100,16 @@ body {
   padding-top: "50px";
 }
 
+.solutionlink {
+  margin-top: 10%;
+  padding: 2%;
+  text-align: center;
+  margin-left: 15%;
+  margin-right: 15%;
+  font-size: xx-large;
+  background-color: rgb(201, 201, 35);
+}
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;

@@ -53,7 +53,7 @@
     <h2>Think Objects</h2>
     <p>
       What is an object? Objects in programming are very similar to objects we have in real world.
-      We define each object with two thigns:
+      We define each object with a set of two thigns:
     </p>
     <ul>
       <li><strong>Properties</strong>: how it is and looks like. For example color, size, location, etc.</li>
@@ -72,7 +72,7 @@
       and plenty of properties a car has (color, make, number of bolts, amount of gas, etc.).
       But the important thing to remember for bringing it as an object to your program is
       <strong>which of those thousands of properties and actions are what you need in your program.</strong>
-      You only need to choose things that your program needs. We will talk a bit more about that in a bit.
+      You only need to choose the ones that your program needs. We will talk a bit more about that in a bit.
       For example, for a simple program, your car objects may only need these:
     <ul>
       <li>Properties:</li>
@@ -536,7 +536,128 @@ my_truck = Truck()
       In simple terms, the code that you have inside your file is a module.
       When you see your code is getting too large, or it is hard to keep it all in a single file,
       you can separate it into modules, and save your code in different files.
+      When you want to use what you already had in another file in your current code,
+      you use <span class="inline-code">import</span>. It makes more sense with the next example:
     </p>
+    <p>
+      Create two files in the same directory, like the image you see below.
+      Here, I am going to keep my classes inside the <i>transportation.py</i> file,
+      and use <i>main.py</i> as my main file that I am writting my main code in.
+      <strong>NOTE</strong> check the files that each of the following codes goes into from the comment in its first
+      line.
+    </p>
+    <img src="../images/learn_python/chapter3/two_files.png" width="70%" class="image">
+    <pre><code class="language-python"># This is the transportation.py file
+class Vehicle:
+  def __init__(self, make, color):
+    self.make = make
+    self.color = color
+    self.speed = 0
+
+class Car(Vehicle):
+  def move(self):
+    print('The car is moving.')
+
+class Truck(Vehicle):
+  def move(self):
+    print('The truck is moving.')
+
+  def carry_load(self):
+    print('The truck is carrying load')
+</code></pre>
+
+    <pre><code class="language-python"># This is the main.py file
+
+# It tells Python that we are going to use what's inside this file
+import transportation
+
+# We are using the Car class define inside the transportation file
+my_car = transportation.Car('Ford', 'red')
+print('My car is made by ', my_car.make)
+print('The color of my car is ', my_car.color)
+</code></pre>
+    <p>
+      Now if you run the <i>main.py</i> file (<span class="inline-code">python main.py</span>) you see this output.
+    </p>
+    <div class="output-box">
+      My car is made by Ford
+      <br>
+      The color of my car is red
+    </div>
+    <p>
+      When you ran <i>main.py</i>, Python opened up the <i>transportation.py</i> file,
+      because you imported it, and now you could access it in your <i>main.py</i> file by <span
+        class="inline-code">transportation.</span>.
+    </p>
+    <h3>Python Standard Library</h3>
+    <p>
+      There are some modules that python has creatd for you and know where they are.
+      So, you can import them and use them directly.
+      These modules are made to make it easier for you to program your code, and don't have to rewrite everything by
+      yourself.
+      These moduels are known as Python <strong>Python Standard Library</strong>.
+      There are many modules you can use in the standard library. Here we are introducint two important ones.
+    </p>
+    <h4><span class="inline-code">math</span> module</h4>
+    <p>
+      Python <strong>math</strong> module has a large number of functions that are used in Mathematics.
+      For a full list of all of them see <a href="https://docs.python.org/3/library/math.html">this page</a>.
+      Here are some of the simple ones:
+    </p>
+    <pre><code class="language-python"># This tells python that we are using the math module
+import math
+
+# math.sqrt finds square root of a number
+print('Square root of 64 is ', math.sqrt(64))
+print('Square root of 5 is ', math.sqrt(5))
+
+# math.factorial finds the factorial of a number
+# The factorial of a number is that number multiplied
+# all the positive natural numbers smaller than it. For example:
+# Factorial of 5 is   5 * 4 * 3 * 2 * 1
+print('Factorial of 7 is', math.factorial(4))
+</code></pre>
+    <div class="output-box">
+      Square root of 64 is 8.0
+      <br>
+      Square root of 5 is 2.23606797749979
+      <br>
+      Factorial of 7 is 24
+    </div>
+
+    <h4><span class="inline-code">random</span> module</h4>
+    <p>
+      This module helps you generate random numbers. We need random numbers in programs such as games (hint hint 😜).
+      Using this module helps you build things such as rolling a die in a game.
+    </p>
+    <pre><code class="language-python"># This tells python that we are using the random module
+import random
+
+# math.randint gives you random number between two numbers
+# This is how we role a die in Python
+number = random.randint(1, 6)
+print('You rolled ', number)
+</code></pre>
+    <p>This is my output for the above code. Remember yours might be different.</p>
+    <div class="output-box">
+      3
+    </div>
+
+    <!-- The game -->
+    <h2>The game</h2>
+    <p>
+      OK, now with everything that we have learned so far. We can redesign our game uing objects?
+      Try to figure out what properties and actions your objects need.
+      Then see how you are going to organize your code into modules.
+      I have a possible solution that you checke by clicking the solution link below.
+      But try not to cheat and do your best to have your own solution, then check the one here.
+    </p>
+
+    <div >
+      <a class="solutionlink" href="./chapter3_game_solution.html" target="_blank">
+        Solution
+      </a>
+    </div>
 
   </div>
 
