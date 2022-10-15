@@ -102,7 +102,7 @@
     </p>
     <img src="../images/learn_python/chapter3/game_uml1.png" width="60%" class="image">
 
-    <!-- Classes -->
+    <!-- Objects in Python -->
     <h2>Objects in python</h2>
 
     <!-- Classes -->
@@ -375,7 +375,7 @@ print("The new car in my parking is made by ", my_parking.car_in_parking.make)
     <p>
       Let's imagine you wanted to also have a <i>Truck</i> class that creates an objects of type truck for you.
       Your truck object is going to have everything that car did <i>plus it can carry load</i>.
-      One of doing it is like this:
+      One way of doing it is like this:
     </p>
     <pre><code class="language-python"># Having a car and a truck
 class Car:
@@ -441,7 +441,13 @@ my_truck = Truck()
       are children classes of the <span class="inline-code">Vehilce</span>, we don't have to repeat them.
       So, in Python the following code works exactly as the abvoe one.
     </p>
-    <h1 style="color:red;">INHERITANCE FIGURE HERE</h1>
+    <img src="../images/learn_python/chapter3/car_inheritance.png" width="75%" class="image">
+    <p>
+      In the above diagram, the <span class="inline-code">Car</span> and <span class="inline-code">Truck</span>
+      objects on left side and right side are technically the same.
+      The only difference is that objects on the right side are inheriting most of their properties and actions
+      from their parent class, which is <span class="inline-code">Vehicle</span>.
+    </p>
     <pre><code class="language-python"># Having a car and a truck
 
 class Vehicle:
@@ -449,6 +455,17 @@ class Vehicle:
     self.make = make
     self.color = color
     self.speed = 0
+
+  def accelerate(self):
+    self.speed = self.speed + 1
+    print('Car accelerated to the new speed ', self.speed)
+  
+  def brake(self):
+    if self.speed < 1:
+      print('The car has stopped. No more braking.')
+    else:
+    self.speed = self.speed - 1
+    print('Car reduced its speed to ', self.speed)
 
 class Car(Vehicle):
   def move(self):
