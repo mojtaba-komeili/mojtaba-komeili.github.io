@@ -135,7 +135,7 @@ class Car:
     <p>
       Now that we have a class, we can use it to create and object.
       In other words, now that we told Python how our <span class="inline-code">Car</span> object looks like,
-      we are going to tell python to create it for us.
+      we are going to tell python to create one for us.
       You can simply create an object from you class by callig your class like a function: <span
         class="inline-code">my_car = Car()</span>.
       <strong>The variable that this returns</strong>, <span class="inline-code">my_car</span>, <strong>is your
@@ -248,7 +248,7 @@ class Car:
     elif make == 'BMW':
       self.made_in = 'Germany'
     else:
-    self.made_in = '???'
+      self.made_in = '???'
 
   def move(self):
     print('The car is moving.')
@@ -263,9 +263,9 @@ print('---------')
 
 # Creating an object for your car
 your_car = Car('Honda', 'black')
-print('Your car is made by ' + my_car.make)
-print('The color of your car is ' + my_car.color)
-print('Your car is made in ' + my_car.made_in)
+print('Your car is made by ' + your_car.make)
+print('The color of your car is ' + your_car.color)
+print('Your car is made in ' + your_car.made_in)
 </code></pre>
     <div class="output-box">
       My car is made by Ford
@@ -303,8 +303,8 @@ class Car:
     if self.speed < 1:
       print('The car has stopped. No more braking.')
     else:
-    self.speed = self.speed - 1
-    print('Car reduced its speed to ', self.speed)
+      self.speed = self.speed - 1
+      print('Car reduced its speed to ', self.speed)
   
 # Creating an object for the car
 some_car = Car()
@@ -345,7 +345,7 @@ for i in range(5):
     </p>
     <pre><code class="language-python"># Having a car and a truck
 class Car:
-  def __init__(self, make, color):
+  def __init__(self, make):
     self.make = make
 
 class Parking:
