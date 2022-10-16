@@ -389,14 +389,14 @@ class Car:
 
   def accelerate(self):
     self.speed = self.speed + 1
-    print('Car accelerated to the new speed ', self.speed)
+    print('Accelerated to the new speed ', self.speed)
   
   def brake(self):
     if self.speed < 1:
-      print('The car has stopped. No more braking.')
+      print('Stopped. No more braking.')
     else:
-    self.speed = self.speed - 1
-    print('Car reduced its speed to ', self.speed)
+      self.speed = self.speed - 1
+      print('Reduced speed to ', self.speed)
 
 
 class Truck:
@@ -410,36 +410,41 @@ class Truck:
 
   def accelerate(self):
     self.speed = self.speed + 1
-    print('Car accelerated to the new speed ', self.speed)
+    print('Accelerated to the new speed ', self.speed)
   
   def brake(self):
     if self.speed < 1:
-      print('The car has stopped. No more braking.')
+      print('Stopped. No more braking.')
     else:
-    self.speed = self.speed - 1
-    print('Car reduced its speed to ', self.speed)
+      self.speed = self.speed - 1
+      print('Reduced speed to ', self.speed)
 
   def carry_load(self):
     print('The truck is carrying load')
 
 
-my_car = Car()
-my_truck = Truck()
+my_car = Car('frod', 'red')
+my_truck = Truck('GM', 'blue')
 </code></pre>
     <p>
-      Here we have repeated all three functions twice. Once for <span class="inline-code">Car</span>
-      class and another time for <span class="inline-code">Truck</span> class.
+      Here we have exactly repeated three functions
+      (<span class="inline-code">__init__</span>, <span class="inline-code">accelerate</span>, <span
+        class="inline-code">brake</span>).
+      Once for <span class="inline-code">Car</span> class and another time for <span class="inline-code">Truck</span>
+      class.
       There is a simple way to avoid this in programming,
       and it is by having two or more obejcts be a <strong>child</strong> of some other object.
-      If and object is the child of another object it means that it can use all the functions and properties of its
+      If an object is the child of another object, it means that it can use all the functions and properties of its
       parent.
-      For example, we can have another class called <span class="inline-code">Vehicle</span>.
-      We know that <span class="inline-code">Car</span> and <span class="inline-code">Truck</span> are both vehicles.
-      So, we put everything that they have inside a class that we call <span class="inline-code">Vehilce</span>.
-      And by putting everything that they have in common in the <span class="inline-code">Vehilce</span> class,
-      and then making sure that both <span class="inline-code">Car</span> and <span class="inline-code">Truck</span>
+      For example, we know that car and truck are both vehicles, so we can have another class called <span
+        class="inline-code">Vehicle</span>.
+      By putting everything that they have in common in the <span class="inline-code">Vehilce</span> class,
+      and making sure that both <span class="inline-code">Car</span> and <span class="inline-code">Truck</span>
       are children classes of the <span class="inline-code">Vehilce</span>, we don't have to repeat them.
-      So, in Python the following code works exactly as the abvoe one.
+      The class digarams for <span class="inline-code">Car</span> and <span class="inline-code">Truck</span> classes
+      looks like the left image below.
+      Compare that to the same calsses without using inheritance on the right to see ho much we are reducing our
+      repeated code.
     </p>
     <img src="../images/learn_python/chapter3/car_inheritance.png" width="75%" class="image">
     <p>
@@ -458,14 +463,14 @@ class Vehicle:
 
   def accelerate(self):
     self.speed = self.speed + 1
-    print('Car accelerated to the new speed ', self.speed)
+    print('Accelerated to the new speed ', self.speed)
   
   def brake(self):
     if self.speed < 1:
-      print('The car has stopped. No more braking.')
+      print('Stopped. No more braking.')
     else:
     self.speed = self.speed - 1
-    print('Car reduced its speed to ', self.speed)
+    print('Reduced speed to ', self.speed)
 
 class Car(Vehicle):
   def move(self):
@@ -483,13 +488,25 @@ my_car = Car()
 my_truck = Truck()
 </code></pre>
     <p>
-      Here we used <span class="inline-code">Truck(Vehicle)</span> and <span class="inline-code">Car(Vehicle)</span>
-      instead of just <span class="inline-code">Truck</span> and <span class="inline-code">Car</span>.
+      Here we used <span class="inline-code">Car(Vehicle)</span> and <span class="inline-code">Truck(Vehicle)</span>
+      instead of just <span class="inline-code">Car</span> and <span class="inline-code">Truck</span>.
       By adding the extra <span class="inline-code">(Vehicle)</span> in front of the class name,
-      we are tellin Python that this class that we are defining is a child of the <span
+      we are telling Python that this class that we are defining is a child of the <span
         class="inline-code">Vehicle</span> class.
       So, it <strong>inherits</strong> all the propertis and action/functions that already exists in the
       <span class="inline-code">Vehicle</span> class, and we don't have to define them again.
+    </p>
+    <p>
+      Notice that <span class="inline-code">Car(Vehicle)</span> and <span class="inline-code">Truck(Vehicle)</span>
+      each have a function called <span class="inline-code">move</span> that is different between them.
+      We cannot have this function in the <span class="inline-code">Vehicle</span> class, because it is different
+      between
+      <span class="inline-code">Car(Vehicle)</span> and <span class="inline-code">Truck(Vehicle)</span>.
+      Also, as we said earlier <span class="inline-code">Truck(Vehicle)</span> has the extra <span
+        class="inline-code">carry_load</span> function.
+      Only objects that are made with this new <span class="inline-code">Truck(Vehicle)</span> class can call this
+      function, not the <span class="inline-code">Car(Vehicle)</span> or even <span class="inline-code">Vehicle</span>
+      objects.
     </p>
 
 
@@ -501,17 +518,22 @@ my_truck = Truck()
       In simple terms, the code that you have inside your file is a module.
       When you see your code is getting too large, or it is hard to keep it all in a single file,
       you can separate it into modules, and save your code in different files.
-      When you want to use what you already had in another file in your current code,
+      When you want to use what you already have in another file in your current code,
       you use <span class="inline-code">import</span>. It makes more sense with the next example:
     </p>
     <p>
       Create two files in the same directory, like the image you see below.
       Here, I am going to keep my classes inside the <i>transportation.py</i> file,
       and use <i>main.py</i> as my main file that I am writting my main code in.
-      <strong>NOTE</strong> check the files that each of the following codes goes into from the comment in its first
-      line.
+
     </p>
     <img src="../images/learn_python/chapter3/two_files.png" width="70%" class="image">
+
+    <div class="box">
+      <strong>NOTE</strong>: check the files that each of the following codes goes into from the comment in its first
+      line.
+    </div>
+
     <pre><code class="language-python"># This is the transportation.py file
 class Vehicle:
   def __init__(self, make, color):
@@ -554,6 +576,40 @@ print('The color of my car is ', my_car.color)
       because you imported it, and now you could access it in your <i>main.py</i> file by <span
         class="inline-code">transportation.</span>.
     </p>
+    <p>
+      This works also with functions that you have in other files.
+      Now, imagine you have two files again. One is called <strong>main.py</strong> and the other one
+      <strong>function_module.py</strong>.
+      See the code that we have in these two files below.
+    </p>
+
+    <pre><code class="language-python"># This is the function_module.py file
+
+def MyFunction():
+  print('Hello from another module.')
+</code></pre>
+
+    <pre><code class="language-python"># This is the main.py file
+
+# Importing the module that has our function in it
+import function_module
+
+function_module.MyFunction()
+</code></pre>
+    <p>
+      Here we use the <span class="inline-code">MyFunction</span> from <strong>function_module.py</strong> file/module
+      inside our code that is in <strong>main.py</strong> file.
+      All we need to do is to first import the <strong>function_module.py</strong> file by using <span
+        class="inline-code">import function_module</span>,
+      and then calling the <span class="inline-code">MyFunction</span> by adding the name of that module and then a "."
+      in front of it (see the code above).
+      This will be what you see if you run <strong>main.py</strong> code.
+    </p>
+    <div class="output-box">
+      Hello from another module.
+    </div>
+
+    <!-- Python Standard Library -->
     <h3>Python Standard Library</h3>
     <p>
       There are some modules that python has creatd for you and know where they are.
