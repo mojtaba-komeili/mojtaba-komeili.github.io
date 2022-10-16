@@ -12,16 +12,132 @@
 <script>hljs.highlightAll();</script>
 
 <body>
-  <h1>Coming soon</h1>
+  <h1>The game objects design</h1>
+  <img src="../images/learn_python/chapter3/solution_uml.png" width="70%" class="image">
 
-  <!-- <pre><code class="language-python"># This tells python that we are using the random module
-import random
+  <h1>Game code</h1>
+  <p>
+    I created two files for this game <strong>characters.py</strong> and <strong>main.py</strong>.
+    Run <strong>main.py</strong> for starting the game.
+  </p>
+  <pre><code class="language-python"># This is the characters.py file
+class Character():
+def __init__(self, initial_position):
+    self.position = initial_position
 
-# math.randint gives you random number between two numbers
-# This is how we role a die in Python
-number = random.randint(1, 6)
-print('You rolled ', number)
-</code></pre> -->
+def move_left(self, num_steps):
+    new_pos = self.position - num_steps
+    # checking if this move is possible
+    if new_pos > 0:
+        self.position = new_pos
+        # By returning True we are confirming that this move happened
+        return True
+    else:
+        print('This is not a valid move. Try again.')
+        return False
+
+def move_right(self, num_steps):
+    new_pos = self.position + num_steps
+    # checking if this move is possible
+    if new_pos < 11:
+        self.position = new_pos
+        # By returning True we are confirming that this move happened
+        return True
+    else:
+        print('This is not a valid move. Try again.')
+        return False
+
+
+class Hero(Character):
+    def draw(self):
+        return 'H'
+
+
+class Demon(Character):
+    def draw(self):
+        return 'D'
+</code></pre>
+
+
+  <pre><code class="language-python"># This is the main.py file
+  import random
+  import characters
+  
+  class GameBoard():
+      def __init__(self, hero, demon):
+          self.hero = hero
+          self.demon = demon
+  
+      def draw(self):
+          # First create an empty series of dots and the exit
+          board = ['.', '.','.','.','.', '.', '.','.','.','E']
+  
+          # Replace the empty space dot with the symbols for here or the demon
+          board[self.hero.position - 1] = self.hero.draw()
+          board[self.demon.position - 1] = self.demon.draw()
+  
+          print('-'*40)
+          for c in board:
+              print(c, end=' ')
+          print()
+          print('-'*40)
+          print()
+  
+  
+  print('Starting the game.')
+  game_ended = False
+  hero_turn = True
+  
+  hero = characters.Hero(2)
+  demon = characters.Demon(8)
+  game_board = GameBoard(hero, demon)
+  
+  # Repeating this loop which asks for users turn to be played while the game is not finished.
+  while not game_ended:
+      game_board.draw()
+      if hero_turn:
+          print('It is Hero\'s turn.')
+      else:
+          print('It is Demon\'s turn.')
+  
+      # Asking for players' action
+      response = 'No response'
+      move_steps = random.randint(1, 3)
+      while (response != 'r') and (response != 'l'):
+          print('Next move is ' + str(move_steps) + ' moves.')
+          response = input('Push "r" for moving right "l" for left. ')
+  
+      # We have this variable to see if the move was possible or not
+      move_happened = False
+  
+      if hero_turn:
+          if response == 'l':
+              move_happened = hero.move_left(move_steps)
+          else:
+              # if it was 'l' then it must be 'r', we already made sure it is 'r' or 'l'
+              move_happened = hero.move_right(move_steps)
+      else:
+          # If it is not Hero's turn it muse be Demon's
+          if response == 'l':
+              move_happened = demon.move_left(move_steps)
+          else:
+              # if it was 'l' then it must be 'r', we already made sure it is 'r' or 'l'
+              move_happened = demon.move_right(move_steps)
+  
+      # Changing the turn if the move happened
+      if move_happened:
+          # this sets hero_turn to True if it was False, and otherway around.
+          hero_turn = not hero_turn
+  
+      # Checking if anyone has won the game yet.
+      if hero.position == 10:
+          print('Hero has won!')
+          game_ended = True
+      if demon.position == hero.position:
+          print('Demon has won the game!')
+          game_ended = True
+  
+  </code></pre>
 
 </body>
 

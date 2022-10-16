@@ -70,7 +70,7 @@
       const playerPos = props.player;
       const demonPos = props.demon;
       console.log(playerPos);
-      if (playerPos > 9) {
+      if (playerPos == 10) {
         props.setEnded(true);
         return <div className="final">"Congratulation 🤠! You are the winner."</div>
       } else if (playerPos == demonPos) {
@@ -142,8 +142,14 @@
             <div
               style={{ float: "right" }}
               onClick={() => {
-                props.setPlayerTurn(false);
-                setPlayerPos(playerPos + jump);
+                const newPos = playerPos + jump;
+                if (newPos >= 9) {
+                  alert("You can not move right anymore.");
+                  return
+                } else {
+                  props.setPlayerTurn(false);
+                  setPlayerPos(newPos);
+                }
               }}
               className="game_button">➡️ Move right {jump}
             </div>
