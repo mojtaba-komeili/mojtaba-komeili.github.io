@@ -336,6 +336,50 @@ for i in range(5):
       The car has stopped. No more braking.
     </div>
 
+    <h3>Calling object functions from other object functions.</h3>
+    <p>
+      Functions inside an object can call each other too.
+      They do this <i>almost</i> exactly as we did so far:
+      with the object name and a "." and then the name of the function.
+      But, when writting the code for the class,
+      we don't know what the object name that someone is going to choose will be.
+      So when we are calling an object function from another function,
+      we use <span class="inline-code">self</span> instead of object name itself.
+      For example, see how in the following code, when you call the <span class="inline-code">turn_on</span>
+      function, it calls <span class="inline-code">turn_on_engine</span> to turn the engine on first,
+      and then calls the next two functions to turn the lights on and lock the door.
+    </p>
+    <pre><code class="language-python"># Calling other functions inside the object
+class Car:
+  def turn_on_lights(self):
+    print('The lights are turned on.')
+
+  def turn_on_engine(self):
+    print('The engine is turned on.')
+
+  def lock_the_doors(self):
+    print('The engine is turned on.')
+
+  def turn_on(self):
+    self.turn_on_engine()
+    self.turn_on_lights()
+    self.lock_the_doors()
+    print('Ready to go!')
+
+c = Car()
+c.turn_on()
+</code></pre>
+
+    <div class="output-box">
+      The engine is turned on.
+      <br>
+      The lights are turned on.
+      <br>
+      The engine is turned on.
+      <br>
+      Ready to go!
+    </div>
+
     <!-- Nested objects -->
     <h3>Objects inside other objects</h3>
     <p>
@@ -622,7 +666,8 @@ function_module.MyFunction()
     <h4><span class="inline-code">math</span> module</h4>
     <p>
       Python <strong>math</strong> module has a large number of functions that are used in Mathematics.
-      For a full list of all of them see <a href="https://docs.python.org/3/library/math.html" target="_blank">this page</a>.
+      For a full list of all of them see <a href="https://docs.python.org/3/library/math.html" target="_blank">this
+        page</a>.
       Here are some of the simple ones:
     </p>
     <pre><code class="language-python"># This tells python that we are using the math module
@@ -738,6 +783,32 @@ print(upper_string)
       NEW PROVIDENCE
     </div>
 
+  </div>
+
+  <div class="content practice">
+    <h1>Practice</h1>
+    <ol>
+      <li>
+        Suggest a class diagrams for properites and actions of tiger, lion, fish, crow, and eagle.
+        Can you use inheritance here? Think about having multiple levels of inheritance.
+        Try reading <a href="https://www.inf.ed.ac.uk/teaching/courses/inf1/op/Lectures/pub/07-poly.handout-2x2.pdf"
+          target="_blank">
+          this article
+        </a> as a good similar example.
+      </li>
+      <li>
+        Write the code for a function that receives a list of python integeres and finds the maximum in that list.
+        For example if your function is called <span class="inline-code">FindMax</span> then <span
+          class="inline-code">FindMax([5, 2, 7, 3])</span> will return 3.
+      </li>
+      <li>
+        Write the code for a function that receives a list of Python integeres and finds the number that is repeated
+        the most (we call this mode in mathematics). For example if your function is called <span
+          class="inline-code">Mode</span> then <span class="inline-code">Mode([6, 6, 1, 2, 3, 6, 3])</span> should
+        return 6, becasue you have 6 repeated three times in this list, and it is more than any other number in the
+        list.
+      </li>
+    </ol>
   </div>
 
 </body>
