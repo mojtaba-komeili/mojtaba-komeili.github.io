@@ -24,13 +24,14 @@
   </div>
 
   <div class="content">
-    <!--
-      <div class="slideslink">
-        <a href="https://docs.google.com/presentation/d/1dwZ09lQMJmfmkjnIEuPRPaCh1YJVaG3JukzMY3YP-sk/edit?usp=sharing" target="_blank">
-          Slides from class <img src="../images/learn_python/slides.png" height="20px">
-        </a>
-      </div>
--->
+
+    <div class="slideslink">
+      <a href="https://docs.google.com/presentation/d/1diFVcR9-V2ApoA4x7ksJAbGeQWoHxbCV8Ws140Qy9N8/edit?usp=sharing"
+        target="_blank">
+        Slides from class <img src="../images/learn_python/slides.png" height="20px">
+      </a>
+    </div>
+
 
     <h1>More Modules</h1>
     <p>
@@ -62,6 +63,46 @@
       as you see mine here.
     </p>
     <img src="../images/learn_python/chapter4/colab_first_page.png" width="60%" class="image">
+
+    <h2>Simple code</h2>
+    <p>
+      Now use the file menu that you see here to create a "New notebook".
+      You see the following page for a new notebook.
+      You can click on the name of the notebook (that might be <i>Untitled</i> now) to rename your notebook.
+      Feel free to rename your notebook to something more reasonable.
+    </p>
+    <img src="../images/learn_python/chapter4/StarterCell.png" width="90%" class="image">
+    <p>
+      Your new notebook has a single empty cell in it.
+      You can click on <strong>+Code</strong> on the top bar to add a new cell.
+      You can type code inside a cell like you did in a file.
+      When you press <strong>Shift + Enter</strong> keys togther,
+      or pressing the play button on the left side of the cell.
+    </p>
+    <div class="box">
+      Write a program that counts (prints out) from 1 to 10 in a single cell and run it.
+    </div>
+    <h2>Python Packages</h2>
+    <p>
+      You imported and used some Python modules that comes out of the box with Python before
+      (remember importing <i>random</i> and <i>math</i>).
+      Colab comes with some extra external Python packages that are included for easily importing modules.
+      There remains thousands of other packages that you can install on your computer for Python to use.
+      We are going to start by installing a useful and easy to use Python package:
+      <a href="https://huggingface.co" target="_blank">Hugging Face</a>.
+    </p>
+    <p>
+      Run this in cell to install the huggingface package.
+    </p>
+    <div class="colab-cell">
+      ! pip install transformers
+    </div>
+    <p>
+      You will see the output of the cell and the steps to install this package.
+      And at the end you must see the message that tells you the install was successful.
+    </p>
+    <img src="../images/learn_python/chapter4/HF_installed.png" width="80%" class="image">
+
   </div>
 
 </body>

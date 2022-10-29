@@ -77,6 +77,15 @@ body {
   border-radius: 5px;
 }
 
+.colab-cell {
+  margin: 20px;
+  padding: 20px;
+  background-color:rgb(23, 36, 36);
+  font-family: Calibri;
+  color: rgb(121, 178, 235);
+  border-radius: 5px;
+}
+
 .image {
   display: block;
   margin-left: auto;
