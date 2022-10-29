@@ -104,7 +104,7 @@
       Now we are ready to make some pretty cool Artifical Intelligence with Python.
     </p>
     <img src="../images/learn_python/chapter4/HF_installed.png" width="80%" class="image">
-    <h3>Read and respond</h3>
+    <h3>Translate</h3>
     <p>
       The first thing we want to try with the Hugging Face package we installed is building something that can
       translate.
@@ -119,7 +119,33 @@
       from English to French.
     </p>
     <img src="../images/learn_python/chapter4/En2Fr.png" width="80%" class="image">
-
+    <h3>What's in a photo</h3>
+    <p>
+      In this excercise we are going to show a photo to an Artifical Intelligence built in our module and ask it to tell
+      us what is in this photo. For this we import another module that loads and shows images, and another packages that
+      helps up upload files to Colab.
+      Here, the first cells it importing these modules.
+      The second cell runs the upload function. This will show you a button that you can use to upload a file.
+      After you upload your file, you see a message that tells you this file (in my example <i>library.jpg</i>) is
+      stored on the Google computer that runs Colab for you.
+    </p>
+    <img src="../images/learn_python/chapter4/PIL.png" width="65%" class="image">
+    <p>
+      Now you can use the <span class="inline-code">PIL</span> package that we had imported to show this image.
+      Remember to use the name of the file you uploaded.
+      As you see, the notebook shows the image that I uploaded as the cell output.
+    </p>
+    <img src="../images/learn_python/chapter4/library_image.png" width="75%" class="image">
+    <p>
+      Now, we will do something similar to what we did with the translation:
+      we are building and object (using the Hugging Face package) that tells us what is in this image.
+      The output here is a list of things that the Artifical Intelligence you just created in your program thinks this
+      picture shows.
+      It can not be completely sure, so it has a few guesses. Each of the items we have in this list is one of the
+      guesses, and how certain it is about the photo being from that object. A certainty of 1 means it is 100% sure,
+      and a certainty of 0.92 means means 92%, and so on.
+    </p>
+    <img src="../images/learn_python/chapter4/image_detect.png" width="75%" class="image">
 
   </div>
 
