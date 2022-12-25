@@ -18,7 +18,7 @@
     <a href="./chapter2.html">Branches, loops, and functions</a>
     <a href="./chapter3.html">Objects and modules</a>
     <a href="./chapter4.html">More modules</a>
-    <a href="#" style="background-color: #92a8d1">Using Python objects better</a>
+    <a href="#" style="background-color: #92a8d1">Using Python better</a>
   </div>
   <div id="homelink">
     <a href="../index.html">Home ⌂</a>
@@ -27,17 +27,72 @@
   <div class="content">
 
 
-    <h1>Using Python objects better</h1>
+    <h1>Using Python better</h1>
     <p>
       In the previous chapter we briefly talked about the internal (built-in) objects of Python and their functions.
       In this chapter we dive deeper into these objects and talk more about the functions from these objects.
       We also introduce a couple of more objects that helps us use Python more effectively.
     </p>
+    <img src="../images/learn_python/chapter5/RealPython.png" width="60%" class="image">
     <p>
       We are going to do some <i>data processing</i> in this chapter.
       This means that you will write functions that in their input recieve some data, and produce some output.
-      
+      For that reason, we start with knowing Python functinos better, then we work on series of questions that recieves input and return outputs.
     </p>
+    <h2>Functions</h2>
+    <p>
+      We learned about the functions earlier in Chapter 2.
+      Remember that functions <i>could</i> receive inputs and return outputs.
+      For example
+    </p>
+    <pre><code class="language-python"># Simple functions
+
+def subtract(a, b):
+  # This is a simple function that subtracts two numbers
+  return a - b
+
+# This is how we use this function.
+answer = add(8, 5)
+print(answer)
+</code></pre>
+
+    <h3>Named arguments</h3>
+    <p>
+      So far we have mostly used the functions as the above:
+      inserting the inputs to the function (which we call arguments or parameters) in the order they are expected.
+      There is another very common way for doing this.
+      You can directly assign values to the input arguments by their names.
+      For better illustration of that try to guess the output of the following code, then try it in Python.
+    </p>
+    <pre><code class="language-python">def subtract(a, b):
+  # This is a simple function that subtracts two numbers
+  return a - b
+
+# Using function with named arguments
+answer = add(b=8, a=5)
+print(answer)
+</code></pre>
+
+    <h3>Default arguments</h3>
+    Python allows you to have functions with default values for their arguments.
+    This means that you don't have to always provide all the arguments to a function.
+    In fact, you have been usig these functions since the beginning without knowing it.
+    Check the arguments for <span class="inline-code">print</span> function
+    <a href="https://www.programiz.com/python-programming/methods/built-in/print"  target="_blank">here</a>.
+
+    <p>
+      You can also define your own functions with the default values.
+    </p>
+    <pre><code class="language-python">def subtract(a, b=0):
+  # This is a simple function that subtracts two numbers
+  # The second number has a default value.
+  return a - b
+
+# This is how we use this function.
+print(add(12))
+print(add(a=5))
+print(add(a=5, b=2))
+</code></pre>
 
     <h2>String</h2>
 
