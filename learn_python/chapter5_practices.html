@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Examine your knowledge</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+
+    function PracticeApp() {
+
+      const QuestionsContent = [
+        // 1
+        {'q': 'Hello', 'a': (x) => {alert(x)}},
+        // 2
+      ]
+
+      const [step, setStep] = React.useState(1);
+
+      return (
+        <div>
+          <h1>
+            Test your Python knowledge 🐍
+          </h1>
+          <hr></hr>
+          <div className="game_instruction">
+            <p>
+              🤔 Write a function that does what the question asks.
+            </p>
+            <p>
+              🧐 Run you function and cop/paste its output in the answer box.
+            </p>
+            <p>
+              😎 If your answer is correct, you will see a button to go to the next level.
+            </p>
+          </div>
+          <ProgressBar step={step} />
+          <Question step={step} content={QuestionsContent.at(step-1)}/>
+        </div>
+      )
+    }
+
+    function Question({step, content}) {
+      const responseHandleFunction = content.a
+      return (
+        <div>
+          <h1>
+            {"Question # " + step}
+          </h1>
+          <p>
+            {content.q}
+          </p>
+          <ResponseBar responseChecker={responseHandleFunction} />
+        </div>
+      )
+    }
+
+    function ResponseBar({responseChecker}) {
+      return (<form onSubmit={() => {responseChecker(document.getElementById("answer").value)}}>
+        <div className="form-group">
+          <label htmlFor="answer">Your answer:</label>
+          <input type="text" className="form-control" id="answer" placeholder="Answer"></input>
+          <small id="emailHelp" className="form-text text-muted">Copy and paste the output of your function here.</small>
+        </div>
+        <button type="submit" className="btn btn-primary">Submit</button>
+      </form>)
+    }
+
+    function ProgressBar({step}) {
+      return (
+        <div id="knowledge_test_progress_bar">
+          <label htmlFor="file">Questions completed:  </label>
+          <progress id="file" value={step} max="20"> step </progress>
+        </div>
+      )
+    }
+
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    root.render(<PracticeApp />);
+
+  </script>
+</body>
+
+</html>

@@ -156,6 +156,19 @@ td, th {
   cursor: pointer;
 }
 
+.game_instruction {
+  width: 75%;
+  font-size: large;
+  text-align: left;
+}
+
+#knowledge_test_progress_bar {
+  background-color: bisque;
+  padding: 3%;
+  width: 45%;
+  border-radius: 10px
+}
+
 .final {
   font-size: 5em;
 }
