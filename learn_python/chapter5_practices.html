@@ -9,7 +9,8 @@
 
   <!-- Don't use this in production: -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -21,7 +22,7 @@
 
       const QuestionsContent = [
         // 1
-        {'q': 'Hello', 'a': (x) => {alert(x)}},
+        { 'q': 'Hello', 'a': (x) => { alert(x) } },
         // 2
       ]
 
@@ -45,12 +46,12 @@
             </p>
           </div>
           <ProgressBar step={step} />
-          <Question step={step} content={QuestionsContent.at(step-1)}/>
+          <Question step={step} content={QuestionsContent.at(step - 1)} />
         </div>
       )
     }
 
-    function Question({step, content}) {
+    function Question({ step, content }) {
       const responseHandleFunction = content.a
       return (
         <div>
@@ -65,18 +66,18 @@
       )
     }
 
-    function ResponseBar({responseChecker}) {
-      return (<form onSubmit={() => {responseChecker(document.getElementById("answer").value)}}>
+    function ResponseBar({ responseChecker }) {
+      return (<form onSubmit={() => { responseChecker(document.getElementById("answer").value) }}>
         <div className="form-group">
           <label htmlFor="answer">Your answer:</label>
-          <input type="text" className="form-control" id="answer" placeholder="Answer"></input>
+          <input type="text" autocomplete="off" className="form-control" id="answer" placeholder="Answer"></input>
           <small id="emailHelp" className="form-text text-muted">Copy and paste the output of your function here.</small>
         </div>
         <button type="submit" className="btn btn-primary">Submit</button>
       </form>)
     }
 
-    function ProgressBar({step}) {
+    function ProgressBar({ step }) {
       return (
         <div id="knowledge_test_progress_bar">
           <label htmlFor="file">Questions completed:  </label>
