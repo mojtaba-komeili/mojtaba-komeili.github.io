@@ -165,6 +165,35 @@ S2 = S.replace("dog", "cat")
 print(S2)
 </code></pre>
 
+    <h3><span class="inline-code">split</span></h3>
+    <p>
+      This function is different from all the string object functions we talked about so far.
+      It returns a list of strings made from <i>splitting</i> the original substring by some substring.
+      If the substring does not exist in the original string, then it returns the original string as single item in the retruned list.
+    </p>
+    <img src="../images/learn_python/chapter5/split.png" width="60%" class="image">
+
+    <p>
+      Example of how to use the <span class="inline-code">split</span> function.
+      Notice how we use the string function differently in the example below?
+      So far we have been creating a string object first,
+      and then calling that with the function that we needed.
+      But we don't have to do that; we can directly use any of these functions on a string.
+      In fact what happens here is that Python creates an anonymous object for you.
+    </p>
+    <pre><code class="language-python"># Splitting the string into a list of its substrings
+splitted_parts = "cat, dog , chickens , good,boy".split(",")
+</code></pre>
+
+    <div class="box">
+      Sometimes using the <span class="inline-code">split</span> function makes left over space before and after the returned strings.
+      For example, <span class="inline-code">"Hello, I am here".split(",")</span> returns
+      <span class="inline-code">["Hello", " I am here"]</span>. As you see the second strin has an extra space in front of it.
+      There is a function called <span class="inline-code">strip()</span> that returns a string in which the extra spaces,
+      before and after the string are removed.
+      Think about how you can remove all the extra spaces from the returned strigns in the list.
+    </div>
+
     <h2>List</h2>
 
     <h3>Sublist</h3>
