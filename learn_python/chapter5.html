@@ -102,8 +102,49 @@ print(add(a=5, b=2))
       which return the same <span class="inline-code">String</span> with all its characters in <i>lower</i> or <i>upper</i> case, respectively.
       We are going to learn more useful functions from the <span class="inline-code">String</span> object here.
     </p>
+    <h3>Substring</h3>
+    <p>
+      To many of the functions that work with  <span class="inline-code">String</span> objects in Python,
+      we first need to what is <strong>substring</strong>.
+      A substring is a part of a <span class="inline-code">String</span> that can be a <span class="inline-code">count</span> on its own.
+      For example, "side" is substring of "re<span style="color: red;">side</span>nce".
+      Similarly, "ve ca" is  substring of "I ha<span style="color: red;">ve ca</span>ts and they are cute."
+      But as far as python knows "new" is NOT a substring of "New providence" because for Python "new" and "New" are two different strings.
+    </p>
+    <h3>String index</h3>
+    <p>
+      So far we have seen Python strigns as a single entity. But in fact each string is like a lit of characters.
+      As any other list the objects inside it have index (Don't forget that this index starts from 0, not 1).
+    </p>
+    <img src="../images/learn_python/chapter5/StringIndex.png" width="60%" class="image">
+    <p>
+      Therefore, you can use the same indexing number we used for lists in Python with strings.
+      Try finding out the output of the following code:
+    </p>
+    <pre><code class="language-python"># String index
+# Indexing for a list
+my_list = [6, 7, 8, 9]
+print(my_list[3])
+
+my_string = "hello"
+print(my_string[2])
+</code></pre>
+
+    <h3><span class="inline-code">count</span></h3>
+    <p>
+      Use this function for counting the number substring in a Python string.
+    </p>
+    <pre><code class="language-python"># Using the count function
+S = "I can not have an apple."
+# This will return 2 because of "an" substrings in "can" and "an"
+print(S.count("an"))
+</code></pre>
+
+    <h3><span class="inline-code">find</span></h3>
 
     <h2>List</h2>
+
+    <h3>Sublist</h3>
 
     <h2>Dictionary</h2>
    
