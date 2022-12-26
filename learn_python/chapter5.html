@@ -194,6 +194,32 @@ splitted_parts = "cat, dog , chickens , good,boy".split(",")
       Think about how you can remove all the extra spaces from the returned strigns in the list.
     </div>
 
+    <h3><span class="inline-code">join</span></h3>
+    <p>
+      This function is the opposite of the <span class="inline-code">split</span> function.
+      It <i>joins</i> the strings inside a lits into a single string, by putting another string between them.
+      So in summary it turns a list of strings into a single string.
+    </p>
+    <img src="../images/learn_python/chapter5/join.png" width="75%" class="image">
+    <p>
+      An example of using <span class="inline-code">join</span> function.
+      See how we used it in two different ways this time too.
+      Once with creating an string and using it for join, and the other time with using a string directly.
+      The results are exactly the same. Choose based on your own preference.
+    </p>
+
+    <pre><code class="language-python"># Joining strings
+
+my_animals = ["cats", "dogs", "squirels"]
+
+# method 1
+join_string = " are cute. "
+print(join_string.join(my_animals))
+
+# method 2
+print(" are cute. ".join(my_animals))
+</code></pre>
+
     <h2>List</h2>
 
     <h3>Sublist</h3>
