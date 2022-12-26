@@ -52,9 +52,13 @@ def subtract(a, b):
   return a - b
 
 # This is how we use this function.
-answer = add(8, 5)
+answer = subtract(8, 5)
 print(answer)
 </code></pre>
+
+    <div class="output-box">
+      3
+    </div>
 
     <h3>Named arguments</h3>
     <p>
@@ -69,7 +73,7 @@ print(answer)
   return a - b
 
 # Using function with named arguments
-answer = add(b=8, a=5)
+answer = subtract(b=8, a=5)
 print(answer)
 </code></pre>
 
@@ -89,10 +93,18 @@ print(answer)
   return a - b
 
 # This is how we use this function.
-print(add(12))
-print(add(a=5))
-print(add(a=5, b=2))
+print(subtract(12))
+print(subtract(a=5))
+print(subtract(a=5, b=2))
 </code></pre>
+
+    <div class="output-box">
+      12
+      <br>
+      5
+      <br>
+      3
+    </div>
 
     <h2>String</h2>
     <p>
@@ -126,9 +138,15 @@ print(add(a=5, b=2))
 my_list = [6, 7, 8, 9]
 print(my_list[3])
 
-my_string = "hello"
+my_string = "carrots"
 print(my_string[2])
 </code></pre>
+
+    <div class="output-box">
+      8
+      <br>
+      r
+    </div>
 
     <h3><span class="inline-code">count</span></h3>
     <p>
@@ -140,17 +158,26 @@ S = "I can not have an apple."
 print(S.count("an"))
 </code></pre>
 
+    <div class="output-box">
+      2
+    </div>
+
     <h3><span class="inline-code">find</span></h3>
     This function returns the index of the first occurance of a substring inside your string,
     if the substring exits. If it doesn't, it returns -1.
     <pre><code class="language-python"># Using the find function
 S = "I can not have an apple."
-# This will return 10 
 print(S.find("have"))
 
 # This will return -1, meaning the substring we are looking for is not in this string
 print(S.find("cat"))
 </code></pre>
+
+    <div class="output-box">
+      10
+      <br>
+      -1
+    </div>
 
     <h3><span class="inline-code">replace</span></h3>
     <p>
@@ -164,6 +191,10 @@ S = "I have a dog. I think dogs are the best."
 S2 = S.replace("dog", "cat")
 print(S2)
 </code></pre>
+
+    <div class="output-box">
+      I have a cat. I think cats are the best.
+    </div>
 
     <h3><span class="inline-code">split</span></h3>
     <p>
@@ -183,7 +214,12 @@ print(S2)
     </p>
     <pre><code class="language-python"># Splitting the string into a list of its substrings
 splitted_parts = "cat, dog , chickens , good,boy".split(",")
+print(splitted_parts)
 </code></pre>
+
+    <div class="output-box">
+      ['cat', ' dog ', ' chickens ', ' good', 'boy']
+    </div>
 
     <div class="box">
       Sometimes using the <span class="inline-code">split</span> function makes left over space before and after the returned strings.
@@ -219,6 +255,12 @@ print(join_string.join(my_animals))
 # method 2
 print(" are cute. ".join(my_animals))
 </code></pre>
+
+    <div class="output-box">
+      cats are cute. dogs are cute. squirels
+      <br>
+      cats are cute. dogs are cute. squirels
+    </div>
 
     <h2>List</h2>
     <p>
