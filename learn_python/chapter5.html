@@ -385,7 +385,46 @@ print(all_my_numbers)
       Of course you can. Try it.
     </div>
 
+    <h3><span class="inline-code">pop</span></h3>
+    <p>
+      With Python <i>poping</i> is the opposit of appending:
+      it removes the last element from your list and returns it.
+      So, this element is no longer in your lists after it was popped from the list.
+    </p>
+    <pre><code class="language-python"># poping from a list
+
+my_numbers = [2, 3, 4, 5]
+
+poped_number = my_numbers.pop()
+print("The poped number was", poped_number)
+print("Your list after poping is", my_numbers)
+</code></pre>
+
+    <div class="output-box">
+      The poped number was 5
+      <br>
+      Your list after poping is [2, 3, 4]
+    </div>
+
     <h3>Reversing a list</h3>
+    <p>
+      You can easily reverse the original order of iterms in your list
+      using the <span class="inline-code">reverse</span> function.
+      Unlike many other functions we tried before this function does not return a new object (in this case a list).
+      Instead, when you call this function on a list object it reorders elements in your list <i>in-place</i>.
+      Doing something in-place means that you do not create a new object, instead you change the current one as is.
+      If you notice, this function doesn't return anything either.
+    </p>
+    <pre><code class="language-python"># Reversing items in a list
+
+my_numbers = [2, 3, 4, 5]
+my_numbers.reverse()
+print(my_numbers)
+</code></pre>
+
+    <div class="output-box">
+      [5, 4, 3, 2]
+    </div>
 
     <h3>Sorting a list</h3>
 
