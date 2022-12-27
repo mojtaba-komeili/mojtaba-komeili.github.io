@@ -37,7 +37,8 @@
     <p>
       We are going to do some <i>data processing</i> at the end of this chapter.
       This means that you will write functions that in their input recieve some data, and produce some output.
-      For that reason, we start with knowing Python functinos better, then we work on series of questions that recieves input and return outputs.
+      For that reason, we start with knowing Python functinos better, then we work on series of questions that recieves
+      input and return outputs.
     </p>
     <h2>Functions</h2>
     <p>
@@ -82,7 +83,7 @@ print(answer)
     This means that you don't have to always provide all the arguments to a function.
     In fact, you have been usig these functions since the beginning without knowing it.
     Check the arguments for <span class="inline-code">print</span> function
-    <a href="https://www.programiz.com/python-programming/methods/built-in/print"  target="_blank">here</a>.
+    <a href="https://www.programiz.com/python-programming/methods/built-in/print" target="_blank">here</a>.
 
     <p>
       You can also define your own functions with the default values.
@@ -111,17 +112,20 @@ print(subtract(a=5, b=2))
       We are familiar with <span class="inline-code">String</span> types from Chapter 1.
       We have used some simple functions from the <span class="inline-code">String</span> objects,
       for example, <span class="inline-code">lower</span> and <span class="inline-code">upper</span>,
-      which return the same <span class="inline-code">String</span> with all its characters in <i>lower</i> or <i>upper</i> case, respectively.
+      which return the same <span class="inline-code">String</span> with all its characters in <i>lower</i> or
+      <i>upper</i> case, respectively.
       We are going to learn more useful functions from the <span class="inline-code">String</span> object here.
     </p>
     <h3>Substring</h3>
     <p>
-      To many of the functions that work with  <span class="inline-code">String</span> objects in Python,
+      To many of the functions that work with <span class="inline-code">String</span> objects in Python,
       we first need to what is <strong>substring</strong>.
-      A substring is a part of a <span class="inline-code">String</span> that can be a <span class="inline-code">count</span> on its own.
+      A substring is a part of a <span class="inline-code">String</span> that can be a <span
+        class="inline-code">count</span> on its own.
       For example, "side" is substring of "re<span style="color: red;">side</span>nce".
-      Similarly, "ve ca" is  substring of "I ha<span style="color: red;">ve ca</span>ts and they are cute."
-      But as far as python knows "new" is NOT a substring of "New providence" because for Python "new" and "New" are two different strings.
+      Similarly, "ve ca" is substring of "I ha<span style="color: red;">ve ca</span>ts and they are cute."
+      But as far as python knows "new" is NOT a substring of "New providence" because for Python "new" and "New" are two
+      different strings.
     </p>
     <h3>String index</h3>
     <p>
@@ -200,7 +204,8 @@ print(S2)
     <p>
       This function is different from all the string object functions we talked about so far.
       It returns a list of strings made from <i>splitting</i> the original substring by some substring.
-      If the substring does not exist in the original string, then it returns the original string as single item in the retruned list.
+      If the substring does not exist in the original string, then it returns the original string as single item in the
+      retruned list.
     </p>
     <img src="../images/learn_python/chapter5/split.png" width="60%" class="image">
 
@@ -222,10 +227,13 @@ print(splitted_parts)
     </div>
 
     <div class="box">
-      Sometimes using the <span class="inline-code">split</span> function makes left over space before and after the returned strings.
+      Sometimes using the <span class="inline-code">split</span> function makes left over space before and after the
+      returned strings.
       For example, <span class="inline-code">"Hello, I am here".split(",")</span> returns
-      <span class="inline-code">["Hello", " I am here"]</span>. As you see the second strin has an extra space in front of it.
-      There is a function called <span class="inline-code">strip()</span> that returns a string in which the extra spaces,
+      <span class="inline-code">["Hello", " I am here"]</span>. As you see the second strin has an extra space in front
+      of it.
+      There is a function called <span class="inline-code">strip()</span> that returns a string in which the extra
+      spaces,
       before and after the string are removed.
       Think about how you can remove all the extra spaces from the returned strigns in the list.
     </div>
@@ -314,7 +322,8 @@ print(my_favorite_numbers.count(6))
       you should know that Python gives you an easier way of doing this.
       It is very similar to when we were getting a single element from our list.
       You just need to use a <span class="inline-code">:</span> symbol between two indexes.
-      For example, <span class="inline-code">my_list[3:5]</span> gives you a new list that incldues all the items from 3 to 5.
+      For example, <span class="inline-code">my_list[3:5]</span> gives you a new list that incldues all the items from 3
+      to 5.
     </p>
     <p>
       If your slice starts from the beginning of the list, you don't need to include 0,
@@ -322,7 +331,8 @@ print(my_favorite_numbers.count(6))
       Python understands that you want everything in your list up to, but not including the item at index 5.
       Similarly, if you want to your slice to end of your list, you don't need to include the last index.
       Instead of that you can simply write something like <span class="inline-code">my_list[2:]</span>,
-      which Python understands as you asking it to make a slice from the item at index 2 all the way to the end of the list.
+      which Python understands as you asking it to make a slice from the item at index 2 all the way to the end of the
+      list.
     </p>
     <pre><code class="language-python"># Making different slices
 
@@ -347,7 +357,33 @@ print(my_favorite_numbers[3:])
     </div>
 
     <h3>Joining two lists</h3>
+    <p>
+      Imagine you have two lists and want to create another list that contatins the two of them.
+      In other words, you want to have a new list that is made from adding one of them at the end of the other one.
+      This is what we call <strong>concatenation</strong> in computer science.
+      You can easliy do this by putting a <span class="inline-code">+</span> symbol between two lists.
+      This will generate a new list that is made from all the elements in the first list followed by the elements in the
+      second.
+    </p>
+    <pre><code class="language-python"># concatenating lists
 
+my_numbers = [2, 3, 4, 5]
+my_other_numbers = [3, 6, 8, 9, 12, 78]
+
+# concatenating two lists
+all_my_numbers = my_numbers + my_other_numbers
+print(all_my_numbers)
+</code></pre>
+    <img src="../images/learn_python/chapter5/concat.png" width="65%" class="image">
+
+    <div class="output-box">
+      [2, 3, 4, 5, 3, 6, 8, 9, 12, 78]
+    </div>
+
+    <div class="box">
+      Can you write a function that concatenates two lists without using what we introduced here?
+      Of course you can. Try it.
+    </div>
 
     <h3>Reversing a list</h3>
 
