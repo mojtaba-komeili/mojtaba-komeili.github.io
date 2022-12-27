@@ -287,10 +287,77 @@ print(my_favorite_numbers.count(6))
       2
     </div>
 
-    <h3>Sublist</h3>
+    <h3>Slicing a list</h3>
+    <p>
+      We know how to get one element from a list. What if we wanted to get a contiguous elemtns inside a row?
+      In other words, you wanted to have a new list from the ranges of indexes of your original list.
+      This is what we call a <strong>slice</strong> from the original list.
+      See the image below for illustration of the slice.
+    </p>
+    <img src="../images/learn_python/chapter5/list_slice.png" width="65%" class="image">
+    <p>
+      It is import to remember in Python (as well as many other languages)
+      when you have two numbers for the start and the end of your slice, the first one is inclusive
+      (meaning the element in that index is part of your slice) and the second one is not.
+      And of course, don't forget that we start counting from 0 in computer science.
+    </p>
+
+    <div class="box">
+      Try writting a function that generates a slice of an array.
+      Your function will be something like <span class="inline-code">slice(my_list, start_index, end_index)</span>.
+      It returns a new list from elements of <span class="inline-code">my_list</span>,
+      from <span class="inline-code">start_index</span> to <span class="inline-code">end_index</span>.
+    </div>
+
+    <p>
+      If you tried the previous excerise of writting your own slicer function,
+      you should know that Python gives you an easier way of doing this.
+      It is very similar to when we were getting a single element from our list.
+      You just need to use a <span class="inline-code">:</span> symbol between two indexes.
+      For example, <span class="inline-code">my_list[3:5]</span> gives you a new list that incldues all the items from 3 to 5.
+    </p>
+    <p>
+      If your slice starts from the beginning of the list, you don't need to include 0,
+      you can just write <span class="inline-code">my_list[:5]</span> in your code.
+      Python understands that you want everything in your list up to, but not including the item at index 5.
+      Similarly, if you want to your slice to end of your list, you don't need to include the last index.
+      Instead of that you can simply write something like <span class="inline-code">my_list[2:]</span>,
+      which Python understands as you asking it to make a slice from the item at index 2 all the way to the end of the list.
+    </p>
+    <pre><code class="language-python"># Making different slices
+
+my_favorite_numbers = [5, 6, 3, 4, 13, 23, 17]
+
+# Some middle slice
+print(my_favorite_numbers[3:6])
+
+# A slice from the beginning
+print(my_favorite_numbers[:5])
+
+# A slice to the end
+print(my_favorite_numbers[3:])
+</code></pre>
+
+    <div class="output-box">
+      [4, 13, 23]
+      <br>
+      [5, 6, 3, 4, 13]
+      <br>
+      [4, 13, 23, 17]
+    </div>
+
+    <h3>Joining two lists</h3>
+
+
+    <h3>Reversing a list</h3>
+
+    <h3>Sorting a list</h3>
 
     <h2>Dictionary</h2>
-   
+
+    <h3>Getting the keys in a dictionary</h3>
+
+    <h3>Checking if a key is in a dictionary</h3>
 
   </div>
 
