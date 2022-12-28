@@ -519,7 +519,7 @@ for k in game_score.keys():
 
 game_score = {'Jenny': 6, 'Peter': 3, 'Alice': 4}
 for v in game_score.values():
-      print(v)
+    print(v)
 </code></pre>    
 
     <div class="output-box">
@@ -531,7 +531,39 @@ for v in game_score.values():
     </div>
 
     <h3>Checking if a key is in a dictionary</h3>
+    <p>
+      If you want to check whether a key already exists in a dictionary or not,
+      use the <span class="inline-code">in</span> keyword simiar to what you see in the following example.
+    </p>
+    <pre><code class="language-python"># Checking a key inside a dictionary
 
+game_score = {'Jenny': 6, 'Peter': 3, 'Alice': 4}
+if 'Bob' in game_score:
+    print("Bob's score is", game_score["Bob"])
+else:
+    print("Bob does not have a score in this game.")
+</code></pre>    
+
+    <div class="output-box">
+      Bob does not have a score in this game.
+    </div>
+
+    <p>
+      Fun fact, you can use the <span class="inline-code">in</span> keyword to check the content of lists too.
+    </p>
+
+    <pre><code class="language-python"># Checking a item inside a list
+
+my_numbers = [5, 7, 9, 13]
+if 7 in my_numbers:
+    print("The list of numbers includes 7.")
+else:
+    print("7 is not in the list of numbers.")
+</code></pre>    
+
+    <div class="output-box">
+      The list of numbers includes 7.
+    </div>
   </div>
 
 </body>
