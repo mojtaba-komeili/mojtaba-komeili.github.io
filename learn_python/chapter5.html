@@ -479,6 +479,35 @@ print("Jenny's score is", game_score["Jenny"])
     </p>
 
     <h3>Getting the keys and values</h3>
+    <p>
+      So far we have been interacting with Python dictionaries one item at a time:
+      we were either, reading, adding or changing a single element from the dictionary.
+      Another important point was that we had to know what were the keys in the dictionary.
+      But what if we didn't know that?
+      Here is where we need to request for getting the keys or values in the dictionary.
+      Luckily Python has built-in functions in its dictionary objects that helps us with that.
+    </p>
+
+    <h4><span class="inline-code">keys</span></h4>
+    <p>
+      This functions returns all the keys in a dictionary.
+      The easy way to use the returned values is to run it with a for loop.
+    </p>
+
+    <pre><code class="language-python"># Looping over dictionary keys
+
+game_score = {'Jenny': 6, 'Peter': 3, 'Alice': 4}
+for k in game_score.keys():
+      print(k)
+</code></pre>    
+
+    <div class="output-box">
+      Jenny
+      <br>
+      Peter
+      <br>
+      Alice
+    </div>
 
     <h3>Checking if a key is in a dictionary</h3>
 
