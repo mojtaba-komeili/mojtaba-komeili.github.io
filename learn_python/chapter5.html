@@ -451,8 +451,34 @@ print(my_numbers)
     </div>
 
     <h2>Dictionary</h2>
+    <p>
+      Time to explore another important built-in obejct in Python: dictionary.
+      Remember that dictionaries are very similar to lists.
+      Both lists and dictionaries are for keeping a colleciton of other objects in them.
+      Their main difference is that lists are using the <i>index</i> (an integer value) to find objects in them,
+      whereas dictionaries use <i>keys</i>.
+      Python just counts where your items in your list and calls it the <i>index</i>,
+      but in dictionaries you decide what the key is going to be.
+      Here is another reminder of how dictionaries work.
+    </p>
 
-    <h3>Getting the keys in a dictionary</h3>
+    <pre><code class="language-python"># Dictionaries and keys
+
+game_score = {'Jenny': 6, 'Peter': 3, 'Alice': 4}
+print("Jenny's score is", game_score["Jenny"])
+</code></pre>
+
+    <div class="output-box">
+      Jenny's score is 6
+    </div>
+    <p>
+      In this dictionary, named <span class="inline-code">game_score</span>,
+      we keep track of the score in an imaginary game.
+      Any time we wanted to read or change someone's score, we use that person's name,
+      which we defined as the key for our dictionary, to access it.
+    </p>
+
+    <h3>Getting the keys and values</h3>
 
     <h3>Checking if a key is in a dictionary</h3>
 
