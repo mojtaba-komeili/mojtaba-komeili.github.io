@@ -22,11 +22,14 @@
 
       const QuestionsContent = [
         // 1
-        { 'q': 'Hello', 'a': (x) => { alert(x) } },
+        { 'q': 'This is the first question.', 'a': (x) => { return x === "Hi"; } },
         // 2
+        { 'q': 'Now the second question.', 'a': (x) => { alert(x) } },
       ]
 
       const [step, setStep] = React.useState(1);
+
+      console.log("Step is " + step);
 
       return (
         <div>
@@ -46,12 +49,12 @@
             </p>
           </div>
           <ProgressBar step={step} />
-          <Question step={step} content={QuestionsContent.at(step - 1)} />
+          <Question step={step} setStep={setStep} content={QuestionsContent.at(step - 1)} />
         </div>
       )
     }
 
-    function Question({ step, content }) {
+    function Question({ step, setStep, content }) {
       const responseHandleFunction = content.a
       return (
         <div>
@@ -61,16 +64,22 @@
           <p>
             {content.q}
           </p>
-          <ResponseBar responseChecker={responseHandleFunction} />
+          <ResponseBar responseChecker={responseHandleFunction} step={step} setStep={setStep} />
         </div>
       )
     }
 
-    function ResponseBar({ responseChecker }) {
-      return (<form onSubmit={() => { responseChecker(document.getElementById("answer").value) }}>
+    function ResponseBar({ responseChecker, step, setStep }) {
+      return (<form action="#" onSubmit={() => { 
+        if (responseChecker(document.getElementById("answer").value)) {
+          setStep(step+1);
+        } else {
+          alert("Wrong answer, please try again!");
+        }
+      }}>
         <div className="form-group">
           <label htmlFor="answer">Your answer:</label>
-          <input type="text" autocomplete="off" className="form-control" id="answer" placeholder="Answer"></input>
+          <input type="text" autoComplete="off" className="form-control" id="answer" placeholder="Answer"></input>
           <small id="emailHelp" className="form-text text-muted">Copy and paste the output of your function here.</small>
         </div>
         <button type="submit" className="btn btn-primary">Submit</button>
