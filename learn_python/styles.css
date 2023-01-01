@@ -169,6 +169,13 @@ td, th {
   border-radius: 10px
 }
 
+#knowledge_test_question {
+  background-color: rgb(235, 189, 134);
+  padding: 3%;
+  width: 80%;
+  border-radius: 3px
+}
+
 .final {
   font-size: 5em;
 }

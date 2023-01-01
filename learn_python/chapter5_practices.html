@@ -22,7 +22,11 @@
 
       const QuestionsContent = [
         // 1
-        { 'q': 'This is the first question.', 'a': (x) => { return x === "Hi"; } },
+        { 'q': 
+          <div>
+            Hello! There cannot be any more interested.
+          </div>
+        , 'a': (x) => { return x === "Hi"; } },
         // 2
         { 'q': 'Now the second question.', 'a': (x) => { alert(x) } },
       ]
@@ -57,13 +61,13 @@
     function Question({ step, setStep, content }) {
       const responseHandleFunction = content.a
       return (
-        <div>
-          <h1>
+        <div id="knowledge_test_question">
+          <h2>
             {"Question # " + step}
-          </h1>
-          <p>
+          </h2>
+          <div>
             {content.q}
-          </p>
+          </div>
           <ResponseBar responseChecker={responseHandleFunction} step={step} setStep={setStep} />
         </div>
       )
@@ -78,7 +82,7 @@
         }
       }}>
         <div className="form-group">
-          <label htmlFor="answer">Your answer:</label>
+          <label htmlFor="answer"><strong>Your answer:</strong></label>
           <input type="text" autoComplete="off" className="form-control" id="answer" placeholder="Answer"></input>
           <small id="emailHelp" className="form-text text-muted">Copy and paste the output of your function here.</small>
         </div>
