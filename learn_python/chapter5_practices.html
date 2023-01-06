@@ -25,10 +25,28 @@
         {
           'q':
             <div>
-              Hello! There cannot be any more interested.
+              <p>
+                Write a function that receives variables
+                <span class="inline-code">a</span> and <span class="inline-code">b</span>.
+                It counts the number of times string <span class="inline-code">a</span>
+                happens inside <span class="inline-code">b</span> string.
+                It should NOT be case sensitive.
+              </p>
+              <p>
+                For example, if <span class="inline-code">a='hello Henry'</span> and <span class="inline-code">b='he'</span>.
+                Then the function returns 2.
+              </p>
             </div>
-          , 'input': '[5, 6, 7]'
-          , 'a': (a) => { return a === "Hi"; }
+          , 'input':
+            <div>
+              <p>
+                <span class="inline-code">a='Ingots of gold are shining and they look amazing!'</span>
+              </p>
+              <p>
+                <span class="inline-code">b='ing'</span>
+              </p>
+            </div>
+          , 'a': (a) => { return a.trim() === "3"; }
         },
         // 2
         { 'q': 'Now the second question.', 'input': '[8]', 'a': (x) => { alert(x) } },
@@ -49,10 +67,10 @@
               🤔 Write a function that does what the question asks.
             </p>
             <p>
-              📑 Define a variable with what is in <strong>Function input</strong> part of the question.
+              📑 Define variables with what is in <strong>Function input</strong> part of the question.
             </p>
             <p>
-              🧐 Run your function with the that variable and copy/paste its output in the answer box.
+              🧐 Run your function with the those variables and copy/paste its output in the answer box.
             </p>
             <p>
               😎 If your answer is correct, you will see a button to go to the next level.
