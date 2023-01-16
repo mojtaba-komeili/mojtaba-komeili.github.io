@@ -32,3 +32,11 @@ body {
   margin-right: auto;
   max-width: 90%;
 }
+
+#contact {
+  direction: rtl;
+  margin: 10%;
+  padding: 5%;
+  border-radius: 10px;
+  background-color: aqua;
+}
