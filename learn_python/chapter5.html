@@ -42,9 +42,9 @@
     <img src="../images/learn_python/chapter5/RealPython.png" width="60%" class="image">
     <p>
       We are going to do some <i>data processing</i> at the end of this chapter.
-      This means that you will write functions that recieve some data, from their input arguments,
+      This means that you will write functions that receive some data, from their input arguments,
       and produce some output, which they will return.
-      For that reason, we start with learning more about Python functinos and their input arguments.
+      For that reason, we start with learning more about Python functions and their input arguments.
     </p>
     <h2>Functions</h2>
     <p>
@@ -87,7 +87,7 @@ print(answer)
     <h3>Default arguments</h3>
     Python allows you to have functions with default values for their arguments.
     This means that you don't have to always provide all the arguments to a function.
-    In fact, you have been usig these functions since the beginning without knowing it.
+    In fact, you have been using these functions since the beginning without knowing it.
     Check the arguments for <span class="inline-code">print</span> function
     <a href="https://www.programiz.com/python-programming/methods/built-in/print" target="_blank">here</a>.
 
@@ -135,7 +135,7 @@ print(subtract(a=5, b=2))
     </p>
     <h3>String index</h3>
     <p>
-      So far we have seen Python strigns as a single entity. But in fact each string is like a <i>list</i> of
+      So far we have seen Python strings as a single entity. But in fact each string is like a <i>list</i> of
       characters.
       As any other list, the objects inside it have index (Don't forget that this index starts from 0, not 1).
     </p>
@@ -174,7 +174,7 @@ print(S.count("an"))
     </div>
 
     <h3><span class="inline-code">find</span></h3>
-    This function returns the index of the first occurance of a substring inside your string,
+    This function returns the index of the first occurrence of a substring inside your string,
     if the substring exits. If it doesn't, it returns -1.
     <pre><code class="language-python"># Using the find function
 S = "I can not have an apple."
@@ -191,7 +191,7 @@ print(S.find("cat"))
 
     <h3><span class="inline-code">replace</span></h3>
     <p>
-      As the name suggests, this function replace one substring in your string with anothre.
+      As the name suggests, this function replace one substring in your string with another.
       Going through the following example will clarify this:
     </p>
     <pre><code class="language-python"># Replacing substrings
@@ -211,7 +211,7 @@ print(S2)
       This function is different from all the string object functions we talked about so far.
       It returns a list of strings made from <i>splitting</i> the original substring by some substring.
       If the substring does not exist in the original string, then it returns the original string as single item in the
-      retruned list.
+      returned list.
     </p>
     <img src="../images/learn_python/chapter5/split.png" width="60%" class="image">
 
@@ -243,13 +243,13 @@ print(splitted_parts)
       There is a function called <span class="inline-code">strip()</span>
       that returns a string in which the extra spaces,
       before and after the string are removed.
-      Think about how you can remove all the extra spaces from the returned strigns in the list.
+      Think about how you can remove all the extra spaces from the returned strings in the list.
     </div>
 
     <h3><span class="inline-code">join</span></h3>
     <p>
       This function is the opposite of the <span class="inline-code">split</span> function.
-      It <i>joins</i> the strings inside a lits into a single string, by putting another string between them.
+      It <i>joins</i> the strings inside a lists into a single string, by putting another string between them.
       So in summary it turns a list of strings into a single string.
     </p>
     <img src="../images/learn_python/chapter5/join.png" width="75%" class="image">
@@ -283,7 +283,7 @@ print(" are cute. ".join(my_animals))
       Now let's talk about another important built-in object in Python: <strong>list</strong>.
       We already introduced <span class="inline-code">append</span> and <span class="inline-code">count</span>.
       Remember that the first one adds an element to the end of the string,
-      and the latter counts the number of occurances of an element inside the list.
+      and the latter counts the number of occurrences of an element inside the list.
       Have a quick look at chapter 3 to refresh your mind on these two functions.
     </p>
     <pre><code class="language-python"># list functions: append and count
@@ -321,22 +321,22 @@ print(my_favorite_numbers.count(6))
 
     <div class="box">
       Slices for lists are like substrings for strings.
-      Do you see their resemblence?
+      Do you see their resemblance?
     </div>
 
     <div class="box">
-      Try writting a function that generates a slice of an array.
+      Try writing a function that generates a slice of an array.
       Your function will be something like <span class="inline-code">slice(my_list, start_index, end_index)</span>.
       It returns a new list from elements of <span class="inline-code">my_list</span>,
       from <span class="inline-code">start_index</span> to <span class="inline-code">end_index</span>.
     </div>
 
     <p>
-      If you tried the previous excerise of writting your own slicer function,
+      If you tried the previous exercise of writing your own slicer function,
       you should know that Python gives you an easier way of doing this.
       It is very similar to when we were getting a single element from our list.
       You just need to use a <span class="inline-code">:</span> symbol between two indexes.
-      For example, <span class="inline-code">my_list[3:5]</span> gives you a new list that incldues all the items from 3
+      For example, <span class="inline-code">my_list[3:5]</span> gives you a new list that includes all the items from 3
       to 5.
     </p>
     <p>
@@ -372,10 +372,10 @@ print(my_favorite_numbers[3:])
 
     <h3>Joining two lists</h3>
     <p>
-      Imagine you have two lists and want to create another list that contatins the two of them.
+      Imagine you have two lists and want to create another list that contains the two of them.
       In other words, you want to have a new list that is made from adding one of them at the end of the other one.
       This is what we call <strong>concatenation</strong> in computer science.
-      You can easliy do this by putting a <span class="inline-code">+</span> symbol between two lists.
+      You can easily do this by putting a <span class="inline-code">+</span> symbol between two lists.
       This will generate a new list that is made from all the elements in the first list followed by the elements in the
       second.
     </p>
@@ -401,28 +401,28 @@ print(all_my_numbers)
 
     <h3><span class="inline-code">pop</span></h3>
     <p>
-      With Python <i>poping</i> is the opposit of appending:
+      With Python <i>popping</i> is the opposite of appending:
       it removes the last element from your list and returns it.
       So, this element is no longer in your lists after it was popped from the list.
     </p>
-    <pre><code class="language-python"># poping from a list
+    <pre><code class="language-python"># popping from a list
 
 my_numbers = [2, 3, 4, 5]
 
 poped_number = my_numbers.pop()
-print("The poped number was", poped_number)
-print("Your list after poping is", my_numbers)
+print("The popped number was", poped_number)
+print("Your list after popping is", my_numbers)
 </code></pre>
 
     <div class="output-box">
-      The poped number was 5
+      The popped number was 5
       <br>
-      Your list after poping is [2, 3, 4]
+      Your list after popping is [2, 3, 4]
     </div>
 
     <h3>Reversing a list</h3>
     <p>
-      You can easily reverse the original order of iterms in your list
+      You can easily reverse the original order of items in your list
       using the <span class="inline-code">reverse</span> function.
       Unlike many other functions we tried before this function does not return a new object (in this case a list).
       Instead, when you call this function on a list object it reorders elements in your list <i>in-place</i>.
@@ -442,7 +442,7 @@ print(my_numbers)
 
     <div class="box">
       Here is another challenge for the braves among us. Write your own function that reverses a list.
-      It can recieve a list as input, and output another list which is the revesed version of the input.
+      It can receive a list as input, and output another list which is the reversed version of the input.
     </div>
 
     <h3>Sorting a list</h3>
@@ -467,9 +467,9 @@ print(my_numbers)
 
     <h2>Dictionary</h2>
     <p>
-      Time to explore another important built-in obejct in Python: <strong>dictionary</strong>.
+      Time to explore another important built-in object in Python: <strong>dictionary</strong>.
       Remember that dictionaries are very similar to lists.
-      Both lists and dictionaries are for keeping a colleciton of other objects in them.
+      Both lists and dictionaries are for keeping a collection of other objects in them.
       Their main difference is that lists are using the <i>index</i> (an integer value) to find objects in them,
       whereas dictionaries use <i>keys</i>.
       Python just counts where your items in your list is and calls it the <i>index</i>,
@@ -548,8 +548,8 @@ for v in game_score.values():
 
     <div class="box">
       The <span class="inline-code">keys</span> and <span class="inline-code">values</span>
-      functions return something callled and <i>iterator</i>. That is why we used them with loops.
-      Talking about iterators is beyound this class.
+      functions return something called and <i>iterator</i>. That is why we used them with loops.
+      Talking about iterators is beyond this class.
       But if you wanted to use the returned values of these functions easier,
       you can always turn them into a list.
       For example, <span class="inline-code">list(game_score.keys())</span>
@@ -560,7 +560,7 @@ for v in game_score.values():
     <h3>Checking if a key is in a dictionary</h3>
     <p>
       If you want to check whether a key already exists in a dictionary or not,
-      use the <span class="inline-code">in</span> keyword simiar to what you see in the following example.
+      use the <span class="inline-code">in</span> keyword similar to what you see in the following example.
     </p>
     <pre><code class="language-python"># Checking a key inside a dictionary
 
@@ -595,7 +595,7 @@ else:
 
   <div class="content practice">
     <h1>Practice</h1>
-    Head to the interactive practice excerise page <a href="./chapter5_practices.html">here</a> to challeneg yourself.
+    Head to the interactive practice exercise page <a href="./chapter5_practices.html">here</a> to challenge yourself.
     See if you can reach the end of the questions and answer them all.
   </div>
 
