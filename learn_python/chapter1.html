@@ -44,16 +44,16 @@
         want to know more about them.</li>
       <li>You are curious to see what can be done if you knew programming.</li>
       <li>You have some casual experience with programming, but want to go
-        beyound that.</li>
+        beyond that.</li>
       <li>You just enjoy learning new skills.</li>
     </ul>
     <img src="../images/learn_python/chapter1/class.png" width="60%" class="image">
 
     <h2>Why Python?</h2>
     <ul>
-      <li>Most importantly, becasue it is easy to learn. This allow us to
-        focus on the concepts instead of strugling with its syntax.</li>
-      <li>It is a modern and prevalent language used anywahere these days.
+      <li>Most importantly, because it is easy to learn. This allow us to
+        focus on the concepts instead of struggling with its syntax.</li>
+      <li>It is a modern and prevalent language used anywhere these days.
         From Google's website to super computers that run artificial intelligence.</li>
       <li>It has a large ecosystems of libraries: this means many
         functionalities that you may need are already there, you just need to
@@ -73,15 +73,15 @@
 
     <h3>Chain of command</h3>
     <p>
-      Operating systems (Windows, Mac, etc.) are the programms available on any computer these days.
-      In their core, they are a set of programms for doing some fundamental tasks with a computer: truning it on,
+      Operating systems (Windows, Mac, etc.) are the programs available on any computer these days.
+      In their core, they are a set of programs for doing some fundamental tasks with a computer: turning it on,
       showing files, copying files, etc. All the actions in their graphical user interface is a command sent to
       computers,
-      and the actions that happen are what the programms do.
+      and the actions that happen are what the programs do.
     </p>
 
     <p>
-      BUT, there is another way to interact with your OS (short for <i>operating system</i>):
+      But, there is another way to interact with your OS (short for <i>Operating System</i>):
       through its command line interface.
       Command line interface allows you to directly type in command for your OS to execute.
       Here we are going to use it a lot.
@@ -92,7 +92,7 @@
     Let's quickly run 2 simple command in your command line interface:
     <ol>
       <li><strong>dir</strong> (Windows) or <strong>ls</strong> (Mac): shows the content of your current directory.</li>
-      <li><strong>cd</strong>: changes the dirctory.</li>
+      <li><strong>cd</strong>: changes the directory.</li>
     </ol>
 
     <img src="../images/learn_python/chapter1/win-cd.jpeg" width="50%" class="image">
@@ -133,7 +133,7 @@
       Type <span class="inline-code">print('Hello world!')</span> in your Python interface.
       This is a command that tells python to print something to its command interface output.
       Here, <span class="inline-code">print</span> is what we call a function.
-      A function is a simple way to tell Python do something in your programm (in this case output something on the
+      A function is a simple way to tell Python do something in your program (in this case output something on the
       screen).
     </p>
     <img src="../images/learn_python/chapter1/cli-hello-world.png" class="image">
@@ -174,7 +174,7 @@
     <p>
       For variables that are numbers we just type them as they are, for example <span class="inline-code">x =
         2.3</span>.
-      But variables that keep text (calling it string from now on), need to have their text inside a qutation,
+      But variables that keep text (calling it string from now on), need to have their text inside a quotation,
       for example <span class="inline-code">city = "New Providence"</span>.
       See these examples. Try to do some on your own.
     </p>
@@ -195,7 +195,7 @@
     </ol>
 
     <p>
-      Having a long arithmetic expression that incldues multiple operations,
+      Having a long arithmetic expression that includes multiple operations,
       Python (as well as all the other languages) first processes <span class="inline-code">*</span> and <span
         class="inline-code">/</span>
       from left to right, then processes <span class="inline-code">+</span> and <span class="inline-code">-</span>,
@@ -237,10 +237,10 @@
     <image src="../images/learn_python/chapter1/vscode.png" width="80%" class="image">
       <p>
         Programmers use an Integrated Development Environment (also known as IDE)
-        for writting their codes.
+        for writing their codes.
         You can write your code in anything that helps you create a text file:
         Notepad, MS Word ... etc.
-        But there are some applications that are more tuned for writting code.
+        But there are some applications that are more tuned for writing code.
         There is no end to the list of these programs.
         Feel free to choose one that suits you the most.
         <a href="https://websitesetup.org/best-ide-software" target="_blank">This</a> is a recent
@@ -255,7 +255,7 @@
       </ul>
 
       <h3>Writing our first (actual) code</h3>
-      Open your (donwloaded and installed) IDE and write the following code in it.
+      Open your (downloaded and installed) IDE and write the following code in it.
       Notice the first two lines that start with <span class="inline-code">#</span>.
       These line are what we call <strong>comments</strong>. Python will ignore these lines.
       Programmers put these in their codes as notes for someone who reads the code later.
@@ -282,12 +282,12 @@ print("hello again world!")</code></pre>
 print("Hello " + name)</code></pre>
 
       <div class="box">
-        Try writting a program that asks for a number from user, then multipies that by 3, and prints out the resutls.
+        Try writing a program that asks for a number from user, then multiplies that by 3, and prints out the results.
         SPOILER ALERT: the result will surprise you.
       </div>
 
       <p>
-        If you have done the above excercise you notice the odd resutls. This is because the input stored the value as a
+        If you have done the above exercise you notice the odd results. This is because the input stored the value as a
         string.
         You have to convert that variable to a numeric one. There are two functions you can use for this conversion:
       </p>
@@ -302,12 +302,12 @@ x = "34"
 x = int(x)</code></pre>
 
       <p>
-        Retry the above excersie and use these functions.
+        Retry the above exercise and use these functions.
       </p>
 
       <h2>Lists and Dictionaries</h2>
       <p>
-        Lists and Dictionaries are two extremely useful type of variables in Pyhton (and again any other programming
+        Lists and Dictionaries are two extremely useful type of variables in Python (and again any other programming
         language).
         They are variables that store more than one values.
       </p>
@@ -321,7 +321,7 @@ x = int(x)</code></pre>
       <pre><code class="language-python"># An example program that uses lists
 # We are going to have a lot of commenting on this one
 
-# This is the list of integer numbers betwen 2 and 5 (inclusive)
+# This is the list of integer numbers between 2 and 5 (inclusive)
 numbers = [2, 3, 4, 5]
 
 # And the list of days in a week
@@ -364,7 +364,7 @@ prices = {"orange": 4, "apple":2 , "potato": 0.5}
 sq = {1:1, 2:4, 3:9}</code></pre>
 
       <p>
-        Accesing the values in a dictionary is similar to lists (using "[" and "]").
+        Accessing the values in a dictionary is similar to lists (using "[" and "]").
         But here we use the key, instead of the index.
       </p>
 
@@ -390,7 +390,7 @@ print("Price of orange is", prices["banana"])</code></pre>
     <ol>
       <li>Try writing the program asks for the diameter of circle and calculates its area.</li>
       <li>Suppose each pound of carrot costs $3 and each pound of tomato $2.5.
-        Write a python code that asks users how much of each they purchased and prins out the total price.</li>
+        Write a python code that asks users how much of each they purchased and prints out the total price.</li>
     </ol>
   </div>
 
