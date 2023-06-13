@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Noticia+Text|Lalezar');
 
-:root{
+:root {
   --padding: 21px;
   --bg-color: #f5f8eb;
   --text-color: #292c35;
@@ -9,12 +9,12 @@
   --font-display: 'Lalezar';
 }
 
-html{
+html {
   margin: 0;
   padding: 0;
 }
 
-body{
+body {
   max-width: 800px;
   margin: 0 auto;
   padding: var(--padding);
@@ -25,37 +25,22 @@ body{
   font-size: 21px;
 }
 
-h2{
+h2 {
   font-size: 180%;
   transform: translateX(-5px);
   font-family: var(--font-display);
   margin-bottom: 0;
 }
 
-a{
+a {
   color: var(--text-color);
 }
 
-p{
+p {
   margin-bottom: 2em;
 }
 
-strong{
-  display: inline-block;
-  transform: translateX(-5px);
-  font-size: 130%;
-  line-height: 1;
-  font-family: var(--font-display);
-}
-
-strong:before{
-  content: '🎙️';
-  margin-right: 5px;
-  margin-top: 34px; 
-  display: inline-block;
-}
-
-h2:after{
+h2:after {
   content: '';
   display: block;
   height: 8px;
@@ -66,10 +51,12 @@ h2:after{
 }
 
 img {
-    align-self: center;
-    max-width: 800px;
+  display: block;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .subtitle {
-    text-align: center;
+  text-align: center;
 }
