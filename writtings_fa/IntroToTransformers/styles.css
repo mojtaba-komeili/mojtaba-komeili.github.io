@@ -63,3 +63,12 @@ img {
 .subtitle {
   text-align: center;
 }
+
+#homelink {
+  position:fixed;
+  background-color: rgb(160, 188, 217);
+  padding: 10px;
+  border-radius: 5px;
+  top: 2%;
+  right: 2%;
+}
