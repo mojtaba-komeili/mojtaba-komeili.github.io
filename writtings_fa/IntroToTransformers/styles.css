@@ -15,11 +15,14 @@ html {
 }
 
 body {
+  background: var(--bg-color);
+}
+
+.article {
   max-width: 800px;
   margin: 0 auto;
   padding: var(--padding);
   color: var(--text-color);
-  background: var(--bg-color);
   font-family: var(--font-family);
   line-height: 2;
   font-size: 21px;
