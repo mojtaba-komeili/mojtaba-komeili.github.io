@@ -22,6 +22,26 @@
       padding: 8px;
       margin: 15px;
     }
+
+    .column {
+      width: 50%;
+      float: left;
+    }
+
+    .tile {
+      background-color: #f2f2f2;
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+    }
+
+    .farsi-tile {
+      background-color: aqua;
+    }
+
+    .englsh-tile {
+      background-color: darkcyan;
+    }
   </style>
 
   <br />
@@ -43,8 +63,8 @@
           <p>
             My name is <b>Mojtaba Komeili</b>.</p>
           <p>
-            I am a research engineer in Facebook AI Research (FAIR).
-            My focus area is on natural language processsing (NLP) and conversation AI.
+            I am a research engineer in Meta FAIR (formerly known as Facebook AI Research).
+            My focus area is on conversation AI, language models, retrieval-augmented generation, and reasoning.
             Here is a list of places you can find more information about me and
             my work:
           </p>
@@ -72,24 +92,43 @@
             <img src="./images/twitter.png" height="25">
           </a>
 
-          <br>
-
-          <!-- Writting English link button -->
-          <a href="./writtings_en/writtings_en.html" class="btn btn-light">
-            Writtings
-            <img src="./images/writtings_icon.png" height="25">
-          </a>
-
-          <!-- Writting Farsi link button -->
-          <a href="./writtings_fa/writtings_fa.html" class="btn btn-light">
-            نوشته‌ها
-            <img src="./images/writtings_icon.png" height="25">
-          </a>
-
         </div>
       </div>
     </div>
   </div>
+
+  <!-- English articles -->
+  <div class="column">
+
+    <div class="tile englsh-tile">
+      <h2>
+        Python
+      </h2>
+      <h3>
+        for absolute begineers
+      </h3>
+    </div>
+  </div>
+
+  <!-- Farsi articles -->
+  <div class="column">
+
+    <div class="tile farsi-tile">
+      <img src="./writtings_fa/IntroToTransformers/images/ChatGPT.jpg" style="max-width: 80%;">
+      <div>
+        <h2>
+          GPT
+          <h3>
+            از افسانه تا واقعیت
+          </h3>
+        </h2>
+      </div>
+    </div>
+  </div>
+
+
+
+
 
   <a href="https://www.freecounterstat.com" title="website counter">
     <img src="https://counter7.stat.ovh/private/freecounterstat.php?c=stnucw5dm95mzdl575qdhle6p9z8b2x4" border="0"
