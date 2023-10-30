@@ -22,7 +22,7 @@
     <a href="./chapter6.html">Algorithmic thinking</a>
   </div>
   <div id="homelink">
-    <a href="../index.html">Home ⌂</a>
+    <a href="../../../index.html">Home ⌂</a>
   </div>
 
   <div class="content">
@@ -30,7 +30,7 @@
     <div class="slideslink">
       <a href="https://docs.google.com/presentation/d/1lJpv0aSIomaH-Lbf2Eoflr_a-vAKygPouT8Bhf-k3b8/edit?usp=sharing"
         target="_blank">
-        Slides from class <img src="../images/learn_python/slides.png" height="20px">
+        Slides from class <img src="../../../images/learn_python/slides.png" height="20px">
       </a>
     </div>
 
@@ -91,7 +91,7 @@
     </ul>
     For showing this easier programmers usually use images like this.
     </p>
-    <img src="../images/learn_python/chapter3/car_uml.png" width="50%" class="image">
+    <img src="../../../images/learn_python/chapter3/car_uml.png" width="50%" class="image">
     <div class="box">
       This is only one possible design for the objects in the game.
       We may see other alternative ones here, and you may have a different solution of your own.
@@ -102,7 +102,7 @@
       Using the same diagrams we used for the car, we can have these for our hero and demon character,
       when we are building them into objects in our program.
     </p>
-    <img src="../images/learn_python/chapter3/game_uml1.png" width="60%" class="image">
+    <img src="../../../images/learn_python/chapter3/game_uml1.png" width="60%" class="image">
 
     <!-- Objects in Python -->
     <h2>Objects in python</h2>
@@ -110,7 +110,7 @@
     <!-- Classes -->
     <h3>Class</h3>
     <p>
-      <img src="../images/learn_python/chapter3/car_blueprint.png" width="70%" class="image">
+      <img src="../../../images/learn_python/chapter3/car_blueprint.png" width="70%" class="image">
       Python uses <strong>classes</strong> to create an object.
       A class is like a blueprint to create something. You give this blueprint to Python and it creates an objects for
       you
@@ -215,7 +215,7 @@ class Car:
 
   def move(self):
     print('The car is moving.')
-  
+
 my_car = Car()
 print('My car is made by ' + my_car.make)
 print('The color of my car is ' + my_car.color)
@@ -254,7 +254,7 @@ class Car:
 
   def move(self):
     print('The car is moving.')
-  
+
 # Creating an object for my car
 my_car = Car('Ford', 'red')
 print('My car is made by ' + my_car.make)
@@ -300,14 +300,14 @@ class Car:
   def accelerate(self):
     self.speed = self.speed + 1
     print('Car accelerated to the new speed ', self.speed)
-  
+
   def brake(self):
     if self.speed < 1:
       print('The car has stopped. No more braking.')
     else:
       self.speed = self.speed - 1
       print('Car reduced its speed to ', self.speed)
-  
+
 # Creating an object for the car
 some_car = Car()
 
@@ -399,7 +399,7 @@ class Parking:
     # See the name of the object property doesn't have to be the same as function argument
     # The property variable name is "car_in_parking" but function argument name is "car"
     self.car_in_parking = car
-      
+
 my_car = Car('Ford')
 my_parking = Parking(my_car)
 
@@ -436,7 +436,7 @@ class Car:
   def accelerate(self):
     self.speed = self.speed + 1
     print('Accelerated to the new speed ', self.speed)
-  
+
   def brake(self):
     if self.speed < 1:
       print('Stopped. No more braking.')
@@ -457,7 +457,7 @@ class Truck:
   def accelerate(self):
     self.speed = self.speed + 1
     print('Accelerated to the new speed ', self.speed)
-  
+
   def brake(self):
     if self.speed < 1:
       print('Stopped. No more braking.')
@@ -492,7 +492,7 @@ my_truck = Truck('GM', 'blue')
       Compare that to the same calsses without using inheritance on the right to see ho much we are reducing our
       repeated code.
     </p>
-    <img src="../images/learn_python/chapter3/car_inheritance.png" width="75%" class="image">
+    <img src="../../../images/learn_python/chapter3/car_inheritance.png" width="75%" class="image">
     <p>
       In the above diagram, the <span class="inline-code">Car</span> and <span class="inline-code">Truck</span>
       objects on left side and right side are technically the same.
@@ -510,7 +510,7 @@ class Vehicle:
   def accelerate(self):
     self.speed = self.speed + 1
     print('Accelerated to the new speed ', self.speed)
-  
+
   def brake(self):
     if self.speed < 1:
       print('Stopped. No more braking.')
@@ -573,7 +573,7 @@ my_truck = Truck()
       and use <i>main.py</i> as my main file that I am writting my main code in.
 
     </p>
-    <img src="../images/learn_python/chapter3/two_files.png" width="70%" class="image">
+    <img src="../../../images/learn_python/chapter3/two_files.png" width="70%" class="image">
 
     <div class="box">
       <strong>NOTE</strong>: check the files that each of the following codes goes into from the comment in its first
