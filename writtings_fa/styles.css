@@ -60,8 +60,20 @@ img {
   margin-right: auto;
 }
 
+.infobox {
+  margin: 10px;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #e0e0d1;
+  border-color: blue;
+  border-width: 3px;
+  border-style:solid;
+  color: rgba(0, 0, 0, 0.844);
+}
+
 .subtitle {
   text-align: center;
+  font-size: 80%;
 }
 
 #homelink {
