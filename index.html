@@ -1,172 +1,131 @@
-<!DOCTYPE html>
-<html>
-<title>Mojtaba Komeili's persoanl homepage</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!doctype html>
+<html lang="en" class="no-js">
+
 <head>
+  <meta charset="utf-8"> <!-- begin SEO -->
+  <title>Mojtaba Komeili's homepage
+  </title>
+  <meta property="og:locale" content="en-US">
+  <meta property="og:site_name" content="Mojtaba Komeili homepage">
+  <meta property="og:title" content="Mojtaba Komeili homepage and blog on AI research">
+  <!-- end SEO -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script> document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js '; </script>
+  <!-- For all browsers -->
+  <link rel="stylesheet" href="https://academicpages.github.io/assets/css/main.css">
+  <meta http-equiv="cleartype" content="on"> <!-- start custom head snippets -->
+  <!-- favicon from https://commons.wikimedia.org/wiki/File:OOjs_UI_icon_academic-progressive.svg -->
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="https://academicpages.github.io/images/apple-touch-icon-180x180.png" />
+  <link rel="icon" type="image/svg+xml" href="https://academicpages.github.io/images/favicon.svg" />
+  <link rel="icon" type="image/png" href="https://academicpages.github.io/images/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="https://academicpages.github.io/images/favicon-192x192.png" sizes="192x192" />
+  <link rel="manifest" href="https://academicpages.github.io/images/manifest.json" />
+  <link rel="icon" href="/images/favicon.ico" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="stylesheet" href="https://academicpages.github.io/assets/css/academicons.css" />
+  <!-- Support for MatJax -->
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!-- end custom head snippets -->
+
+  <!--Google analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRESTK0XJJ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-JRESTK0XJJ');
   </script>
 </head>
-<body class="w3-content" style="max-width:1000px">
 
-  <style>
-    /* Style the header */
-    header {
-      background-color: #666;
-      padding: 30px;
-      text-align: center;
-      font-size: 35px;
-      color: white;
-    }
-
-    .btn-light {
-      padding: 8px;
-      margin: 15px;
-    }
-
-    .column {
-      width: 50%;
-      float: left;
-    }
-
-    .tile {
-      background-color: #f7f4f4;
-      padding: 20px;
-      margin: 10px;
-      text-align: center;
-      border-radius: 4%;
-      border: 5px;
-      border-style: solid;
-    }
-
-    .farsi-tile {
-      border-color: rgb(61, 114, 114);
-    }
-
-    .englsh-tile {
-      border-color: rgb(134, 158, 64);
-    }
-  </style>
-
-  <br />
-
-  <div>
-    <img src="./images/top.jpg" alt="Top border" width="1000">
-  </div>
-
-  <header>
-    <h2>Welcome to my page</h2>
-  </header>
-
-  <div class="w3-row">
-    <!-- First Grid: About -->
-
-    <div class="w3-blue-grey w3-container">
-      <div class="w3-padding-64 w3-center">
-        <div class="w3-left-align w3-padding-large">
-          <p>
-            My name is <b>Mojtaba Komeili</b>.</p>
-          <p>
-            I am a research engineer in Meta FAIR (formerly known as Facebook AI Research).
-            My focus area is on conversation AI, language models, retrieval-augmented generation, and reasoning.
-            Here is a list of places you can find more information about me and
-            my work:
-          </p>
-          <!-- LinkedIn link button -->
-          <a href="https://www.linkedin.com/in/mkomeili/" class="btn btn-light">
-            LinkedIn
-            <img src="./images/linkedin_icon.png" height="25">
-          </a>
-
-          <!-- Github link button -->
-          <a href="https://github.com/mojtaba-komeili" class="btn btn-light">
-            Github
-            <img src="./images/github_icon.png" height="25">
-          </a>
-
-          <!-- Google scholar link button -->
-          <a href="https://scholar.google.com/citations?user=gyaOXCAAAAAJ&hl=en" class="btn btn-light">
-            Google scholar
-            <img src="./images/google_scholar_icon.png" height="25">
-          </a>
-
-          <!-- Twitter -->
-          <a href="https://twitter.com/MKomeili" class="btn btn-light">
-            Twitter
-            <img src="./images/twitter.png" height="25">
-          </a>
-
-        </div>
+<body>
+  <!--[if lt IE 9]><div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+  <div class="masthead">
+    <div class="masthead__inner-wrap">
+      <div class="masthead__menu">
+        <nav id="site-nav" class="greedy-nav"> <button>
+            <div class="navicon"></div>
+          </button>
+          <ul class="visible-links">
+            <li class="masthead__menu-item masthead__menu-item--lg persist"><a
+                href="https://academicpages.github.io/">Homepage</a></li>
+            <li class="masthead__menu-item"><a href="https://academicpages.github.io/year-archive/">هوش مصنوعی به زبان
+                ساده</a></li>
+            <li class="masthead__menu-item"><a href="./writtings_en/python_tutorials/learn_python.html">Learn Python</a>
+            </li>
+            <li id="theme-toggle" class="masthead__menu-item persist tail"> <a><i id="theme-icon"
+                  class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a></li>
+          </ul>
+          <ul class="hidden-links hidden"></ul>
+        </nav>
       </div>
     </div>
   </div>
-
-  <!-- English articles -->
-  <div class="column">
-
-    <!-- Learn Python -->
-    <a href="./writtings_en/python_tutorials/learn_python.html">
-      <div class="tile englsh-tile">
-        <img src="./images/python_logo.png" style="max-width: 80%;">
-        <h2>
-          for absolute begineers
-        </h2>
-      </div>
-    </a>
-  </div>
-
-  <!-- Farsi articles -->
-  <div class="column">
-
-    <!-- GPT -->
-    <a href="./writtings_fa/IntroToTransformers/main.html">
-      <div class="tile farsi-tile">
-        <img src="./writtings_fa/IntroToTransformers/images/ChatGPT.jpg" style="max-width: 80%;">
-        <div>
-          <h2>
-            GPT
-            <h3>
-              از افسانه تا واقعیت
-            </h3>
-          </h2>
+  <div id="main" role="main">
+    <div class="sidebar sticky">
+      <div itemscope itemtype="http://schema.org/Person">
+        <div class="author__avatar"> <img src="./images/mojtaba.PNG" class="author__avatar" alt="Your Sidebar Name">
+        </div>
+        <div class="author__content">
+          <h3 class="author__name">Mojtaba Komeili</h3>
+          <p class="author__bio">Science and Technology lover</p>
+          <h3 class="author__name">مجتبی کمیلی</h3>
+          <p class="author__bio">شیفته دانش و فناوری</p>
+        </div>
+        <div class="author__urls-wrapper"> <button class="btn btn--inverse">Follow</button>
+          <ul class="author__urls social-icons"> <!-- Font Awesome icons / Biographic information -->
+            <li class="author__desktop"><i class="fa-solid fa-location-dot icon-pad-right" aria-hidden="true"></i>NJ,
+              USA
+            </li>
+            <li><a href="https://scholar.google.ca/citations?user=gyaOXCAAAAAJ&hl=en"><i
+                  class="ai ai-google-scholar icon-pad-right"></i>Google Scholar</a></li>
+            <li><a href="https://github.com/mojtaba-komeili"><i class="fab fa-fw fa-github icon-pad-right"
+                  aria-hidden="true"></i>GitHub</a></li><!-- Font Awesome icons / Social media -->
+            <li><a href="https://www.linkedin.com/in/mkomeili/"><i class="fab fa-fw fa-linkedin icon-pad-right"
+                  aria-hidden="true"></i>LinkedIn</a></li>
+          </ul>
         </div>
       </div>
-    </a>
-
-
-    <!-- Alignment -->
-    <a href="./writtings_fa/LLMAlignment/main.html">
-      <div class="tile farsi-tile">
-        <img src="./writtings_fa/LLMAlignment/images/header.jpg" style="max-width: 80%;">
-        <div>
-            <h3>
-              جهت‌ دهی مدل‌های هوش مصنوعی
-            </h3>
-        </div>
-      </div>
-    </a>
+    </div>
+    <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+      I worked as a research engineer at Meta FAIR (formerly known as Facebook AI Research) for over four years.
+      During my time at FAIR, I contributed to various cutting-edge AI projects, including
+      <ul>
+        <li>
+          <a href="https://about.fb.com/news/2022/08/blenderbot-ai-chatbot-improves-through-conversation/"
+            rel="nofollow">BlenderBot</a>:
+          LLM-based AI chatbot with internet surfacing and long term memory capabilities.
+        </li>
+        <li>
+          JEPA: Video foundation models designed for next-generation world understanding.
+        </li>
+        <li>
+          Enhancing the knowledge grounding and personality awareness of LLM agents.
+        </li>
+      </ul>
+      </p>
+      <p>
+        Beyond work, I enjoy reading and sharing my learnings with the community.
+        Teaching is another passion of mine;
+        check out the "Learn Python" link in the menu above for materials from a beginner-friendly Python course I
+        hosted at my local library in New Providence, NJ.
+      </p>
+    </article>
   </div>
-
-  <!-- Visitors counter -->
-  
-  <!-- Old version -->
-  <!-- <a href="https://www.freecounterstat.com" title="website counter">
-    <img src="https://counter7.stat.ovh/private/freecounterstat.php?c=stnucw5dm95mzdl575qdhle6p9z8b2x4" border="0"
-      title="website counter" alt="website counter"></a> -->
-  
-  <!-- New version -->
-  <a href='http://www.freevisitorcounters.com'>at Freevisitorcounters.com</a>
-  <script type='text/javascript'
-    src='https://www.freevisitorcounters.com/auth.php?id=292bf76bca5c4c6d32c117b10d5a173647962282'></script>
-  <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1147041/t/4"></script>
+  <div class="page__footer">
+    <footer>
+      <div class="page__footer-copyright"> &copy; 2025 Mojtaba Komeili, Powered by <a href="http://jekyllrb.com"
+          rel="nofollow">Jekyll</a> &amp; <a
+          href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a
+          href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
+        Site last updated 2025-03-27</div>
+    </footer>
+  </div>
+  <script src="https://academicpages.github.io/assets/js/main.min.js"></script>
 </body>
 
 </html>
