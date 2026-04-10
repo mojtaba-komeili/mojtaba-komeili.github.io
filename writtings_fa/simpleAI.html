@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://academicpages.github.io/assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lalezar&amp;family=Vazirmatn:wght@400;500;700&amp;display=swap"
+        rel="stylesheet">
 
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRESTK0XJJ"></script>
@@ -27,34 +32,221 @@
 <body class="w3-content" style="max-width:1000px">
 
     <style>
-        .btn-light {
-            padding: 8px;
-            margin: 15px;
+        :root {
+            --bg: #f7f1e8;
+            --surface: rgba(255, 255, 255, 0.86);
+            --surface-strong: rgba(255, 255, 255, 0.94);
+            --text: #162338;
+            --muted: #637186;
+            --accent: #e36a4b;
+            --accent-2: #197f6a;
+            --accent-3: #f0c85c;
+            --line: rgba(30, 45, 71, 0.1);
+            --shadow: 0 30px 70px rgba(18, 30, 46, 0.12);
+            --radius-xl: 34px;
+            --radius-lg: 24px;
         }
 
-        .column {
-            width: 100%;
-            float: left;
+        body.w3-content {
+            max-width: 1200px !important;
+            margin: 0 auto;
+            font-family: "Vazirmatn", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top right, rgba(240, 200, 92, 0.35), transparent 26%),
+                radial-gradient(circle at top left, rgba(25, 127, 106, 0.18), transparent 24%),
+                linear-gradient(180deg, #fbf8f2 0%, #f7f1e8 44%, #efe7dc 100%);
+            min-height: 100vh;
+            padding: 0 1rem 2rem;
         }
 
-        .tile {
-            background-color: #f7f4f4;
-            padding: 20px;
-            margin: 10px;
-            text-align: center;
-            border-radius: 4%;
-            border: 5px;
-            border-style: solid;
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            width: 22rem;
+            height: 22rem;
+            border-radius: 50%;
+            filter: blur(20px);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.45;
+        }
+
+        body::before {
+            top: 4rem;
+            left: -6rem;
+            background: rgba(227, 106, 75, 0.18);
+        }
+
+        body::after {
+            bottom: 3rem;
+            right: -6rem;
+            background: rgba(25, 127, 106, 0.14);
+        }
+
+        body>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .masthead {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 10;
+            background: transparent;
+            border-bottom: 0;
+            padding-top: 0;
+            margin-bottom: 0;
+        }
+
+        .masthead__inner-wrap,
+        .masthead__menu {
+            width: auto;
+        }
+
+        .masthead__menu {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .greedy-nav {
+            display: inline-flex;
+            width: auto;
+            min-height: auto;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            border-radius: 999px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 16px 36px rgba(18, 30, 46, 0.08);
+            padding: 0.2rem 0.45rem;
+        }
+
+        .greedy-nav button {
+            display: none !important;
+        }
+
+        .greedy-nav .visible-links {
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+
+        .greedy-nav .masthead__menu-item {
+            margin: 0;
+        }
+
+        .greedy-nav a {
+            color: var(--text);
+            font-family: "Lalezar", cursive;
+            font-size: 1rem;
+            line-height: 1.1;
+            padding: 0.45rem 0.8rem;
+        }
+
+        .intro-shell {
+            margin-top: 5.3rem;
+            background: linear-gradient(180deg, rgba(17, 33, 54, 0.96), rgba(28, 54, 82, 0.92));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-xl);
+            padding: 2.2rem 1.6rem;
+            box-shadow: var(--shadow);
+            color: #fff;
+            text-align: right;
         }
 
         .rtl-text {
             direction: rtl;
             text-align: right;
-            /* Optional for aligning text */
+        }
+
+        h1.rtl-text {
+            margin: 0 0 1rem;
+            font-family: "Lalezar", cursive;
+            font-size: clamp(2.4rem, 5vw, 4.3rem);
+            line-height: 1.15;
+        }
+
+        p.rtl-text {
+            margin: 0;
+            font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+            line-height: 2.1;
+            color: rgba(236, 241, 247, 0.88);
+        }
+
+        .column {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.8rem;
+        }
+
+        .column>a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .tile {
+            height: 100%;
+            background: linear-gradient(180deg, var(--surface-strong), rgba(255, 255, 255, 0.78));
+            padding: 1rem;
+            text-align: center;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--line);
+            box-shadow: 0 18px 38px rgba(18, 30, 46, 0.08);
+            transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+        }
+
+        .tile:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 24px 42px rgba(18, 30, 46, 0.12);
+            border-color: rgba(25, 127, 106, 0.22);
+        }
+
+        .tile img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            max-width: none !important;
+            margin: 0 0 1rem;
+            border-radius: 18px;
+            box-shadow: 0 16px 30px rgba(18, 30, 46, 0.12);
+        }
+
+        .tile h2 {
+            margin: 0.6rem 0 0.2rem;
+            font-family: "Lalezar", cursive;
+            font-size: clamp(1.5rem, 2.4vw, 2rem);
+            line-height: 1.4;
+            color: var(--text);
         }
 
         .farsi-tile {
-            border-color: rgb(61, 114, 114);
+            border-top: 6px solid var(--accent-2);
+        }
+
+        @media (max-width: 720px) {
+            body.w3-content {
+                padding: 0 0.5rem 1.5rem;
+            }
+
+            .masthead {
+                top: 0.75rem;
+                right: 0.75rem;
+            }
+
+            .greedy-nav,
+            .intro-shell,
+            .tile {
+                border-radius: 24px;
+            }
+
+            .intro-shell {
+                padding: 1.5rem 1.1rem;
+            }
         }
     </style>
 
@@ -65,20 +257,22 @@
                     <ul class="visible-links">
                         <li class="masthead__menu-item masthead__menu-item--lg persist"><a
                                 href="../index.html">Homepage</a></li>
+                    </ul>
                 </nav>
             </div>
         </div>
     </div>
 
-    <h1 class="rtl-text">
-        هوش مصنوعی به زبان ساده
-    </h1>
+    <div class="intro-shell">
+        <h1 class="rtl-text">
+            هوش مصنوعی به زبان ساده
+        </h1>
 
-    <p class="rtl-text">
-        در این سری از مقالات سعی دارم به زبانی ساده فناوری پشت مدلهای پیشرفته هوش مصنوعی دنیا را آموزش بدهم.
-        از شنیدن نظرات و پیشنهادات برای بهتر کردن متن های کنونی و موضوعات پیشنهادی شدیدا خوشحال خواهم شد.
-    </p>
-    <br />
+        <p class="rtl-text">
+            در این سری از مقالات سعی دارم به زبانی ساده فناوری پشت مدلهای پیشرفته هوش مصنوعی دنیا را آموزش بدهم.
+            از شنیدن نظرات و پیشنهادات برای بهتر کردن متن های کنونی و موضوعات پیشنهادی شدیدا خوشحال خواهم شد.
+        </p>
+    </div>
 
     <div class="column">
 

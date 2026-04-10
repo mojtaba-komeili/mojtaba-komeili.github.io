@@ -8,6 +8,11 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://academicpages.github.io/assets/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap"
+    rel="stylesheet">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRESTK0XJJ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -21,20 +26,232 @@
 <body class="w3-content" style="max-width:1000px">
 
   <style>
-    /* Style the header */
+    :root {
+      --bg: #f6efe6;
+      --surface: rgba(255, 255, 255, 0.84);
+      --surface-strong: rgba(255, 255, 255, 0.94);
+      --ink: #142237;
+      --muted: #58677a;
+      --accent: #eb6c4c;
+      --accent-2: #1a8a71;
+      --accent-3: #f4c95d;
+      --line: rgba(29, 46, 73, 0.1);
+      --shadow: 0 28px 70px rgba(17, 30, 47, 0.12);
+      --radius-xl: 32px;
+      --radius-lg: 22px;
+    }
+
+    body.w3-content {
+      max-width: 1180px !important;
+      margin: 0 auto;
+      font-family: "Manrope", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(244, 201, 93, 0.34), transparent 28%),
+        radial-gradient(circle at top right, rgba(26, 138, 113, 0.18), transparent 24%),
+        linear-gradient(180deg, #fbf7f1 0%, #f6efe6 44%, #efe7dc 100%);
+      min-height: 100vh;
+      padding: 0 1rem 2rem;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      width: 22rem;
+      height: 22rem;
+      border-radius: 50%;
+      filter: blur(18px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.45;
+    }
+
+    body::before {
+      top: 4rem;
+      right: -6rem;
+      background: rgba(235, 108, 76, 0.18);
+    }
+
+    body::after {
+      bottom: 2rem;
+      left: -6rem;
+      background: rgba(26, 138, 113, 0.16);
+    }
+
+    body>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .masthead {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 10;
+      background: transparent;
+      border-bottom: 0;
+      padding-top: 0;
+    }
+
+    .masthead__inner-wrap {
+      width: auto;
+    }
+
+    .masthead__menu {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .greedy-nav {
+      display: inline-flex;
+      width: auto;
+      min-height: auto;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 999px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 16px 36px rgba(17, 30, 47, 0.08);
+      padding: 0.2rem 0.45rem;
+    }
+
+    .greedy-nav button {
+      display: none !important;
+    }
+
+    .greedy-nav .visible-links {
+      display: flex;
+      align-items: center;
+      margin: 0;
+    }
+
+    .greedy-nav .masthead__menu-item {
+      margin: 0;
+    }
+
+    .greedy-nav a {
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--ink);
+      font-weight: 600;
+      font-size: 0.92rem;
+      line-height: 1.1;
+      padding: 0.45rem 0.8rem;
+    }
+
+    .hero-image {
+      display: block;
+      width: 100%;
+      margin-top: 5.3rem;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      box-shadow: var(--shadow);
+    }
+
     header {
-      background-color: #666;
-      padding: 20px;
+      margin-top: -4.5rem;
+      margin-left: auto;
+      margin-right: auto;
+      width: min(92%, 860px);
+      padding: 2rem 2.25rem;
       text-align: center;
-      font-size: 35px;
       color: white;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, rgba(20, 34, 55, 0.94), rgba(29, 55, 84, 0.9));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 26px 50px rgba(17, 30, 47, 0.18);
+    }
+
+    header h2 {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .w3-row {
+      margin-top: 2rem;
+    }
+
+    .w3-padding-64.w3-center {
+      padding-top: 1rem !important;
+      padding-bottom: 1rem !important;
+    }
+
+    .w3-left-align.w3-padding-large {
+      background: linear-gradient(180deg, var(--surface-strong), rgba(255, 255, 255, 0.78));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 2rem !important;
+      backdrop-filter: blur(16px);
+    }
+
+    .w3-left-align::before {
+      content: "Course Chapters";
+      display: block;
+      margin-bottom: 1.2rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
     .btn-block {
-      padding: 10px 20px;
+      display: block;
+      padding: 1.15rem 1.3rem;
+      margin-bottom: 1rem;
       text-align: left;
-      font-size: 30px;
-      border-radius: 10px;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-weight: 700;
+      line-height: 1.35;
+      border: 0;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(26, 138, 113, 0.22), rgba(244, 201, 93, 0.24));
+      color: #132238 !important;
+      box-shadow: 0 14px 30px rgba(17, 30, 47, 0.06);
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .btn-block:hover,
+    .btn-block:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(17, 30, 47, 0.1);
+      background: linear-gradient(135deg, rgba(235, 108, 76, 0.26), rgba(244, 201, 93, 0.28));
+      color: #132238 !important;
+    }
+
+    @media (max-width: 720px) {
+      body.w3-content {
+        padding: 0 0.5rem 1.5rem;
+      }
+
+      .masthead {
+        top: 0.75rem;
+        right: 0.75rem;
+      }
+
+      .greedy-nav {
+        border-radius: 24px;
+      }
+
+      header {
+        margin-top: -2rem;
+        width: calc(100% - 1rem);
+        padding: 1.4rem 1.25rem;
+        border-radius: 24px;
+      }
+
+      .hero-image,
+      .w3-left-align.w3-padding-large {
+        border-radius: 24px;
+      }
+
+      .w3-left-align.w3-padding-large {
+        padding: 1.2rem !important;
+      }
     }
   </style>
 
@@ -44,15 +261,14 @@
         <nav id="site-nav" class="greedy-nav">
           <ul class="visible-links">
             <li class="masthead__menu-item masthead__menu-item--lg persist"><a href="../../index.html">Homepage</a></li>
+          </ul>
         </nav>
       </div>
     </div>
   </div>
 
-  <br />
-
   <div>
-    <img src="../../images/learn_python/python_code.jpg" alt="Top border" width="1000">
+    <img src="../../images/learn_python/python_code.jpg" alt="Top border" width="1000" class="hero-image">
   </div>
 
   <header>

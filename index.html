@@ -26,10 +26,554 @@
   <link rel="icon" href="/images/favicon.ico" />
   <meta name="theme-color" content="#ffffff" />
   <link rel="stylesheet" href="https://academicpages.github.io/assets/css/academicons.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap"
+    rel="stylesheet">
   <!-- Support for MatJax -->
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <!-- end custom head snippets -->
+  <style>
+    :root {
+      --bg: #f4efe7;
+      --surface: rgba(255, 255, 255, 0.72);
+      --surface-strong: rgba(255, 255, 255, 0.9);
+      --surface-border: rgba(48, 63, 84, 0.12);
+      --text: #132238;
+      --muted: #516072;
+      --accent: #ef6c4d;
+      --accent-2: #1f8a70;
+      --accent-3: #f4c95d;
+      --shadow: 0 28px 60px rgba(18, 31, 46, 0.12);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --content-width: 1180px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(244, 201, 93, 0.35), transparent 32%),
+        radial-gradient(circle at 85% 12%, rgba(31, 138, 112, 0.25), transparent 24%),
+        linear-gradient(180deg, #fbf7f1 0%, #f4efe7 44%, #efe8de 100%);
+      min-height: 100vh;
+    }
+
+    body[data-theme="dark"] {
+      --bg: #09111f;
+      --surface: rgba(12, 22, 38, 0.72);
+      --surface-strong: rgba(12, 22, 38, 0.92);
+      --surface-border: rgba(181, 201, 226, 0.12);
+      --text: #e8eef7;
+      --muted: #9fb0c7;
+      --accent: #ff875f;
+      --accent-2: #5ed2b0;
+      --accent-3: #f5cb66;
+      --shadow: 0 28px 60px rgba(0, 0, 0, 0.34);
+      background:
+        radial-gradient(circle at top left, rgba(245, 203, 102, 0.18), transparent 28%),
+        radial-gradient(circle at 82% 12%, rgba(94, 210, 176, 0.14), transparent 24%),
+        linear-gradient(180deg, #0b1422 0%, #0b1220 44%, #111c2f 100%);
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: auto;
+      width: 24rem;
+      height: 24rem;
+      border-radius: 50%;
+      filter: blur(18px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    body::before {
+      top: 6rem;
+      right: -8rem;
+      background: rgba(239, 108, 77, 0.18);
+    }
+
+    body::after {
+      bottom: 4rem;
+      left: -8rem;
+      background: rgba(31, 138, 112, 0.16);
+    }
+
+    .masthead,
+    #main,
+    .page__footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    .masthead {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 10;
+      background: transparent;
+      border-bottom: 0;
+      padding: 0;
+    }
+
+    .masthead__inner-wrap,
+    #main,
+    .page__footer footer {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      width: min(calc(100% - 2rem), var(--content-width));
+    }
+
+    .masthead__inner-wrap {
+      width: auto;
+      margin: 0;
+    }
+
+    .masthead__menu {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .greedy-nav {
+      display: inline-flex;
+      width: auto;
+      min-height: auto;
+      background: rgba(255, 255, 255, 0.66);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(18px);
+      border-radius: 999px;
+      box-shadow: 0 16px 40px rgba(18, 31, 46, 0.08);
+      padding: 0.2rem 0.45rem;
+    }
+
+    .greedy-nav button,
+    .greedy-nav .hidden-links {
+      background: transparent;
+    }
+
+    .greedy-nav button {
+      display: none;
+      position: static;
+      inset: auto;
+      margin: 0;
+      padding: 0.35rem;
+      border: 0;
+      box-shadow: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .greedy-nav .visible-links {
+      display: flex;
+      align-items: center;
+      margin: 0;
+    }
+
+    .greedy-nav .masthead__menu-item,
+    .greedy-nav .visible-links > li {
+      margin: 0;
+    }
+
+    .greedy-nav .hidden-links {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 18px 36px rgba(18, 31, 46, 0.12);
+    }
+
+    .greedy-nav .hidden-links li,
+    .greedy-nav .visible-links > li {
+      background: transparent;
+    }
+
+    .greedy-nav .hidden-links a {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .greedy-nav button {
+      color: #17304d;
+    }
+
+    .greedy-nav .navicon,
+    .greedy-nav .navicon::before,
+    .greedy-nav .navicon::after {
+      background: #17304d;
+    }
+
+    .greedy-nav a {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.84rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: #17304d;
+      line-height: 1.1;
+      padding: 0.42rem 0.7rem;
+      transition: color 180ms ease, transform 180ms ease;
+    }
+
+    .greedy-nav .visible-links > li > a,
+    .greedy-nav .hidden-links a,
+    #theme-toggle a,
+    #theme-icon {
+      color: #17304d;
+    }
+
+    .greedy-nav a:hover,
+    .greedy-nav a:focus {
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    #theme-toggle {
+      cursor: pointer;
+    }
+
+    #main {
+      float: none;
+      display: grid;
+      grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+      gap: 2rem;
+      padding: 5.4rem 0 4rem;
+    }
+
+    .sidebar.sticky,
+    .page {
+      width: auto;
+      float: none;
+      margin: 0;
+    }
+
+    .sidebar.sticky {
+      align-self: start;
+      position: sticky;
+      top: 2rem;
+      background: linear-gradient(180deg, rgba(19, 34, 56, 0.96), rgba(31, 52, 78, 0.92));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      overflow: hidden;
+    }
+
+    .sidebar.sticky::before {
+      content: "";
+      position: absolute;
+      inset: -20% 45% auto -25%;
+      height: 16rem;
+      background: radial-gradient(circle, rgba(244, 201, 93, 0.34), transparent 62%);
+      pointer-events: none;
+    }
+
+    .sidebar.sticky > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .author__avatar {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .author__avatar img.author__avatar,
+    img.author__avatar {
+      width: 152px;
+      height: 152px;
+      object-fit: cover;
+      border-radius: 28px;
+      border: 4px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+    }
+
+    .author__content,
+    .author__urls-wrapper {
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .author__name {
+      font-family: "Space Grotesk", sans-serif;
+      color: #fff;
+      margin-bottom: 0.3rem;
+      line-height: 1.08;
+    }
+
+    .author__content .author__name + .author__bio {
+      margin-bottom: 1rem;
+    }
+
+    .author__bio,
+    .author__urls li,
+    .author__urls a {
+      color: rgba(229, 235, 241, 0.86);
+    }
+
+    .author__urls-wrapper .btn {
+      width: 100%;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), #ff9666);
+      color: #fff;
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      box-shadow: 0 14px 28px rgba(239, 108, 77, 0.28);
+      margin-bottom: 1rem;
+    }
+
+    .author__urls li {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.7rem 0;
+    }
+
+    .author__urls li:last-child {
+      border-bottom: 0;
+    }
+
+    .page {
+      position: relative;
+      background: linear-gradient(180deg, var(--surface-strong), rgba(255, 255, 255, 0.76));
+      backdrop-filter: blur(18px);
+      border: 1px solid var(--surface-border);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      overflow: hidden;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 8px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-3), var(--accent-2));
+    }
+
+    .page,
+    .page p,
+    .page li {
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .page > p:first-of-type {
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      line-height: 1.7;
+      color: #172a43;
+      margin-bottom: 1.6rem;
+    }
+
+    .page > p:first-of-type::first-line {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .page ul {
+      list-style: none;
+      margin: 1.75rem 0;
+      padding: 0;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .page li {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(31, 138, 112, 0.12);
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1.2rem 1.1rem 3.5rem;
+      position: relative;
+      box-shadow: 0 12px 24px rgba(18, 31, 46, 0.06);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .page li::before {
+      content: "";
+      position: absolute;
+      left: 1.2rem;
+      top: 1.25rem;
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-3));
+      box-shadow: 0 0 0 8px rgba(239, 108, 77, 0.12);
+    }
+
+    .page li:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(18, 31, 46, 0.1);
+    }
+
+    .page a {
+      color: var(--accent-2);
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.16em;
+    }
+
+    body[data-theme="dark"] .greedy-nav {
+      background: rgba(8, 16, 30, 0.68);
+      border-color: rgba(181, 201, 226, 0.12);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+    }
+
+    body[data-theme="dark"] .greedy-nav .hidden-links,
+    body[data-theme="dark"] .greedy-nav .hidden-links li,
+    body[data-theme="dark"] .greedy-nav .visible-links > li {
+      background: rgba(8, 16, 30, 0.96);
+    }
+
+    body[data-theme="dark"] .greedy-nav .hidden-links a {
+      background: rgba(8, 16, 30, 0.96);
+      border-top: 1px solid rgba(181, 201, 226, 0.08);
+    }
+
+    body[data-theme="dark"] .greedy-nav a,
+    body[data-theme="dark"] .greedy-nav .visible-links > li > a,
+    body[data-theme="dark"] .greedy-nav .hidden-links a,
+    body[data-theme="dark"] #theme-toggle a,
+    body[data-theme="dark"] #theme-icon {
+      color: #eef5ff;
+    }
+
+    body[data-theme="dark"] .greedy-nav button {
+      color: #eef5ff;
+    }
+
+    body[data-theme="dark"] .greedy-nav .navicon,
+    body[data-theme="dark"] .greedy-nav .navicon::before,
+    body[data-theme="dark"] .greedy-nav .navicon::after {
+      background: #eef5ff;
+    }
+
+    body[data-theme="dark"] .sidebar.sticky {
+      background: linear-gradient(180deg, rgba(10, 20, 36, 0.96), rgba(15, 29, 49, 0.92));
+    }
+
+    body[data-theme="dark"] .page {
+      background: linear-gradient(180deg, rgba(10, 19, 34, 0.94), rgba(11, 20, 35, 0.82));
+    }
+
+    body[data-theme="dark"] .page > p:first-of-type,
+    body[data-theme="dark"] .page > p:first-of-type::first-line {
+      color: #f2f6fb;
+    }
+
+    body[data-theme="dark"] .page li {
+      background: rgba(17, 30, 49, 0.82);
+      border-color: rgba(94, 210, 176, 0.16);
+    }
+
+    body[data-theme="dark"] .page__footer footer {
+      background: rgba(8, 16, 30, 0.68);
+      border-color: rgba(181, 201, 226, 0.12);
+    }
+
+    .page__footer {
+      margin-bottom: 2rem;
+    }
+
+    .page__footer footer {
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 16px 34px rgba(18, 31, 46, 0.08);
+      border-radius: 24px;
+      padding: 1.2rem 1.5rem;
+    }
+
+    .page__footer-copyright {
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 1060px) {
+      #main {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar.sticky {
+        position: relative;
+        top: 0;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .masthead {
+        top: 0.75rem;
+        right: 0.75rem;
+      }
+
+      .greedy-nav button {
+        display: inline-flex;
+      }
+
+      .greedy-nav {
+        border-radius: 24px;
+      }
+
+      .greedy-nav .visible-links {
+        align-items: flex-start;
+      }
+
+      #main {
+        width: min(calc(100% - 1rem), var(--content-width));
+        gap: 1rem;
+        padding: 2rem 0 2.5rem;
+      }
+
+      .sidebar.sticky,
+      .page {
+        border-radius: 24px;
+        padding: 1.5rem;
+      }
+
+      .page li {
+        padding-left: 3rem;
+      }
+
+      .author__avatar img.author__avatar,
+      img.author__avatar {
+        width: 124px;
+        height: 124px;
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .sidebar.sticky,
+      .page,
+      .page__footer footer {
+        animation: rise-in 700ms ease-out both;
+      }
+
+      .page {
+        animation-delay: 120ms;
+      }
+
+      .page__footer footer {
+        animation-delay: 240ms;
+      }
+    }
+
+    @keyframes rise-in {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 
   <!--Google analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRESTK0XJJ"></script>
@@ -81,7 +625,7 @@
             <li class="author__desktop"><i class="fa-solid fa-location-dot icon-pad-right" aria-hidden="true"></i>NJ,
               USA
             </li>
-            <li><a href="https://scholar.google.ca/citations?user=gyaOXCAAAAAJ&hl=en"><i
+            <li><a href="https://scholar.google.ca/citations?user=gyaOXCAAAAAJ&amp;hl=en"><i
                   class="ai ai-google-scholar icon-pad-right"></i>Google Scholar</a></li>
             <li><a href="https://github.com/mojtaba-komeili"><i class="fab fa-fw fa-github icon-pad-right"
                   aria-hidden="true"></i>GitHub</a></li><!-- Font Awesome icons / Social media -->
@@ -92,8 +636,10 @@
       </div>
     </div>
     <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-      I worked as a research engineer at Meta FAIR (formerly known as Facebook AI Research) for over four years.
-      During my time at FAIR, I contributed to various cutting-edge AI projects, including
+      <p>
+        I worked as a research engineer at Meta FAIR (formerly known as Facebook AI Research) for over four years.
+        During my time at FAIR, I contributed to various cutting-edge AI projects, including
+      </p>
       <ul>
         <li>
           <a href="https://about.fb.com/news/2022/08/blenderbot-ai-chatbot-improves-through-conversation/"
@@ -107,7 +653,6 @@
           Enhancing the knowledge grounding and personality awareness of LLM agents.
         </li>
       </ul>
-      </p>
       <p>
         Beyond work, I enjoy reading and sharing my learnings with the community.
         Teaching is another passion of mine;
@@ -126,6 +671,34 @@
     </footer>
   </div>
   <script src="https://academicpages.github.io/assets/js/main.min.js"></script>
+  <script>
+    (function () {
+      var storageKey = "homepage-theme";
+      var body = document.body;
+      var toggle = document.getElementById("theme-toggle");
+      var icon = document.getElementById("theme-icon");
+      var preferredTheme = localStorage.getItem(storageKey);
+      var systemPrefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var initialTheme = preferredTheme || (systemPrefersDark ? "dark" : "light");
+
+      function applyTheme(theme) {
+        body.setAttribute("data-theme", theme);
+        if (icon) {
+          icon.className = theme === "dark" ? "fa-solid fa-moon" : "fa-solid fa-sun";
+        }
+      }
+
+      applyTheme(initialTheme);
+
+      if (toggle) {
+        toggle.addEventListener("click", function () {
+          var nextTheme = body.getAttribute("data-theme") === "dark" ? "light" : "dark";
+          localStorage.setItem(storageKey, nextTheme);
+          applyTheme(nextTheme);
+        });
+      }
+    })();
+  </script>
 </body>
 
 </html>
