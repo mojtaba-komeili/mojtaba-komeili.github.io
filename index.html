@@ -538,7 +538,7 @@
       #main {
         width: min(calc(100% - 1rem), var(--content-width));
         gap: 1rem;
-        padding: 2rem 0 2.5rem;
+        padding: 4.5rem 0 2.5rem;
       }
 
       .sidebar.sticky,
@@ -695,6 +695,43 @@
     </footer>
   </div>
   <script src="https://academicpages.github.io/assets/js/main.min.js"></script>
+  <script>
+    (function () {
+      var nav = document.querySelector('#site-nav');
+      var btn = nav && nav.querySelector('button');
+      var hiddenLinks = nav && nav.querySelector('.hidden-links');
+      var visibleLinks = nav && nav.querySelector('.visible-links');
+      if (!btn || !hiddenLinks || !visibleLinks) return;
+
+      function setupNav() {
+        var isMobile = window.innerWidth <= 720;
+        if (isMobile) {
+          // Move non-persist items from visible to hidden
+          visibleLinks.querySelectorAll('li:not(.persist)').forEach(function (li) {
+            hiddenLinks.appendChild(li);
+          });
+        } else {
+          // Move items back into visible, before the tail item
+          var tail = visibleLinks.querySelector('.tail');
+          hiddenLinks.querySelectorAll('li').forEach(function (li) {
+            tail ? visibleLinks.insertBefore(li, tail) : visibleLinks.appendChild(li);
+          });
+          hiddenLinks.classList.add('hidden');
+        }
+      }
+
+      setupNav();
+      window.addEventListener('resize', setupNav);
+
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        hiddenLinks.classList.toggle('hidden');
+      });
+      document.addEventListener('click', function () {
+        hiddenLinks.classList.add('hidden');
+      });
+    })();
+  </script>
   <script>
     (function () {
       var storageKey = "homepage-theme";
