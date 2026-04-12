@@ -147,6 +147,7 @@
 
     .greedy-nav {
       display: inline-flex;
+      position: relative;
       width: auto;
       min-height: auto;
       background: rgba(255, 255, 255, 0.66);
@@ -186,9 +187,18 @@
     }
 
     .greedy-nav .hidden-links {
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(18px);
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 18px 36px rgba(18, 31, 46, 0.12);
+      min-width: 180px;
+      padding: 0.3rem 0;
     }
 
     .greedy-nav .hidden-links li,
@@ -197,7 +207,9 @@
     }
 
     .greedy-nav .hidden-links a {
-      background: rgba(255, 255, 255, 0.9);
+      display: block;
+      background: transparent;
+      padding: 0.45rem 1rem;
     }
 
     .greedy-nav button {
